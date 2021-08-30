@@ -1,7 +1,7 @@
 ---
 title: Typora简介及Markdown语法精讲
-date: 2017-09-02
-categories: Documentation
+date: 2021-08-21
+categories: Typora
 tags:
 - Markdown
 - Typora
@@ -212,7 +212,7 @@ puts markdown.to_html
 
 用一个`$`开始和结尾会生成行内公式。而用`$$`开始和结尾并单独生成公式块。
 
-  
+
 $$
 \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
 \mathbf{i} & \mathbf{j} & \mathbf{k} \\
