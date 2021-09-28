@@ -351,7 +351,7 @@ post_copyright:
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: false
+  enabled: true
   image:
 
 
@@ -398,7 +398,7 @@ disqus:
 
 # changyan
 changyan:
-  enable: false
+  enable: true
   appid:
   appkey:
 
@@ -447,8 +447,8 @@ changyan:
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: false
-  admin_enable: false
+  ua_enable: true
+  admin_enable: true
   user_id: 0
   #admin_nickname: Author
 
@@ -466,7 +466,7 @@ facebook_sdk:
 # This plugin depends on Facebook SDK.
 # If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
 facebook_comments_plugin:
-  enable: false
+  enable: true
   num_of_posts: 10  # min posts num is 1
   width: 100%       # default width is 550px
   scheme: light     # default scheme is light (light or dark)
@@ -499,19 +499,19 @@ leancloud_visitors:
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
-  enable: true
+  enable: false
   # custom uv span for the whole site
-  site_uv: true
-  site_uv_header: 本站访问数
-  site_uv_footer: 人次
+  site_uv: false
+  site_uv_header: 
+  site_uv_footer: 
   # custom pv span for the whole site
-  site_pv: true
-  site_pv_header: 本站总访问量
-  site_pv_footer: 次
+  site_pv: false
+  site_pv_header: 
+  site_pv_footer: 
   # custom pv span for one page only
-  page_pv: true
-  page_pv_header: 本文总阅读量
-  page_pv_footer: 次
+  page_pv: false
+  page_pv_header: 
+  page_pv_footer: 
 
 
 # Tencent analytics ID
