@@ -7,8 +7,6 @@ tags:
 - Typora
 ---
 
-[TOC]
-
 这篇文章简单介绍Typora这款Markdown语法编辑器，以及精讲它支持的Markdown语法。
 
 <!-- more -->
