@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:'https://0314valen.github.io/'
+url: https://0314valen.github.io/
 baseurl:
 permalink: pretty
 
@@ -293,6 +293,7 @@ links:
   钟馗之眼: https://www.zoomeye.org/
   FOFA: https://fofa.so/
   红队技能: https://github.com/hudunkey/Red-Team-links
+  建站: https://docs.github.com/en/pages
 
 # ---------------------------------------------------------------
 # Post Settings
