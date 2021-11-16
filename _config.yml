@@ -15,7 +15,7 @@ date_format: '%Y-%m-%d'
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
 url: https://0314valen.github.io/
-baseurl:
+baseurl: https://0314valen.github.io/
 permalink: pretty
 
 # Pagination
@@ -338,7 +338,7 @@ post_wordcount:
 post_copyright:
   enable: true
   license: CC BY-NC-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+  license_url: https://0314valen.github.io/
 
 
 
