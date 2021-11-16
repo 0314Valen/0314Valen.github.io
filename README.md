@@ -1,155 +1,113 @@
-<p align="center">
-  <a href="https://theme-stun.github.io/docs/zh-CN/" target="_blank" rel="noopener noreferrer">
-    <img src="./source/images/icons/stun-logo.svg" alt="Stun Logo" width="100">
-  </a>
-</p>
+<div align="right">
+  Language:
+  🇺🇸
+  <a title="Chinese" href="/README_CN.md">🇨🇳</a>
+</div>
 
-<h3 align="center">一个漂亮、简洁的 Hexo 主题</h3>
+# hexo-theme-butterfly
 
-<p align="center">
-  <a href="http://standardjs.com" target="_blank" rel="noopener noreferrer">
-    <img alt="js-standard-style" src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg">
-  </a>
-  <a href="http://commitizen.github.io/cz-cli/" target="_blank" rel="noopener noreferrer">
-    <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
-  </a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fliuyib%2Fhexo-theme-stun?ref=badge_shield">
-    <img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fliuyib%2Fhexo-theme-stun.svg?type=shield"/>
-  </a>
-  <a href="https://depfu.com/github/liuyib/hexo-theme-stun?project_id=17221" target="_blank" rel="noopener noreferrer">
-    <img alt="Dependencies status" src="https://badges.depfu.com/badges/c063484513939d540c95c0a824e5606f/count.svg">
-  </a>
-  <a href="https://github.com/liuyib/hexo-theme-stun/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">
-    <img alt="GitHub LICENSE" src="https://img.shields.io/github/license/liuyib/hexo-theme-stun.svg">
-  </a>
-  <br>
-  <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener noreferrer">
-    <img alt="Hexo version" src="https://img.shields.io/badge/hexo-%3E%3D4.0-blue.svg">
-  </a>
-  <a href="https://github.com/liuyib/hexo-theme-stun/releases" target="_blank" rel="noopener noreferrer">
-    <img alt="GitHub release" src="https://img.shields.io/github/release/liuyib/hexo-theme-stun.svg">
-  </a>
-  <a href="https://github.com/liuyib/hexo-theme-stun/discussions" target="_blank" rel="noopener noreferrer">
-    <img alt="Github Discussions" src="https://img.shields.io/badge/Github-Discussions-4fb999.svg">
-  </a>
-</p>
+![master version](https://img.shields.io/github/package-json/v/jerryc127/hexo-theme-butterfly/master?color=%231ab1ad&label=master)
+![master version](https://img.shields.io/github/package-json/v/jerryc127/hexo-theme-butterfly/dev?label=dev)
+![https://img.shields.io/npm/v/hexo-theme-butterfly?color=%09%23bf00ff](https://img.shields.io/npm/v/hexo-theme-butterfly?color=%09%23bf00ff)
+![hexo version](https://img.shields.io/badge/hexo-5.0+-0e83c)
+![license](https://img.shields.io/github/license/jerryc127/hexo-theme-butterfly?color=FF5531)
 
-语言: [English](https://github.com/liuyib/hexo-theme-stun/blob/master/README_en-US.md) | [中文简体](https://github.com/liuyib/hexo-theme-stun/blob/master/README.md)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/theme-butterfly-readme.png)
 
-## :sparkles: 演示
+Demo: 👍 [Butterfly](https://butterfly.js.org/)  ||   🤞 [CrazyWong](https://crazywong.com/)
 
-- [Liuyib's Blog](https://liuyib.github.io/)
-- [弥枳's Blog](http://blog2.coor.top/)
-- [impressionyang's Blog](https://impressionyang.github.io)
-- [峡州仙士之页](https://cjh0613.github.io/blog/)
-- [Cheeks's Blog](https://www.cheeks.top/)
-- [lingan1996's Blog](https://www.lingan1996.top)
-- [MikyMing's Blog](https://mikyming.online/)
-- [Yichangkong's Blog](https://yichangkong.github.io/)
-- [Gemini's Blog](https://geminiplanet.cn/)
-- [PVulcan's Blog](https://pvulcan.cn/)
-- [TimeMachine's Blog](https://timemachine.icu/)
-- [Oridnaryman's Blog](https://jack1024.club/)
-- [未读代码](https://www.wdbyte.com/)
+Docs: 📖 [Butterfly Docs](https://butterfly.js.org/posts/21cfbf15/)
 
-如果你准备长期使用 «Stun» 主题，并希望展示在这里，你只需在 [README](https://github.com/liuyib/hexo-theme-stun/edit/master/README.md) 中填入你的网站，然后提交 PR 即可。
+Based on [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody) theme.
 
-## :crystal_ball: 特性
+## 💻 Installation
 
-- 简洁 & 快速 & 易用 & **可定制性高**
-- 响应式设计
-- [二级导航菜单](https://theme-stun.github.io/docs/zh-CN/advanced/advanced.html#二级导航菜单)
-- 支持[图片懒加载](https://theme-stun.github.io/docs/zh-CN/advanced/advanced.html#图片懒加载)
-- 支持 [Pjax](https://github.com/defunkt/jquery-pjax)
-- 支持 [PWA](https://developers.google.com/web/progressive-web-apps)
-- 支持 [Fancybox](https://github.com/fancyapps/fancybox)
-- 支持 [Quicklink](https://github.com/GoogleChromeLabs/quicklink)
-- 支持 [MathJax](https://www.mathjax.org/)、[KaTex](https://katex.org/)
-- 支持 [Gitalk](https://github.com/gitalk/gitalk)、[Valine](https://valine.js.org/)、[Livere](https://livere.com/)、[Disqus](https://disqus.com/)、[Utterances](https://github.com/utterance/utterances) 评论
-- 瀑布流式的[相册页面](https://liuyib.github.io/gallery/)
-- 内置[谷歌广告](https://www.google.cn/adsense/start/)，一键开启
-- 代码高亮，[多种配色](https://theme-stun.github.io/docs/zh-CN/advanced/advanced.html#代码高亮)可选
-- 好看的[背景特效](https://theme-stun.github.io/docs/zh-CN/advanced/third-part.html#ribbon)
-- 超详细[配置文档](https://theme-stun.github.io/docs/zh-CN/)
+### GIT
 
-## :package: 安装
+> If you are in Mainland China, you can download in [Gitee](https://gitee.com/immyw/hexo-theme-butterfly.git)
 
-- 安装 «Stun»
+Stable branch [recommend]:
 
-  进入 Hexo 根目录，执行指令：
-
-  ```bash
-  $ git clone https://github.com/liuyib/hexo-theme-stun.git themes/stun
-  ```
-
-  > 该指令会将本仓库中的所有文件克隆下来，其中有很多文件仅用于项目开发，对于普通用户来说完全用不到。因此，如果你想仅克隆主题运行所必需的文件，请用下面的指令代替上面的指令：
-  >
-  > ```bash
-  > $ git clone -b dist https://github.com/liuyib/hexo-theme-stun.git themes/stun
-  > ```
-  >
-  > 注意：这样做不方便以后更新，请谨慎使用。
-
-- 安装依赖 `hexo-renderer-pug`
-
-  进入 Hexo 根目录，执行指令：
-
-  ```bash
-  $ npm install --save hexo-renderer-pug
-  ```
-
-## :hammer: 使用
-
-修改 Hexo 根目录下的 `_config.yml` 文件：
-
-```yml
-theme: stun
+```
+git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 ```
 
-然后，启动 Hexo 服务器：
+Dev branch:
 
-```bash
-$ hexo clean && hexo s
+```
+git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 ```
 
-## :art: 更新
+### NPM
 
-```bash
-$ cd themes/stun
+> It supports Hexo 5.0.0 or later
 
-$ git pull
+In Hexo site root directory 
+
+```powershell
+npm i hexo-theme-butterfly
 ```
 
-## :page_facing_up: 文档
+## ⚙ Configuration
 
-请查看：[https://theme-stun.github.io/docs/zh-CN/](https://theme-stun.github.io/docs/zh-CN/)
+ Set theme in the hexo work folder's root config file `_config.yml`: 
 
-## :question: 问题
+> theme: butterfly
 
-如果遇到问题，首先请仔细阅读[文档](https://theme-stun.github.io/docs/zh-CN/)，或者查看[常见问题](https://github.com/liuyib/hexo-theme-stun/blob/master/FAQ.md)。当以上的方法都无法帮助你时，再去提出 `issue`:hugs:。
+ If you don't have pug & stylus renderer, try this: 
 
-## :handshake: 贡献
+> npm install hexo-renderer-pug hexo-renderer-stylus
 
-在提出 Pull request 之前，请务必先阅读[贡献指南](https://theme-stun.github.io/docs/zh-CN/contribute/contribute.html)。
+## 🎉 Features
 
-感谢所有为 «Stun» 做出贡献的人！
+- [x] Card UI Design
+- [X] Support sub-menu
+- [x] Two Column designs
+- [x] Responsive Web Design
+- [x] Dark Mode
+- [x] Pjax
+- [x] Read Mode
+- [x] Conversion between Traditional and Simplified Chinese
+- [X] TOC catalog is available for both computers and mobile phones
+- [X] Color themes (darker/pale night/light/ocean/mac/mac light), support custom colors
+- [X] Code Blocks (Display code language/close or expand Code Blocks/Copy Button/word wrap)
+- [X] Disable copy/Add a Copyright Notice to the Copied Text
+- [X] Search (Algolia SearchZ/Local Search)
+- [x] Mathjax and Katex
+- [x] Built-in 404 page
+- [x] WordCount
+- [x] Related articles
+- [x] Displays outdated notice for a post
+- [x] Share (AddThis/Sharejs/Addtoany)
+- [X] Comment (Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus)
+- [x] Multiple Comment System Support
+- [x] Online Chats (Chatra/Tidio/Daovoice/Gitter/Crisp)
+- [x] Web analytics
+- [x] Google AdSense
+- [x] Webmaster Verification
+- [x] Change website colour scheme
+- [x] Typewriter Effect: activate_power_mode
+- [x] Background effects (Canvas ribbon/canvas_ribbon_piao/canvas_nest)
+- [x] Mouse click effects (Fireworks/Heart/Text)
+- [x] Preloader/Loading Animation
+- [x] Busuanzi visitor counter
+- [x] Medium Zoom/Fancybox
+- [x] Mermaid
+- [x] Justified Gallery
+- [x] Lazyload images
+- [x] Instantpage/Pangu/Snackbar notification toast/PWA......
 
-<a href="https://github.com/liuyib/hexo-theme-stun/graphs/contributors">
-  <img src="https://opencollective.com/hexo-theme-stun/contributors.svg?width=980">
+## ✨ Contributors
+
+<a href="https://github.com/jerryc127/hexo-theme-butterfly/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jerryc127/hexo-theme-butterfly" />
 </a>
 
-## :computer: 浏览器支持
+## 📷 Screenshots
 
-| <img src="https://raw.githubusercontent.com/liuyib/picBed/master/collection/20190723235410.png" alt="IE" width="32px" height="32px" /></br> IE | <img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/35.1.0/edge/edge_64x64.png" alt="Edge" width="32px" height="32px" /></br> Edge | <img src="https://raw.githubusercontent.com/liuyib/picBed/master/collection/20190723235406.png" alt="Firefox" width="32px" height="32px" /></br> Firefox | <img src="https://raw.githubusercontent.com/liuyib/picBed/master/collection/20190723235407.png" alt="Chrome" width="32px" height="32px" /></br> Chrome | <img src="https://raw.githubusercontent.com/liuyib/picBed/master/collection/20190723235409.png" alt="Safari" width="32px" height="32px" /></br> Safari | <img src="https://raw.githubusercontent.com/liuyib/picBed/master/collection/20190723235411.png" alt="Opera" width="32px" height="32px" /></br> Opera |
-| :---: | :---: | :---: |:---: | :---: | :---: |
-| Not Supported | 12+ | 41+ | 45+ | 10+ | 32+ |
-
-## :star: Star 历史趋势
-
-[![Stargazers over time](https://starchart.cc/liuyib/hexo-theme-stun.svg)](https://starchart.cc/liuyib/hexo-theme-stun.svg)
-
-## :page_with_curl: 开源协议
-
-[MIT](https://github.com/liuyib/hexo-theme-stun/blob/master/LICENSE) Copyright (c) 2019-present liuyib
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fliuyib%2Fhexo-theme-stun.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fliuyib%2Fhexo-theme-stun?ref=badge_large)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-1.jpg)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-2.jpg)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-3.jpg)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-4.jpg)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/theme-butterfly-readme-homepage-1.png)
+![](https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/theme-butterfly-readme-homepage-2.png)

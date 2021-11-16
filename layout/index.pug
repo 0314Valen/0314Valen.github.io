@@ -1,7 +1,7 @@
-extends ./_layout.pug
+extends includes/layout.pug
 
 block content
-  include ./_partials/post/post-list.pug
-
-  if theme.post_list.paginate.home
-    include ./_partials/widgets/paginator.pug
+  include ./includes/mixins/post-ui.pug
+  #recent-posts.recent-posts
+    +postUI
+    include includes/pagination.pug
