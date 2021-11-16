@@ -1,94 +1,115 @@
-menu:
-  Home: Home
-  Archives: Archives
-  Categories: Categories
-  Tags: Tags
-  Repository: Repository
-  Books: Books
-  Movies: Movies
-  Links: Links
-  About: About
-nav:
-  all: All
-  older: Older
-  newer: Newer
-page:
+# Site title
+title:
   home: Home
   archive: Archive
-  archives: Archives
   category: Category
-  categories: Categories
   tag: Tag
-  tags: Tags
-  tagcloud: Tag Cloud
-  uncategorized: Uncategorized
-  repository: Repository
-  douban: Douban
-  books: Books
-  books-desc: Personal collection of books recommended to everyone
-  movies: Movies
-  movies-desc: Personal favorite movies recommended to everyone
-  links: Links
-  links-desc: Welcome to the exchange link, you can leave a message on this page
-  about: About
-pagination: 
-  next: Next
-  prev: Prev
-  page: Page %d
-  pageof: Page %d of %s
-widget:
+
+# Header nav
+nav:
   search: Search
-  board: Board
-  archive: Archive
-  tags: Tags
-  categories: Categories
-  tagcloud: Tag Cloud
-  recent_posts: Recent Posts
-profile: 
-  follow: Follow
-  skill: Skills
-  label: Labels
-  work: Works
-  project: Projects
-  link: Links
-insight:
-  hint: Type something...
-  posts: Posts
-  pages: Pages
+
+# Header menu
+menu:
+  home: Home
+  archives: Archives
   categories: Categories
   tags: Tags
-  untitled: (Untitled)
-unit:
-  word: words
-  time: minutes
-article:
-  wordcount: Word Count
-  readcount: Read Count
-  more: Read More
-  comments: Comments
-  share: Share
-  catalogue: Catalogue
-total:
-  article: Total %d articles
-  tag: Total %d tags
-  category: Total %d categories
-  link: Total %d links
-  repository: Total %d projects
-donate:
-  qrcode_alt: Scan Qrcode
-  qrcode_title: Scan
-  button: $
-  title: Maybe you could buy me a cup of coffee.
-  tip: Scan this qrcode
-  alipay_action_tip: Open alipay app scan this qrcode, buy me a coffee!
-  wechatpay_action_tip: Open wechat app scan this qrcode, buy me a coffee!
-  alipay: alipay
-  wechatpay: wechat payment
-comment: Comment
-tweets: Tweets
-share: Share
-rss_feed: RSS Feed
-copyright:
-  theme_by: Theme by
-  base_on: base on
-  powered_by: Powered by
+  about: About
+
+# Archives page, Categories page, Tags page
+page:
+  tags: Tags
+  categories: Categories
+  posts-empty: No articles
+  posts-total: Total %s Articles, Go on!
+
+# Sidebar
+sidebar:
+  overview: Overview
+  catalog: Catalog
+  subscribe: Subscribe
+  archives: Archives
+  categories: Categories
+  tags: Tags
+  read_info: You have read
+
+# Social link
+social:
+  github: Github
+  google: Google
+  twitter: Twitter
+  youtube: Youtube
+  segmentfault: Segmentfault
+  zhihu: Zhihu
+  weibo: Weibo
+  wechat: Wechat
+  telegram: Telegram
+  qq: QQ
+
+# Article
+post:
+  created: Created
+  updated: Updated
+  word_count: Words
+  reading_count: Visited
+  reading_time: Reading
+  reading_unit: m
+  read_more: Read More
+  sticky: Sticky
+  untitled: "[ Untitled ]"
+  end: ------ END ------
+  copyright:
+    author: Author
+    link: Link
+    license_title: Copyright
+    license_content: All articles in this blog are licensed under <a href="%s" rel="external nofollow" target="_blank">%s</a> unless stating additionally
+
+# Algolia search
+algolia_search:
+  input_placeholder: Search for Posts
+  hits_empty: "We didn't find any results for the search: ${query}"
+  hits_stats: '${hits} results found in ${time} ms'
+
+# Local search
+local_search:
+  input_placeholder: Search for Posts (Support multiple keywords)
+  hits_empty: We didn't find any results for the search
+
+# Auxiliary search buttons
+assist_search:
+  prompt_label: "Search by:"
+  prompt_input: Please enter characters
+  google: Google
+  bing: Bing
+  baidu: Baidu
+
+# Reward
+reward:
+  btn_text: Buy me a coffee
+  alipay: Alipay
+  wechat: Wechat
+
+# Site footer
+footer:
+  powered: Powered by %s
+  theme: Theme
+  site_uv: Visitors
+  site_pv: Views
+
+# Prompt message
+prompt:
+  copy_success: Copy Success
+  copy_error: Copy Error
+
+popover:
+  copy_button: Copy
+  creative_commons: Creative Commons
+  post:
+    create_time: Created Time
+    update_time: Updated Time
+    word_count: Words Count
+    reading_time: Reading Time
+    visit_num: Visitors
+  site_uv: Unique Visitor
+  site_pv: Page View
