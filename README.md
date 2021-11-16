@@ -1,113 +1,184 @@
-<div align="right">
-  Language:
-  🇺🇸
-  <a title="Chinese" href="/README_CN.md">🇨🇳</a>
-</div>
+# pure
 
-# hexo-theme-butterfly
+A brand new default theme for [[Hexo](https://hexo.io)].  [Preview](http://cofess.github.io/) | [中文说明文档](README.cn.md) | [iconfont](http://blog.cofess.com/hexo-theme-pure/iconfont/demo_fontclass.html)
 
-![master version](https://img.shields.io/github/package-json/v/jerryc127/hexo-theme-butterfly/master?color=%231ab1ad&label=master)
-![master version](https://img.shields.io/github/package-json/v/jerryc127/hexo-theme-butterfly/dev?label=dev)
-![https://img.shields.io/npm/v/hexo-theme-butterfly?color=%09%23bf00ff](https://img.shields.io/npm/v/hexo-theme-butterfly?color=%09%23bf00ff)
-![hexo version](https://img.shields.io/badge/hexo-5.0+-0e83c)
-![license](https://img.shields.io/github/license/jerryc127/hexo-theme-butterfly?color=FF5531)
+![](screenshot/pure.png)
 
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/theme-butterfly-readme.png)
+## Features
 
-Demo: 👍 [Butterfly](https://butterfly.js.org/)  ||   🤞 [CrazyWong](https://crazywong.com/)
+- Multiple languages support
+- Comment support
+- Tags page
+- Categories page
+- Social Media
 
-Docs: 📖 [Butterfly Docs](https://butterfly.js.org/posts/21cfbf15/)
+## Skins
 
-Based on [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody) theme.
+![](screenshot/pure-theme-black.png)
 
-## 💻 Installation
+![](screenshot/pure-theme-blue.png)
 
-### GIT
+![](screenshot/pure-theme-green.png)
 
-> If you are in Mainland China, you can download in [Gitee](https://gitee.com/immyw/hexo-theme-butterfly.git)
+![](screenshot/pure-theme-purple.png)
 
-Stable branch [recommend]:
+## Appearance
 
-```
-git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
-```
+[Home](http://cofess.github.io/) | [Archives](http://cofess.github.io/archives/) | [Categories](http://cofess.github.io/categories/) | [Tags](http://cofess.github.io/tags/) | [Repository](http://cofess.github.io/repository/) | [Books](http://cofess.github.io/books/) | [Links](http://cofess.github.io/links/) | [About](http://cofess.github.io/about/)
 
-Dev branch:
+## Install theme
+
+Execute the following command under your `hexo` folder.
 
 ```
-git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+git clone https://github.com/cofess/hexo-theme-pure.git themes/pure
+```
+Then modify the property `theme` of the file `hexo/_config.yml`  to `theme: pure`
+
+## Update theme
+
+Execute the following command to update theme.
+
+```
+cd themes/pure
+git pull
+```
+## Install plugin
+
+### [hexo-wordcount](https://github.com/willin/hexo-wordcount)
+
+```
+npm install hexo-wordcount --save
+```
+### [hexo-generator-json-content](https://github.com/alexbruno/hexo-generator-json-content)
+
+```
+npm install hexo-generator-json-content --save
+```
+### [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
+
+```
+npm install hexo-generator-feed --save
+```
+### [hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)
+
+```
+npm install hexo-generator-sitemap --save
+```
+### [hexo-generator-baidu-sitemap](https://github.com/coneycode/hexo-generator-baidu-sitemap)
+
+```
+npm install hexo-generator-baidu-sitemap --save
+```
+## Data files
+Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new Data files. This feature loads YAML or JSON files in source/_data folder so you can use them in your site.
+
+For example, add links.yml in source/_data folder.
+
+### links data
+
+add links.yml in source/_data folder.
+
+The format of the link :
+
+```
+Name:
+    link: http://example.com
+    avatar: http://example.com/avatar.png
+    desc: description
+```
+Add a number of links, we just need to repeat the format according to the above.
+
+## Blog optimization
+
+### [hexo-neat](https://github.com/rozbo/hexo-neat)
+
+> auto Minify html、js、css and make it neat
+
+```
+npm install hexo-neat --save
 ```
 
-### NPM
+You can configure this plugin in `_config.yml`.
 
-> It supports Hexo 5.0.0 or later
-
-In Hexo site root directory 
-
-```powershell
-npm i hexo-theme-butterfly
+```
+# hexo-neat
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:  
+neat_css:
+  enable: true
+  exclude:
+    - '*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js' 
 ```
 
-## ⚙ Configuration
+### [hexo-baidu-url-submit](https://github.com/huiwang/hexo-baidu-url-submit)
 
- Set theme in the hexo work folder's root config file `_config.yml`: 
+```
+npm install hexo-baidu-url-submit --save
+```
 
-> theme: butterfly
+### [hexo-translate-title](https://github.com/cometlj/hexo-translate-title)
+> translate the chinese title of Hexo blog to english words automatially
 
- If you don't have pug & stylus renderer, try this: 
+```
+npm install hexo-translate-title --save
+```
 
-> npm install hexo-renderer-pug hexo-renderer-stylus
+You can configure this plugin in `_config.yml`.
 
-## 🎉 Features
+```yml
+translate_title:
+  translate_way: google    #google | baidu | youdao
+  youdao_api_key: XXX
+  youdao_keyfrom: XXX
+  is_need_proxy: true     #true | false
+  proxy_url: http://localhost:8123
+```
+## Mathjax Support
 
-- [x] Card UI Design
-- [X] Support sub-menu
-- [x] Two Column designs
-- [x] Responsive Web Design
-- [x] Dark Mode
-- [x] Pjax
-- [x] Read Mode
-- [x] Conversion between Traditional and Simplified Chinese
-- [X] TOC catalog is available for both computers and mobile phones
-- [X] Color themes (darker/pale night/light/ocean/mac/mac light), support custom colors
-- [X] Code Blocks (Display code language/close or expand Code Blocks/Copy Button/word wrap)
-- [X] Disable copy/Add a Copyright Notice to the Copied Text
-- [X] Search (Algolia SearchZ/Local Search)
-- [x] Mathjax and Katex
-- [x] Built-in 404 page
-- [x] WordCount
-- [x] Related articles
-- [x] Displays outdated notice for a post
-- [x] Share (AddThis/Sharejs/Addtoany)
-- [X] Comment (Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus)
-- [x] Multiple Comment System Support
-- [x] Online Chats (Chatra/Tidio/Daovoice/Gitter/Crisp)
-- [x] Web analytics
-- [x] Google AdSense
-- [x] Webmaster Verification
-- [x] Change website colour scheme
-- [x] Typewriter Effect: activate_power_mode
-- [x] Background effects (Canvas ribbon/canvas_ribbon_piao/canvas_nest)
-- [x] Mouse click effects (Fireworks/Heart/Text)
-- [x] Preloader/Loading Animation
-- [x] Busuanzi visitor counter
-- [x] Medium Zoom/Fancybox
-- [x] Mermaid
-- [x] Justified Gallery
-- [x] Lazyload images
-- [x] Instantpage/Pangu/Snackbar notification toast/PWA......
+### [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
 
-## ✨ Contributors
+install
 
-<a href="https://github.com/jerryc127/hexo-theme-butterfly/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=jerryc127/hexo-theme-butterfly" />
-</a>
+```
+npm un hexo-renderer-marked --save
+npm i hexo-renderer-markdown-it-plus --save
+```
 
-## 📷 Screenshots
+You can configure this plugin in `_config.yml`.
 
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-1.jpg)
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-2.jpg)
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-3.jpg)
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/butterfly-readme-screenshots-4.jpg)
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/theme-butterfly-readme-homepage-1.png)
-![](https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/theme-butterfly-readme-homepage-2.png)
+```
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  plugins:
+    - plugin:
+        name: markdown-it-katex
+        enable: true
+    - plugin:
+        name: markdown-it-mark
+        enable: false  
+```
+
+Article enable mathjax
+
+```
+title: Hello World
+mathjax: true
+```
+

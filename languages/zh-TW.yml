@@ -1,122 +1,94 @@
-footer:
-  framework: 框架
-  theme: 主題
-
-copy:
-  success: 複製成功
-  error: 複製錯誤
-  noSupport: 瀏覽器不支援
-
+menu:
+  Home: 主頁
+  Archives: 歸檔
+  Categories: 分類
+  Tags: 標籤
+  Repository: 項目
+  Books: 書單
+  Movies: 電影
+  Links: 友鏈
+  About: 關於
+nav:
+  all: All
+  older: 下一篇
+  newer: 上一篇
 page:
-  articles: 文章總覽
-  tag: 標籤
-  category: 分類
+  home: 主頁
+  archive: 歸檔
   archives: 歸檔
-
-card_post_count: 條評論
-
-sticky: 置頂
-no_title: 無題
-
-post:
-  created: 發表於
-  updated: 更新於
-  wordcount: 字數總計
-  min2read: 閱讀時長
-  min2read_unit: 分鐘
-  page_pv: 閱讀量
-  comments: 評論數
-  copyright:
-    author: 文章作者
-    link: 文章連結
-    copyright_notice: 版權聲明
-    copyright_content: '本部落格所有文章除特別聲明外，均採用
-      <a href="%s" target="_blank">%s</a> 許可協議。轉載請註明來自 <a href="%s" target="_blank">%s</a>！'
-  recommend: 相關推薦
-  edit: 編輯
-
-search:
-  title: 搜尋
-  load_data: 資料庫載入中
-  algolia_search:
-    input_placeholder: 搜尋文章
-    hits_empty: '找不到您查詢的內容：${query}'
-    hits_stats: '找到 ${hits} 條結果，用時 ${time} 毫秒'
-
-  local_search:
-    label: 本地搜尋
-    input_placeholder: 搜尋文章
-    hits_empty: '找不到您查詢的內容：${query}'
-
-pagination:
-  prev: 上一篇
-  next: 下一篇
-
-comment: 評論
-
-aside:
-  articles: 文章
+  category: 分類
+  categories: 分類
+  tag: 標籤
+  tags: 標籤
+  tagcloud: 標籤雲
+  uncategorized: 未分類
+  repository: 項目
+  douban: 我的豆瓣
+  books: 書單
+  books-desc: 個人收藏的書單推薦給大家
+  movies: 電影
+  movies-desc: 個人喜歡的電影推薦給大家
+  links: 友情鏈接
+  links-desc: 歡迎交換鏈接，可在當前頁面留言
+  about: 關於
+pagination: 
+  next: 下一頁
+  prev: 上一頁 
+  page: 第 %d 頁
+  pageof: Page %d of %s
+widget:
+  search: 搜索
+  board: 公告
+  archive: 歸檔
   tags: 標籤
   categories: 分類
-  card_announcement: 公告
-  card_categories: 分類
-  card_tags: 標籤
-  card_archives: 歸檔
-  card_recent_post: 最新文章
-  card_webinfo:
-    headline: 網站資訊
-    article_name: 文章數目
-    runtime:
-      name: 已執行時間
-      unit: 天
-    last_push_date:
-      name: 最後更新時間
-    site_wordcount: 本站總字數
-    site_uv_name: 本站訪客數
-    site_pv_name: 本站總訪問量
-  more_button: 檢視更多
-  card_newest_comments:
-    headline: 最新評論
-    loading_text: 正在載入中...
-    error: 無法獲取評論，請確認相關配置是否正確
-    zero: 沒有評論
-    image: 圖片
-    link: 連結
-    code: 程式碼
-  card_toc: 目錄
-
-date_suffix:
-  just: 剛剛
-  min: 分鐘前
-  hour: 小時前
-  day: 天前
-  month: 個月前
-
-donate: 打賞
-share: 分享
-
-rightside:
-  readmode_title: 閱讀模式
-  translate_title: 簡繁轉換
-  night_mode_title: 淺色和深色模式轉換
-  back_to_top: 回到頂部
-  toc: 目錄
-  scroll_to_comment: 直達評論
-  setting: 設定
-  aside: 單欄和雙欄切換
-
-copy_copyright:
-  author: 作者
-  link: 連結
-  source: 來源
-  info: 著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。
-
-Snackbar:
-  chs_to_cht: 你已切換為繁體
-  cht_to_chs: 你已切換為簡體
-  day_to_night: 你已切換為深色模式
-  night_to_day: 你已切換為淺色模式
-
-loading: 載入中...
-
-error404: 頁面沒有找到
+  tagcloud: 標籤雲
+  recent_posts: 最新文章
+profile: 
+  follow: 關注
+  skill: 技能
+  label: 個人標簽
+  work: 個人作品
+  project: 個人項目
+  link: 個人鏈接
+insight:
+  hint: 想要查找什麼...
+  posts: 文章
+  pages: 頁面
+  categories: 分類
+  tags: 標籤
+  untitled: (未命名)
+unit:
+  word: 字
+  time: 分
+article:
+  wordcount: 字数统计
+  readcount: 阅读时长
+  more: 查看更多
+  comments: 評論
+  share: 分享到
+  catalogue: 文章目錄
+total:
+  article: 共 %d 篇文章
+  tag: 共 %d 個標籤
+  category: 共 %d 個分類
+  link: 共 %d 個友情鏈接
+  repository: 共 %d 個項目
+donate:
+  qrcode_alt: 掃碼支持
+  qrcode_title: 掃一掃
+  button: 賞
+  title: 感謝您的支持，我會繼續努力的!
+  tip: 掃碼打賞，你說多少就多少
+  alipay_action_tip: 打開支付寶掃一掃，即可進行掃碼打賞哦
+  wechatpay_action_tip: 打開微信掃一掃，即可進行掃碼打賞哦
+  alipay: 支付寶
+  wechatpay: 微信支付
+comment: 評論
+tweets: 推文
+share: Share
+rss_feed: RSS Feed
+copyright:
+  theme_by: Theme by
+  base_on: base on
+  powered_by: Powered by
