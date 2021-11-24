@@ -3,6 +3,8 @@
 ## Docs: https://jekyllrb.com/docs/configuration/
 # ---------------------------------------------------------------
 #http://theme-next.iissnan.com/theme-settings.html
+#https://github.com/Shopify/liquid/issues/204
+#https://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/
 # Site
 title: 0314Valen
 subtitle: Choose You Own Path
