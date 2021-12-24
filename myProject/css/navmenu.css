@@ -318,10 +318,9 @@ header{
 
 /* 主内容区左侧的导航栏 */
 #nav{
-
 	position: relative;
 	height: auto;
-	width: 100px;
+	width: 190px;
 	text-align: center;
 	margin-top: 10px;
 	}	
@@ -341,8 +340,9 @@ header{
 /*导航栏超链接的样式*/
 #nav ul li .nav{
 		font-size: 13px;
-        width: 160px;
-        padding: 9.68px;
+        width: 190px;
+        padding: 5px 0px 2px 0px;
+		height: 21px;
         display: block;
         color: #000000;
     }

@@ -27,7 +27,7 @@ function prevBtn() {
 		j = 6;
 		// left = -1040;
 	}
-	left = -177 * j;
+	left = -192* j;
 	document.querySelector(".page-list-all").style.left = left + "px";
 };
 function nextBtn() {
@@ -38,12 +38,35 @@ function nextBtn() {
 		//left = 0;
 	}
 	j++;
-	left = -177 * j;   //偏移量
+	left = -192 * j;   //偏移量
 	document.querySelector(".page-list-all").style.left = left + "px";
 };
 
+/* 每日特价切换导航 */
+$()
+
 /* 为你推荐 */
 $(function () {
+	$(".recommend-con").hide();
+	$(".recommend-tit div").click(function () {
+		
+		var id = $(this).attr('id');//获取所点击元素的id
+		id = id.slice(3, 4);//获取所点击元素的id的序号
+		//alert(id);
+		var showId = ".recommend-con" + id;
+		//alert(showId);
+		$(".recommend-con").addClass(showId);
+		$(showId).show();
+		$(showId).siblings().hide();
+		/* 让顶部导航栏与标题栏的样式切换对应上 */
+		let k = "#tit"+id;
+		let l = "#ti0"+id;
+		//console.log(l);
+		$(k).addClass("divChange").siblings().removeClass("divChange");
+		$(l).addClass("divChange").siblings().removeClass("divChange");
+	})
+});
+/* $(function () {
 	$(".recommend-con").hide();
 	$(".recommend-tit div").click(function () {
 		$(this).addClass("divChange").siblings().removeClass("divChange");
@@ -56,7 +79,7 @@ $(function () {
 		$(showId).show();
 		$(showId).siblings().hide();
 	})
-});
+}); */
 
 /* 
 alert(id);
@@ -80,15 +103,6 @@ for (var i = 0; i < allTit.length;i++) {
 	};
 } */
 
-
-/* 鼠标滚轮事件 wheelDelta*/
-/* let scroll = 0;
-window.onwheel = function (ev) {
-	scroll += ev.deltaY;
-	console.log(ev);
-	console.log(scroll);
-} */
-
 /* 顶部导航栏固定*/
 $(function () {
 	var nav = $(".fixedSearch"); //导航对象
@@ -99,7 +113,7 @@ $(function () {
 	//获取窗口滚动操作
 	win.scroll(function () {
 		//滚动条离顶部的高度
-		if (sc.scrollTop() >= 680) {
+		if (sc.scrollTop() >= 646) {
 			nav.fadeIn();
 			$(".fixedNav").css("position","fixed");
 			$(".fixedNav").css("top",80+'px');
@@ -115,7 +129,7 @@ $(function () {
 		/* 为你推荐置顶固定 */
 		if (sc.scrollTop() >= 2800) {
 			$(".fixedRecommend").fadeIn();
-			$(".fixedNav").css("top",140+'px');
+			$(".fixedNav").css("top",'140px');
 		} else {
 			$(".fixedRecommend").fadeOut();
 		}
@@ -123,35 +137,78 @@ $(function () {
 		if (sc.scrollTop() >= 600 && sc.scrollTop() < 900){
 			$(".fixedNav .fixN1 a").css("color","red");
 		}else{
-			$(".fixedNav .fixN1 a").css("color","black");
+			$(".fixedNav .fixN1 a").css("color","");
 		}
 		if(sc.scrollTop() >= 900 && sc.scrollTop() < 1800){
 			$(".fixedNav .fixN2 a").css("color","red");
 		}else{
-			$(".fixedNav .fixN2 a").css("color","black");
+			$(".fixedNav .fixN2 a").css("color","");
 		} 
 		if(sc.scrollTop() >= 1800 && sc.scrollTop() < 2490){
 			$(".fixedNav .fixN3 a").css("color","red");
 		}else{
-			$(".fixedNav .fixN3 a").css("color","black");
+			$(".fixedNav .fixN3 a").css("color","");
 		}
 		if (sc.scrollTop() >= 2490) {
 			$(".fixedNav .fixN4 a").css("color","red");
 		}else{
-			$(".fixedNav .fixN4 a").css("color","black");
+			$(".fixedNav .fixN4 a").css("color","");
 		}
 	})
 }) 
-/* 
-//获取滚动条高度
+/* 右侧导航栏超链接跳转 */
 $(function () {
-	var nav = $(".fixedRecommend"); //得到导航对象  
-	var win = $(window); //得到窗口对象  
-	var sc = $(document);//得到document文档对象
-	//获取窗口滚动操作
-	win.scroll(function () {
-		//滚动条离顶部的高度
-		console.log(sc.scrollTop());
+	$(".fixN1").on("click",function(){
+		var off = $("#seckill").offset();
+		var tp = off['top']-70;
+		//console.log(tp);
+		//var inx = $(this).index();
+		$(window).scrollTop(tp);
 	})
+	$(".fixN2").on("click",function(){
+		var off = $("#daily_price").offset();
+		var tp = off['top']-72;
+		//console.log(tp);
+		//var inx = $(this).index();
+		$(window).scrollTop(tp);
+	})
+	$(".fixN3").on("click",function(){
+		var off = $("#channel-square").offset();
+		var tp = off['top']-56;
+		$(window).scrollTop(tp);
+	})
+	$(".fixN4").on("click",function(){
+			var off = $("#recommend-for-you").offset();
+			var tp = off['top']-56;
+			//console.log(tp);
+			//var inx = $(this).index();
+			$(window).scrollTop(tp);
+		})
+
+		$(".fixedRecommend").on("click",function(){
+			var off = $("#recommend-for-you").offset();
+			var tp = off['top']+28.4;
+			$(window).scrollTop(tp);
+		})
 })
- */
+
+/* 机票-酒店-话费 */
+$(function(){
+		$(".info_service_item a").mouseover(function(){
+			$(this).children(".service_ico").children(".service_icon_img_hover").css("visibility","visible");
+		});
+		$(".info_service_item a").mouseout(function(){
+			$(this).children(".service_ico").children(".service_icon_img_hover").css("visibility","hidden");
+		})
+	})
+	/* $(".service_ico").mouseover(function(){
+		var new_src = $(this).attr("src");
+		console.log(new_src);
+		$(".service_icon_img_hover").css("visibility","visible");
+	}) */
+/* var service_ico = document.querySelectorAll(".service_icon_img");
+var ico = 0;
+for(let i =0; i < service_ico.length-1 ;i++){
+console.log(service_ico[i].src);
+} */
+

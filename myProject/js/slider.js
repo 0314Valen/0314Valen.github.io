@@ -12,7 +12,6 @@ var next = document.getElementById("bigImg-next");
 var i = 0;
 /* 点击左右来切换中央大图片 */
 function btnPrev() {
-	var navDiv = document.querySelector("navDiv");
 	if (i < 0) {
 		i = arr.length - 1;
 	}
@@ -20,8 +19,6 @@ function btnPrev() {
 	document.getElementById("image").src = arr[i];
 };
 function btnNext() {
-	//var navDiv = document.getElementsByClassName("navDiv-a");  // "img/big0" + (i + 1) + ".jpg"
-	//navDiv[i].style.background="red";
 	if (i >= 5) {
 		i = 0;
 	}
@@ -31,52 +28,55 @@ function btnNext() {
 // prev.onclick = btnPrev();
 // next.onclick = btnNext();
 var time = setInterval(btnNext, 2000);
+	prev.onmouseover = function(){
+		clearInterval(time);
+	}
+	next.onmouseover = function(){
+		clearInterval(time);
+	}
+	prev.onmouseout = function(){
+		time = setInterval(btnNext, 2000);
+	}
+	next.onmouseout = function(){
+		time = setInterval(btnNext, 2000);
+	}
 /* setInterval(function () {
 	img();
 }, 2000); */
 
-/* var swipe = document.querySelector(".center_bigimg");
-	swipe.onmouseover = function(){
-	clearInterval(time);
-	}
-	swipe.onmouseout = function(){
-	  time = setInterval("img()", 2000);
-	}
- */
 
-
-/* 秒杀列表右侧自动轮播图 */
-var arrImg = new Array()
-arrImg[0] = "img/haigou1.jpg";
-arrImg[1] = "img/haigou2.jpg";
-arrImg[2] = "img/haigou3.jpg";
-var n=0;
-//每2秒自动切换
-function img() {
-	var image = document.querySelector(".brand-sliderImg");
-  n++;
-	if (n >arrImg.length-1) { n = 0 };
-	image.src = arrImg[n];
-  var circle = document.querySelectorAll(".circle");
-  for (var m = 0; m < circle.length;m++) {
-    if(m==n){
-      circle[m].style.color="red";
-    }else{
-      circle[m].style.color="rgba(153, 153, 153, 0.6)";
-    }
-  }
-};
-var timeout = setInterval(img,2000);
-
-/* var ul = document.getElementById("find-list-ul");
-var num = 0;
-var time=setInterval(function(){
-    num--;
-    ul[0].style.marginLeft = num+"px";
-    if(num<= -1000){
-      num=0;
-    }
-},10); */
+/* 秒杀列表右侧自动轮播1 */
+//所有div标签,li标签
+var aImgs = document.querySelectorAll('.brand-slider a');
+var aLis = document.querySelectorAll('.brand-slider li');
+var index = 0;        //当前图片下标
+var lastIndex = 0;
+function btnRight(){
+	//记录上一张图片的下标
+	lastIndex = index;
+	//清除上一张图片的样式
+	aImgs[lastIndex].className = '';
+	aLis[lastIndex].className = '';
+	index++;
+	index %= aImgs.length;    //实现周期性变化
+	//设置当前图片的样式
+	aImgs[index].className = 'on';
+	aLis[index].className = 'active';
+}
+let t = setInterval(btnRight,2000);
+$(".brand-slider li").mouseover(function(){
+	clearInterval(t);
+	$(this).addClass("active").siblings().removeClass("active");
+	let n = $(this).index();
+	let a_id = "#a"+n;
+	$(a_id).addClass("on").siblings().removeClass("on");
+	//$(aImgs).addClass("on");
+	//aImgs[n].addClass("on");
+	console.log(n);
+})
+$(".brand-slider li").mouseout(function(){
+	 t = setInterval(btnRight,2000);
+})
 
 /* 发现好货的走马灯效果 */
 var millisec = 15;     //滚动间隔时间（毫秒）
@@ -105,63 +105,6 @@ function scroll(){
         left2 = 0;
     ul.style.left = left2 + "px";
 }
-
-/* 秒杀倒计时 */
-var hh = document.querySelector('.seckill-hh');
-var mm = document.querySelector('.seckill-mm');
-var ss = document.querySelector('.seckill-ss');
-//计算倒计时的时间
-var inputTime =+new Date('2021-12-20 18:00:00');//倒计时的结束时间，自己设置时间
-var nowTime=+new Date();   //当前时间
-var times=(inputTime-nowTime)/1000; //剩余时间的总的毫秒数
-var second = parseInt(times%60);
-var minute = parseInt(times/60%60);
-var hour = parseInt(times/60/60%24);
-//保持两位显示——id=操作的标签，num=对应的时间数字
-function inner(id,num){
-	if(num < 10){
-		id.innerHTML = '0'+num;
-	}else{
-		id.innerHTML = num;
-	}
-}
-//先回显一次，防止第一次刷新页面有空白
-timer();
-setInterval(timer,1000);
-function timer(){
-  inner(hh,hour);
-	inner(mm,minute);
-	//1.第三位数字的显示
-  inner(ss,second);
-	second--;
-	//2、第三位归零后判断第二位数字的值来确定是否将值变为60继续下一轮
-	if(second == 0){
-		if(minute != 0){
-			minute--;
-			second=59;
-		}
-		//3、判断第二位和第一位的值
-		if(minute == 0){
-			if(hour != 0){
-				minute=59;
-				hour--;
-			}
-		}
-		//4、若三个值都为0，清除定时器
-		if(hour==0 && minute==0 && second==0){
-			clearInterval(timer);
-		}
-		//5、调用函数回显
-		inner(hh,hour);
-		inner(mm,minute);
-		inner(ss,second);
-	}
-}
-
-
-var clock = document.querySelector('.seckill-clock');
-
-
 
 /* 新品首发轮播效果 */
 var new_num = 0;
@@ -201,8 +144,11 @@ function newNext() {
 	left4 = -246 * new_num;
 	//定位小于等于图片总宽度的二分之一时，则left设置为0
 	if(left3 <= -imgs.offsetWidth / 2 ){
+		document.querySelector(".new-good-imgs").style.transition = "left 0s";
 		left3 = -60;
 		new_num = 0;
+	}else{
+		document.querySelector(".new-good-imgs").style.transition = "left 0.5s";
 	}
 	//定位<=介绍总宽度的二分之一时，left设为0
 	if(left4 <= -new_cons.offsetWidth / 2 ){
@@ -219,17 +165,117 @@ function newNext() {
 	document.querySelector(".new-good-imgs").style.left = left3 + "px";
 	document.querySelector(".new-good-cons").style.left = left4 + "px";
 };
-setInterval(newNext,2000);
-
-/* var rightImg = document.querySelectorAll(".r-icon");
-for(var i=0;i<rightImg.length-1;i++){
-	rightImg[i].onmouseover = function(){
-		rightImg[i].src = "img/right2.png";
-    }
-}
-console.log(rightImg[i].src); */
-	
-/* 	rightImg.onmouseout = function(){
-		rightImg.src = "img/right.png";
+var timeout = setInterval(newNext,2000);
+var new_next = document.getElementById("new-next");
+var new_prev = document.getElementById("new-prev");
+	new_next.onmouseover = function(){
+		clearInterval(timeout);
 	}
-     */
+	new_prev.onmouseover = function(){
+		clearInterval(timeout);
+	}
+	new_next.onmouseout = function(){
+		timeout = setInterval(newNext, 2000);
+	}
+	new_prev.onmouseout = function(){
+		timeout = setInterval(newNext, 2000);
+	}
+
+
+/* JD图片重复播放 */
+var logo = document.getElementById("logo");
+function JD(){
+	var logo_img = document.getElementById("img1");
+	logo_img.src = "img/JD1.gif";
+	function con(){
+		var logo_con = document.querySelector(".logo_con");
+		logo_con.style.display = "block";
+	}
+	setTimeout(con,2000);
+}
+//初次刷新页面执行一次
+setTimeout(JD,2000);
+//恢复初始样式
+function first(){
+	document.getElementById("img1").src = "img/jd3.png";
+	document.querySelector(".logo_con").style.display = "none";
+}
+setTimeout(first,6000);
+//鼠标移动执行
+logo.onmouseover = function(){
+	JD();
+	/* time_out = setInterval(JD,4000); */
+	setTimeout(first,6000);
+	}
+logo.onmouseout= function(){
+	var time_out = setInterval(JD,4000);
+	clearInterval(time_out);
+	/* document.getElementById("img1").src = "img/jd3.png"; */
+	}
+
+
+
+
+
+
+
+
+
+
+/* 关闭按钮 */
+var closes = document.querySelectorAll('.recommend_hover_delete');
+$(".recommend_hover_delete").click(function(){
+	let k = $(this).parent().parent();
+	//console.log(k);
+	k.addClass("dis_none");
+	//k.addClass("dis_none").siblings().removeClass("dis_none");
+})
+$(".recommend-lk").mouseover(function(){
+	let q = $(this).children(".recommend_hover");
+	q.css("display","block");
+	//q.addClass("dis_bl").siblings().removeClass("dis_bl");
+})
+$(".recommend-lk").mouseout(function(){
+	let q = $(this).children(".recommend_hover");
+	q.css("display","none");
+})
+/* for(var x of closes) {
+	var item = x.parentNode.parentNode.className;
+	x.addEventListener('click',() => {
+
+		item.classList.add = 'dis_none';
+	})
+} */
+/*
+var re_hover =  document.querySelectorAll('.recommend-lk a');
+re_hover.onmouseover = function(){
+	clearInterval(timeout);
+}
+re_hover.onmouseout = function(){
+	timeout = setInterval(newNext, 2000);
+} */
+/*function closeBtn() {
+	var lists = document.querySelectorAll(".recommend-lk");
+	for(var j=0;j<closes.length-1;j++){
+		closes[j].onclick = function(){
+			alert(j);
+			 for(var i=0;i<lists.length-1;i++){
+				if(i==j){
+					list[i].className='dis_none';
+				}
+			} 		
+			}
+	}}*/
+/* 	for(var j=0;j<closes.length-1;j++){
+		var close = closes[j];
+	}	
+	 if(list==close){
+				console.log(i);
+				//list[i].style.display = "none";
+				//list[i].classList.add = "dis_none";
+				list[i].setAttribute("class","dis_none");
+				//list[i].className='dis_none';
+				console.log(list[i]);
+			} */
+
+

@@ -65,11 +65,13 @@
 /* 每日特价文本样式 */
 .daily_price_text{
 	display: flex;
+    height: 35px;
 	font-size: 24px;
 	font-weight: bolder;
 	color: #404040;
-	margin: 12px 20px;
+	padding: 12px 20px;
 }
+
 /* 向右小图标样式 */
 /* .daily_price_right{
 	width: 10px;
@@ -96,7 +98,7 @@
 #daily_price .fore1{
 	display: flex;
 	background-color: #ffffff;
-	width: 493px;
+	width: 505px;
 	height: 300px;
 }
 /* 一年最低价 */
@@ -153,7 +155,6 @@
 .day_price_con_item img{
     width: 75px;
     height: 75px;
-    
 }
 .day_price_con_item img:hover{
     opacity: 0.8;
@@ -171,7 +172,6 @@
     font-weight: bolder;
 }
 
-
 /* 品牌闪购 */
 #daily_price .fore2 {
     margin-left: 10px;
@@ -180,28 +180,44 @@
     background-color: #ffffff;
     width: 475px;
     height: 300px;
-  }
-  .brand {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 50px;
-  }
-  .brand table td {
+}
+.brand-list2{
+    width: 245px;
+    margin-top: 20px;
+}
+.brand-list2 a{
+    display: inline-block;
+    width: 115px;
+    height: 65px;
+    padding: 14px 0;
+}
+.brand-item_img{
+    width: 80px;
+    height: 40px;
+    margin: 0 auto;
+}
+.brand-item_img img{
+    width: 100%;
+    height: 100%;
+}
+.brand-item_name{   
+    color: #666;
+    margin-top: 6px;
     font-size: 12px;
     text-align: center;
-    width: 110px;
-    height: 80px;
-  }
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
   .brand-one {
-    /* display: flex;
-    flex-direction: column; */
     text-align: center;
     margin-left: 10px;
     padding: 10px 0px 15px 0px;
     background-color: rgb(249, 255, 255);
   }
-  .brand-one:hover{
-      opacity: 0.7;
+  .brand-one:hover,.brand-list2 a:hover{
+      opacity: 0.8;
   }
 
   .brand-one p{
@@ -212,13 +228,6 @@
     margin-left: 10px;
     width: 150px;
     height:150px;
-  }
-  .brand_img {
-    height: 60px;
-    width: 80px;
-  }
-  .brand_img:hover{
-    opacity: 0.7;
   }
   
 

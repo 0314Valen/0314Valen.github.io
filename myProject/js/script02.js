@@ -12,6 +12,28 @@ for (var i = 0; i < allA.length; i++) {
 }
 
 
+/* alert(id);
+	var showId = $(".recommend-cons").find("div").eq((id-1)).attr('class');
+	showId = "."+showId;
+	$(showId).show();
+	$(showId).siblings().hide();
+ */
+/* var allTit = document.querySelectorAll(".recommend-tit div");
+for (var i = 0; i < allTit.length;i++) {
+
+		allTit[i].num = i;
+		alert(i);
+ allTit[i].click = function(){
+	allTit[i].addClass('divChange');
+		if(allTit[i].classList=='divChange'){
+			allTit[i].addClass('recommend-tit-con');
+		}else{
+			allTit[i].addClass('divChange');
+		}
+	};
+} */
+
+
 
 var seckill_brand = document.querySelector(".seckill-brand");
 var ul = seckill_brand.querySelector("ul");
@@ -23,7 +45,6 @@ var c = 0;
 //播放次数
 var num = 0;
 function brand_img() {
-	
 	//改变ul偏移量
 	ul.style.left = "-178px";
 }
@@ -53,6 +74,7 @@ for (var index = 0; index < circleAll.length; index++) {
 	}
 } */
 
+/* 轮播插件 */
 var swiper = new Swiper(".mySwiper", {
 	spaceBetween: 30,
 	centeredSlides: true,
@@ -70,7 +92,9 @@ var swiper = new Swiper(".mySwiper", {
 	},
   });
 
-/* //1、获取元素
+
+
+//1、获取元素
 var hour = document.querySelector('.seckill-hh');
 var minute = document.querySelector('.seckill-mm');
 var second = document.querySelector('.seckill-ss');
@@ -91,8 +115,7 @@ function countDown(){
 	var s=parseInt(times%60);
 	//s=s<10?'0'+s:s;
 	second.innerHTML=s;//同上
-}  */
-
+} 
  /* 秒杀倒计时 */ 
  var span = document.querySelectorAll('.seckill-timmer');
 var second = 0;
@@ -111,7 +134,6 @@ var timer = setInterval(function(){
 	second = parseInt(span[2].innerHTML);
 	minute = parseInt(span[1].innerHTML);
 	hour = parseInt(span[0].innerHTML);
-
 	//1.第三位数字的显示
 	second--;
 	inner(span[2],second);
@@ -138,3 +160,55 @@ var timer = setInterval(function(){
 		inner(span[2],second);
 	}
 },1000);
+
+
+/* jQuery获取数组 */
+var imgSrc=[];
+$(".service_icon_img").each(function(){
+   imgSrc.push($(this).attr("src"));
+});
+console.log(imgSrc);
+
+
+/* 鼠标滚轮事件 wheelDelta*/
+let scroll = 0;
+window.onwheel = function (ev) {
+	scroll += ev.deltaY;
+	console.log(ev);
+	console.log(scroll);
+}
+
+/* 获取滚动条高度 */
+$(function () {
+	var nav = $(".fixedRecommend"); //得到导航对象  
+	var win = $(window); //得到窗口对象  
+	var sc = $(document);//得到document文档对象
+	//获取窗口滚动操作
+	win.scroll(function () {
+		//滚动条离顶部的高度
+		console.log(sc.scrollTop());
+	})
+})
+
+/* 秒杀列表右侧自动轮播图2 */
+var arrImg = new Array()
+arrImg[0] = "img/haigou1.jpg";
+arrImg[1] = "img/haigou2.jpg";
+arrImg[2] = "img/haigou3.jpg";
+var n=0;
+//每2秒自动切换
+function img() {
+	var image = document.querySelector(".brand-sliderImg");
+  n++;
+	if (n >arrImg.length-1) { n = 0 };
+	image.src = arrImg[n];
+  var circle = document.querySelectorAll(".circle");
+  for (var m = 0; m < circle.length;m++) {
+    if(m==n){
+      circle[m].style.color="red";
+    }else{
+      circle[m].style.color="rgba(153, 153, 153, 0.6)";
+    }
+  }
+};
+ setInterval(img,2000);
