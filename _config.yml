@@ -124,6 +124,7 @@ menu:
   tags: /tags/
   sitemap: /sitemap.xml
   commonweal: /404.html
+  myProject: /myProject/
 
 
 # Enable/Disable menu icons.
@@ -227,7 +228,7 @@ social_icons:
   
 # reward
 reward_comment: 人该是自己生活的主宰，而不是别人手里的行货
-wechatpay: /images/wechat.jpg
+#wechatpay: /images/wechat.jpg
 alipay: /images/alippay.jpg
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
