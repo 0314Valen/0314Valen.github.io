@@ -1,8 +1,10 @@
 ---
 title: Typora简介及Markdown语法精讲
 date: 2021-08-21
-categories: tool
+categories: 
+- tool
 tags:
+- tool
 - Markdown
 - Typora
 ---

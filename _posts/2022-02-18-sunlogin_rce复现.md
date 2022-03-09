@@ -1,10 +1,10 @@
 ---
 title: sunlogin_rce复现
 date: 2022-02-18
-categories: tool
+categories: 
+- 漏洞复现
 tags:
-- 复现
-- rce
+- 漏洞复现
 ---
 
 记录一下向日葵rce复现和端口扫描学习。

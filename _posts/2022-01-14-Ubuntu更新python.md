@@ -1,10 +1,14 @@
 ---
 title: Ubuntu更新python
 date: 2022-01-14
-categories: tool
+categories: 
+- tool
+- Linux
+- python
 tags:
 - Linux
 - vim
+- python
 ---
 
 主要记录一下更新Ubuntu更新python的踩坑记录。

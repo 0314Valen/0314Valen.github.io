@@ -1,8 +1,10 @@
 ---
-title: 运维赛纪要
+title: dockerfile构建基础镜像
 date: 2022-02-21
-categories: tool
+categories: 
+- 出题
 tags:
+- docker
 - Linux
 - ctf
 ---
