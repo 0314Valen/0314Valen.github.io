@@ -184,7 +184,7 @@ font:
 
   # 文章字体
   posts:
-    external: true
+    external: false
     family:
 
   # Logo 字体
@@ -195,7 +195,7 @@ font:
 
   # 代码字体，应用于 code 以及代码块
   codes:
-    external: true
+    external: false
     family: PT Mono
     size:
 
