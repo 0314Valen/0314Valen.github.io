@@ -23,7 +23,7 @@ Wireshark命令行下的用法。
 https://www.wireshark.org/index.html#download
 ```
 
-![](../images/Wireshark/1.png)
+![](../images/img/Wireshark/1.png)
 
 在这里选择对应的版本系统即可，具体安装过程略，可以自行百度。
 
@@ -31,17 +31,17 @@ https://www.wireshark.org/index.html#download
 
 安装完成之后可以在安装路径下面看到存在两个tshark.exe、Wireshark.exe
 
-![](../images/Wireshark/2.png)
+![](../images/img/Wireshark/2.png)
 
 其中Wireshark.exe是图形化界面，tshark.exe是命令行界面
 
 然后复制环境变量添加到用户变量和系统变量中，有可能需要重启才能生效
 
-![](../images/Wireshark/3.png)
+![](../images/img/Wireshark/3.png)
 
 然后在cmd中能够输出执行这个命令`tshark.exe -h`并输出下面结果即可
 
-![](../images/Wireshark/4.png)
+![](../images/img/Wireshark/4.png)
 
 ### 3.使用说明
 
@@ -54,7 +54,7 @@ https://www.wireshark.org/index.html#download
 	-B: -B <buffer size> 设置缓冲区的大小，只对windows生效，默认是2M;　　
 	-y: -y<link type> 设置抓包的数据链路层协议，不设置则默认为-L找到的第一个协议，局域网一般是EN10MB等;　　
 	-D: 打印接口的列表并退出;　　
-	-L 列出本机支持的数据链路层协议，供-y参数使用。
+	-L 列出本机支持的数据链路层协议，供-y参数使用。
 捕获停止选项:　　
 	-c: -c <packet count> 捕获n个包之后结束，默认捕获无限个;　　
 	-a: -a <autostop cond.> ... duration:NUM，在num秒之后停止捕获;　　　　　　　　　　　　　　　　　　 
