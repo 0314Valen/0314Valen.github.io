@@ -23,7 +23,7 @@ Wireshark命令行下的用法。
 https://www.wireshark.org/index.html#download
 ```
 
-![](../images/img/Wireshark/1.png)
+![](https://0314valen.github.io/images/img/Wireshark/1.png)
 
 在这里选择对应的版本系统即可，具体安装过程略，可以自行百度。
 
@@ -31,17 +31,17 @@ https://www.wireshark.org/index.html#download
 
 安装完成之后可以在安装路径下面看到存在两个tshark.exe、Wireshark.exe
 
-![](../images/img/Wireshark/2.png)
+![](https://0314valen.github.io/images/img/Wireshark/2.png)
 
 其中Wireshark.exe是图形化界面，tshark.exe是命令行界面
 
 然后复制环境变量添加到用户变量和系统变量中，有可能需要重启才能生效
 
-![](../images/img/Wireshark/3.png)
+![](https://0314valen.github.io/images/img/Wireshark/3.png)
 
 然后在cmd中能够输出执行这个命令`tshark.exe -h`并输出下面结果即可
 
-![](../images/img/Wireshark/4.png)
+![](https://0314valen.github.io/images/img/Wireshark/4.png)
 
 ### 3.使用说明
 
