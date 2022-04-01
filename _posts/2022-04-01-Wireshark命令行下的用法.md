@@ -1,6 +1,6 @@
 ---
-title: SSH常用操作
-date: 2021-08-28
+title: Wireshark命令行下的用法
+date: 2022-04-01
 categories:
 - tool
 tags:
@@ -9,11 +9,11 @@ tags:
 - misc
 ---
 
-Wireshark命令行下面的用法。
+Wireshark命令行下的用法。
 
 <!-- more -->
 
-## Wireshark命令行工具
+## Wireshark命令行下的用法
 
 ### 1.安装
 
