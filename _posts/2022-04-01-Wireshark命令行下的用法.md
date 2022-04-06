@@ -50,7 +50,9 @@ https://www.wireshark.org/index.html#download
 ```
 捕获接口:　　
 	-i: -i <interface> 指定捕获接口，默认是第一个非本地循环接口;
-	-f: -f <capture filter> 设置抓包过滤表达式，遵循libpcap过滤语法，这个实在抓包的过程中过滤，如果是分析本地文件则用不到。     -s: -s <snaplen> 设置快照长度，用来读取完整的数据包，因为网络中传输有65535的限制，值0代表快照长度65535，默认也是这个值；　　     -p: 以非混合模式工作，即只关心和本机有关的流量。　　
+	-f: -f <capture filter> 设置抓包过滤表达式，遵循libpcap过滤语法，这个实在抓包的过程中过滤，如果是分析本地文件则用不到。
+	-s: -s <snaplen> 设置快照长度，用来读取完整的数据包，因为网络中传输有65535的限制，值0代表快照长度65535，默认也是这个值；　　
+	-p: 以非混合模式工作，即只关心和本机有关的流量。　　
 	-B: -B <buffer size> 设置缓冲区的大小，只对windows生效，默认是2M;　　
 	-y: -y<link type> 设置抓包的数据链路层协议，不设置则默认为-L找到的第一个协议，局域网一般是EN10MB等;　　
 	-D: 打印接口的列表并退出;　　
@@ -75,9 +77,10 @@ RPCAP选项:　　
 处理选项:　　
 	-2: 执行两次分析　　
 	-R: -R <read filter>,包的读取过滤器，可以在wireshark的filter语法上查看；在wireshark的视图->过滤器视图，在这一栏点击表达式，就会列出来对所有协议的支持。
-	-Y: -Y <display filter>,使用读取过滤器的语法，在单次分析中可以代替-R选项;　　-n: 禁止所有地址名字解析（默认为允许所有）　　
-    -N: 启用某一层的地址名字解析。“m”代表MAC层，“n”代表网络层，“t”代表传输层，“C”代表当前异步DNS查找。如果-n和-N参数同时存在，-n将被忽略。如果-n和-N参数都不写，则默认打开所有地址名字解析。
-    -d: 将指定的数据按有关协议解包输出,如要将tcp 8888端口的流量按http解包，应该写为“-d tcp.port==8888,http”;tshark -d. 可以列出所有支持的有效选择器。　　
+	-Y: -Y <display filter>,使用读取过滤器的语法，在单次分析中可以代替-R选项;　　
+	-n: 禁止所有地址名字解析（默认为允许所有）　　
+	-N: 启用某一层的地址名字解析。“m”代表MAC层，“n”代表网络层，“t”代表传输层，“C”代表当前异步DNS查找。如果-n和-N参数同时存在，-n将被忽略。如果-n和-N参数都不写，则默认打开所有地址名字解析。
+	-d: 将指定的数据按有关协议解包输出,如要将tcp 8888端口的流量按http解包，应该写为“-d tcp.port==8888,http”;tshark -d. 可以列出所有支持的有效选择器。　　
     
 输出选项:　　
 	-w: -w <outfile|-> 设置raw数据的输出文件。这个参数不设置，tshark将会把解码结果输出到stdout,“-w -”表示把raw输出到stdout。如果要把解码结果输出到文件，使用重定向“>”而不要-w参数。　　
@@ -295,6 +298,9 @@ tshark -r temp.cap -R "ssl" -V -T text　　
 	注释: 　　　　
 		-T text: 格式化输出，默认就是text;　　　　
 		-V: 增加包的输出;//-q 过滤tcp流13，获取data内容
+
+//提取test.pcapng流量包中的usb.capdata并且写入test.txt
+tshark -r 'test.pcapng' -T fields -e usb.capdata > test.txt
 
 //显示ssl data数据
 tshark -n -t a -R ssl -T fields -e "ip.src" -e "ssl.app_data"
