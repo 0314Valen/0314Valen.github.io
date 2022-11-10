@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>buumisc(6) | Valen的博客</title><meta name="keywords" content="ctf,misc,刷题"><meta name="author" content="Valen"><meta name="copyright" content="Valen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="buu刷题目记录(第6页)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="buumisc(6)">
+<meta property="og:url" content="https://0314valen.github.io/article/2022-03-18-buumisc(6)/index.html">
+<meta property="og:site_name" content="Valen的博客">
+<meta property="og:description" content="buu刷题目记录(第6页)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://api.btstu.cn/sjbz/">
+<meta property="article:published_time" content="2022-03-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-20T14:10:49.250Z">
+<meta property="article:author" content="Valen">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="misc">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://api.btstu.cn/sjbz/"><link rel="shortcut icon" href="/image/UI_images/favicon.png"><link rel="canonical" href="https://0314valen.github.io/article/2022-03-18-buumisc(6)/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'buumisc(6)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-20 22:10:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/UI_images/avatar.jpg" onerror="onerror=null;src='/image/UI_images/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/CyberChef/"><i class="fa-fw fas fa-music"></i><span> CyberChef</span></a></li><li><a class="site-page child" href="/Linux-command/"><i class="fa-fw fas fa-video"></i><span> Linux命令大全</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('http://api.btstu.cn/sjbz/')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Valen的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/CyberChef/"><i class="fa-fw fas fa-music"></i><span> CyberChef</span></a></li><li><a class="site-page child" href="/Linux-command/"><i class="fa-fw fas fa-video"></i><span> Linux命令大全</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">buumisc(6)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-17T16:00:00.000Z" title="发表于 2022-03-18 00:00:00">2022-03-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-20T14:10:49.250Z" title="更新于 2022-09-20 22:10:49">2022-09-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/">ctf</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/%E5%88%B7%E9%A2%98/">刷题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="buumisc(6)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>buu刷题目记录(第6页)</p>
+<span id="more"></span>
+
+<h1 id="buumisc-6"><a href="#buumisc-6" class="headerlink" title="buumisc(6)"></a>buumisc(6)</h1><p>buu第六页，取证什么的后面在一块学习一下，目前暂时跳过了</p>
+<p><img src="/image/media/2022/ctf/buu/6/0.png"></p>
+<h2 id="INSHack2018-42-tar-xz"><a href="#INSHack2018-42-tar-xz" class="headerlink" title="[INSHack2018]42.tar.xz"></a>[INSHack2018]42.tar.xz</h2><p>压缩包，测试了一个需要疯狂解压解压，python脚本虽然可以，但是会爆盘</p>
+<p>使用bash命令直接循环解压即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while [ &quot;`find . -type f -name &#x27;*.tar.xz&#x27; | wc -l`&quot; -gt 0 ]; do find -type f -name &quot;*.tar.xz&quot; -exec tar xf &#x27;&#123;&#125;&#x27; \; -exec rm -- &#x27;&#123;&#125;&#x27; \;; done;</span><br></pre></td></tr></table></figure>
+
+<p>得到一堆文件和flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;04ebb0d6a87f9771f2eea4dce5b91a85e7623c13301a8007914085a91b3ca6d9&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="XMAN2018排位赛-AutoKey"><a href="#XMAN2018排位赛-AutoKey" class="headerlink" title="[XMAN2018排位赛]AutoKey"></a>[XMAN2018排位赛]AutoKey</h2><p><a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker%E5%8F%AF%E4%BB%A5%E7%94%A8%E8%BF%99%E4%B8%AA%E5%B7%A5%E5%85%B7">https://github.com/WangYihang/UsbKeyboardDataHacker可以用这个工具</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">└─# python2 UsbKeyboardDataHacker.py attachment.pcapng</span><br><span class="line">Running as user &quot;root&quot; and group &quot;root&quot;. This could be dangerous.</span><br><span class="line">[+] Found : &lt;CAP&gt;a&lt;CAP&gt;utokey(&#x27;****&#x27;).decipheer(&#x27;&lt;CAP&gt;mplrvffczeyoujfjkybxgzvdgqaurkxzolkolvtufblrnjesqitwahxnsijxpnmplshcjbtyhzealogviaaissplfhlfswfehjncrwhtinsmambvexo&lt;DEL&gt;pze&lt;DEL&gt;iz&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>然后处理一下密文，把<code>&lt;DEL&gt;</code>前面字母的删去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplrvffczeyoujfjkybxgzvdgqaurkxzolkolvtufblrnjesqitwahxnsijxpnmplshcjbtyhzealogviaaissplfhlfswfehjncrwhtinsmambvexpziz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mplrvffczeyoujfjkybxgzvdgqaurkxzolkolvtufblrnjesqitwahxnsijxpnmplshcjbtyhzealogviaaissplfhlfswfehjncrwhtinsmambvexpziz</span><br></pre></td></tr></table></figure>
+
+<p>然后用autokey爆破环境配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">py文件下载地址</span><br><span class="line">http://www.practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-autokey-cipher/</span><br><span class="line">配置文件下载地址</span><br><span class="line">http://www.practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/#a-python-implementation</span><br></pre></td></tr></table></figure>
+
+<p>得到</p>
+<p><img src="/image/media/2022/ctf/buu/6/1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-674.914569565 autokey, klen 8 :&quot;FLAGHERE&quot;, HELLOBOYSANDGIRLSYOUARESOSMARTTHATYOUCANFINDTHEFLAGTHATIHIDEINTHEKEYBOARDPACKAGEFLAGISJHAWLZKEWXHNCDHSLWBAQJTUQZDXZQPF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAGISJHAWLZKEWXHNCDHSLWBAQJTUQZDXZQPF</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAG&#123;JHAWLZKEWXHNCDHSLWBAQJTUQZDXZQPF&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="QCTF2018-X-man-Keyword"><a href="#QCTF2018-X-man-Keyword" class="headerlink" title="[QCTF2018]X-man-Keyword"></a>[QCTF2018]X-man-Keyword</h2><p>得到keyword:lovekfc</p>
+<p>用lsb脚本解密可以得到<a target="_blank" rel="noopener" href="https://github.com/livz/cloacked-pixel">https://github.com/livz/cloacked-pixel</a></p>
+<p>PVSF{vVckHejqBOVX9C1c13GFfkHJrjIQeMwf}</p>
+<p>猜测是Nihilist 密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import string</span><br><span class="line"></span><br><span class="line">enc=&#x27;PVSF&#123;vVckHejqBOVX9C1c13GFfkHJrjIQeMwf&#125;&#x27;</span><br><span class="line">grid=&#x27;LOVEKFC&#x27;+&#x27;ABDGHIJMNPQRSTUWXY&#x27;</span><br><span class="line">flag=&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">for i in enc:</span><br><span class="line">    if i in string.ascii_lowercase:</span><br><span class="line">        index=grid.lower().index(i)</span><br><span class="line">        flag+=string.ascii_lowercase[index]</span><br><span class="line">        continue</span><br><span class="line">    if i in string.ascii_uppercase:</span><br><span class="line">        index=grid.upper().index(i)</span><br><span class="line">        flag+=string.ascii_uppercase[index]</span><br><span class="line">        continue</span><br><span class="line">    flag+=i</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;cCgeLdnrIBCX9G1g13KFfeLNsnMRdOwf&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2017-hiding-in-plain-sight"><a href="#INSHack2017-hiding-in-plain-sight" class="headerlink" title="[INSHack2017]hiding-in-plain-sight"></a>[INSHack2017]hiding-in-plain-sight</h2><p>直接用binwalk+foremost得到flag的图片</p>
+<p><img src="/image/media/2022/ctf/buu/6/2.jpg"></p>
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;l337_h4xx0r5_c0mmun1c473_w17h_PNGs&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HDCTF2019-信号分析"><a href="#HDCTF2019-信号分析" class="headerlink" title="[HDCTF2019]信号分析"></a>[HDCTF2019]信号分析</h2><p>得到一个wav文件，直接丢到Audacity，选择频谱图</p>
+<p><img src="/image/media/2022/ctf/buu/6/2.png"></p>
+<p>可以看到是重复的频段，所以分析一个即可，然后安装粗1细0区分，得到</p>
+<p>0101010101010101000000110</p>
+<p>然后根据题目名称：PT2242信号：前面4bit表示同步码，中间的20bit表示地址码，后面的4bit表示功能码，最后一位是停止码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0101010101010101     00000011      0			#划分后的结果</span><br><span class="line">01 代表 F		00 代表 0		11 代表 1		最后的0是结束符</span><br><span class="line">FFFFFFFF0001，最后的0是结束符不计入</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;FFFFFFFF0001&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2017-remote-multimedia-controller"><a href="#INSHack2017-remote-multimedia-controller" class="headerlink" title="[INSHack2017]remote-multimedia-controller"></a>[INSHack2017]remote-multimedia-controller</h2><p>得到一个流量包，解压直接搜flag</p>
+<p><img src="/image/media/2022/ctf/buu/6/3.png"></p>
+<p>然后定位到流量包去追踪</p>
+<p><img src="/image/media/2022/ctf/buu/6/4.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vmxkd1NrNVhVbk5qUlZKU1ltdGFjRlJYZEhOaWJFNVhWR3RPV0dKVmJEWldiR1JyV1ZkS1ZXRXphRnBpVkVaVFYycEtVMU5IUmtobFJYQlRUVmhDTmxZeFdtdGhhelZ5WWtWYWFWSlViRmRVVlZaYVRURmFjbFpyT1ZaV2JXUTJWa1pvYTFkck1YVlVhbHBoVWxack1GUlZaRXRqVmxaMVZHMTRXRkpVUlRCWFdIQkdUbGRHY2s1VmFFOVdNWEJoV1Zkek1XSldaSFJPVm1SclZsZDRXbFJWVm5wUVVUMDk=</span><br></pre></td></tr></table></figure>
+
+<p>经过好几次base64解密之后得到，flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;TCP_s0ck3t_4n4lys1s_c4n_b3_fun!&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一路到底"><a href="#一路到底" class="headerlink" title="一路到底"></a>一路到底</h2><p>首先得到大量的txt，最下面有个start.txt，然后根据txt中的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20555 : The next is a8242a234560a0d3cf121864ee34d7fb.txt</span><br></pre></td></tr></table></figure>
+
+<p>可以知道下一个文件的是，a8242a234560a0d3cf121864ee34d7fb.txt，并且20555是效数据</p>
+<p>然后用一个脚本提取所有信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import binascii</span><br><span class="line">from tqdm import tqdm</span><br><span class="line">flag=&#x27;&#x27;</span><br><span class="line">with open(&#x27;files/start.txt&#x27;) as f:</span><br><span class="line">    text=f.read()</span><br><span class="line">    nexttxt=text[-36:]</span><br><span class="line">    data=&#x27;&#123;:04x&#125;&#x27;.format(int(text[0:text.find(&#x27;:&#x27;)-1]))#4位小数，并且16进制</span><br><span class="line">    print(type(data))</span><br><span class="line">    flag=flag+data</span><br><span class="line">    print(text, &#x27;\t&#x27;, nexttxt, &#x27;\t&#x27;, data)</span><br><span class="line">    for i in tqdm(range(160000)):</span><br><span class="line">        try:</span><br><span class="line">            with open(&#x27;files/&#x27;+nexttxt) as f:</span><br><span class="line">                text = f.read()</span><br><span class="line">                nexttxt = text[-36:]</span><br><span class="line">                data = &#x27;&#123;:04x&#125;&#x27;.format(int(text[0:text.find(&#x27;:&#x27;) - 1]))</span><br><span class="line">                flag = flag + data</span><br><span class="line">                #print(text, &#x27;\t&#x27;, nexttxt, &#x27;\t&#x27;, data)</span><br><span class="line">        except:</span><br><span class="line">            print(flag)</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">with open(&#x27;fla.zip&#x27;,&#x27;wb&#x27;) as f:</span><br><span class="line">    f.write(binascii.unhexlify(flag))</span><br></pre></td></tr></table></figure>
+
+<p>得到一个压缩包hint：年轻人，能走到这一步不容易啊！不要灰心，密码十分钟就可以破解哦，加油！</p>
+<p>爆破用字母小写+数字，得到密码tgb678，解压得到图片，但是不能直接打开，用010查看文件头，修改文件头为</p>
+<p><img src="/image/media/2022/ctf/buu/6/5.png"></p>
+<p>得到图片，查看得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;0c6b489ca956e2fd94dce12be4bf0729&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RoarCTF2019-forensic"><a href="#RoarCTF2019-forensic" class="headerlink" title="[RoarCTF2019]forensic"></a>[RoarCTF2019]forensic</h2><p>得到没有后缀名的文件，直接打开能看到部分信息，全文可以猜测是python文件，猜测是pyc隐写</p>
+<p>需要用python3.6之前的python版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 stegosaurus.py -x ctf.pyc#Extracted payload: SUCTF&#123;Z3r0_fin411y_d34d&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUCTF&#123;Z3r0_fin411y_d34d&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2018-not-so-deep"><a href="#INSHack2018-not-so-deep" class="headerlink" title="[INSHack2018] (not) so deep"></a>[INSHack2018] (not) so deep</h2><p>得到一个wav，然后直接放在，Audacity选择频谱分析得到flag的前面部分：flag{Aud1o_st3G4n</p>
+<p><img src="/image/media/2022/ctf/buu/6/6.png"></p>
+<p>然后用deepsound打开的时候需要密码，然后用密码的hash值然后使用john进行爆破，得到密码azerty </p>
+<p><img src="/image/media/2022/ctf/buu/6/7.png"></p>
+<p>附上deepsound_john脚本如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">import logging</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import textwrap</span><br><span class="line">def decode_data_low(buf):</span><br><span class="line">  return buf[::2]</span><br><span class="line">def decode_data_normal(buf):</span><br><span class="line">  out = bytearray()</span><br><span class="line">  for i in range(0, len(buf), 4):</span><br><span class="line">    out.append((buf[i] &amp; 15) &lt;&lt; 4 | (buf[i + 2] &amp; 15))</span><br><span class="line">  return out</span><br><span class="line">def decode_data_high(buf):</span><br><span class="line">  out = bytearray()</span><br><span class="line">  for i in range(0, len(buf), 8):</span><br><span class="line">    out.append((buf[i] &amp; 3) &lt;&lt; 6     | (buf[i + 2] &amp; 3) &lt;&lt; 4 \</span><br><span class="line">             | (buf[i + 4] &amp; 3) &lt;&lt; 2 | (buf[i + 6] &amp; 3))</span><br><span class="line">  return out</span><br><span class="line">def is_magic(buf):</span><br><span class="line">  return (buf[0] &amp; 15)  == (68 &gt;&gt; 4) and (buf[2]  &amp; 15) == (68 &amp; 15) \</span><br><span class="line">     and (buf[4] &amp; 15)  == (83 &gt;&gt; 4) and (buf[6]  &amp; 15) == (83 &amp; 15) \</span><br><span class="line">     and (buf[8] &amp; 15)  == (67 &gt;&gt; 4) and (buf[10] &amp; 15) == (67 &amp; 15) \</span><br><span class="line">     and (buf[12] &amp; 15) == (70 &gt;&gt; 4) and (buf[14] &amp; 15) == (70 &amp; 15)</span><br><span class="line">def is_wave(buf):</span><br><span class="line">  return buf[0:4] == b&#x27;RIFF&#x27; and buf[8:12] == b&#x27;WAVE&#x27;</span><br><span class="line">def process_deepsound_file(f):</span><br><span class="line">  bname = os.path.basename(f.name)</span><br><span class="line">  logger = logging.getLogger(bname)</span><br><span class="line">  buf = f.read(12)</span><br><span class="line">  if not is_wave(buf):</span><br><span class="line">    global convert_warn</span><br><span class="line">    logger.error(&#x27;file not in .wav format&#x27;)</span><br><span class="line">    convert_warn = True</span><br><span class="line">    return</span><br><span class="line">  f.seek(0, os.SEEK_SET)</span><br><span class="line">  hdrsz = 104</span><br><span class="line">  hdr = None</span><br><span class="line">  while True:</span><br><span class="line">    off = f.tell()</span><br><span class="line">    buf = f.read(hdrsz)</span><br><span class="line">    if len(buf) &lt; hdrsz: break</span><br><span class="line">    if is_magic(buf):</span><br><span class="line">          hdr = decode_data_normal(buf)</span><br><span class="line">          logger.info(&#x27;found DeepSound header at offset %i&#x27;, off)</span><br><span class="line">          break</span><br><span class="line">    f.seek(-hdrsz + 1, os.SEEK_CUR)</span><br><span class="line">  if hdr is None:</span><br><span class="line">    logger.warn(&#x27;does not appear to be a DeepSound file&#x27;)</span><br><span class="line">    return</span><br><span class="line">  mode = hdr[4]</span><br><span class="line">  encrypted = hdr[5]</span><br><span class="line">  modes = &#123;2: &#x27;low&#x27;, 4: &#x27;normal&#x27;, 8: &#x27;high&#x27;&#125;</span><br><span class="line">  if mode in modes:</span><br><span class="line">    logger.info(&#x27;data is encoded in %s-quality mode&#x27;, modes[mode])</span><br><span class="line">  else:</span><br><span class="line">    logger.error(&#x27;unexpected data encoding mode %i&#x27;, modes[mode])</span><br><span class="line">    return</span><br><span class="line">  if encrypted == 0:</span><br><span class="line">    logger.warn(&#x27;file is not encrypted&#x27;)</span><br><span class="line">    return</span><br><span class="line">  elif encrypted != 1:</span><br><span class="line">    logger.error(&#x27;unexpected encryption flag %i&#x27;, encrypted)</span><br><span class="line">    return</span><br><span class="line">  sha1 = hdr[6:6+20]</span><br><span class="line">  print(&#x27;%s:$dynamic_1529$%s&#x27; % (bname, sha1.hex()))</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">  import argparse</span><br><span class="line">  parser = argparse.ArgumentParser()</span><br><span class="line">  parser.add_argument(&#x27;--verbose&#x27;, &#x27;-v&#x27;, action=&#x27;store_true&#x27;)</span><br><span class="line">  parser.add_argument(&#x27;files&#x27;, nargs=&#x27;+&#x27;, metavar=&#x27;file&#x27;,</span><br><span class="line">    type=argparse.FileType(&#x27;rb&#x27;, bufsize=4096))</span><br><span class="line">  args = parser.parse_args()</span><br><span class="line">  if args.verbose:</span><br><span class="line">    logging.basicConfig(level=logging.INFO)</span><br><span class="line">  else:</span><br><span class="line">    logging.basicConfig(level=logging.WARN)</span><br><span class="line">  convert_warn = False</span><br><span class="line">  for f in args.files:</span><br><span class="line">    process_deepsound_file(f)</span><br><span class="line"></span><br><span class="line">  if convert_warn:</span><br><span class="line">    print(textwrap.dedent(&#x27;&#x27;&#x27;</span><br><span class="line">    ---------------------------------------------------------------</span><br><span class="line">    Some files were not in .wav format. Try converting them to .wav</span><br><span class="line">    and try again. You can use: ffmpeg -i input output.wav</span><br><span class="line">    ---------------------------------------------------------------&#x27;&#x27;&#x27;.rstrip()), file=sys.stderr)</span><br></pre></td></tr></table></figure>
+
+<p>然后用得到的密码azerty 去用deepsound打开得到0_1s_4lwayS_Th3_S4me}拼接完整flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Aud1o_st3G4n0_1s_4lwayS_Th3_S4me&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2017-10-cl0v3rf13ld-lane-signal"><a href="#INSHack2017-10-cl0v3rf13ld-lane-signal" class="headerlink" title="[INSHack2017]10-cl0v3rf13ld-lane-signal"></a>[INSHack2017]10-cl0v3rf13ld-lane-signal</h2><p>得到一个没有后缀名的文件，用file查看是个jpg文件，修改后缀名后可以看到下面</p>
+<p><img src="/image/media/2022/ctf/buu/6/1.jpg"></p>
+<p>然后binwalk+foremost得到</p>
+<p><img src="/image/media/2022/ctf/buu/6/00000075.png" alt="00000075"></p>
+<p>可以看到左下角有信息</p>
+<p><img src="/image/media/2022/ctf/buu/6/8.png" alt="8"></p>
+<p>根据上面表格得到信息：HELPME，继续分析一开始的图片，在一个END后面发现ogg</p>
+<p><img src="/image/media/2022/ctf/buu/6/9.png"></p>
+<p>Ogg全称是OGGVobis(oggVorbis)是一种音频压缩格式，类似于MP3等的音乐格式。新建一个文件把内容保存出来后缀名MP3</p>
+<p>用Audacity打开看到莫斯密码</p>
+<p><img src="/image/media/2022/ctf/buu/6/10.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.. -. ... .- -.--. -- ----- .-. ..... ...-- ..--.- .-- .---- .-.. .-.. ..--.- -. ...-- ...- ...-- .-. ..--.- ....- --. ...-- -.-.-- -.--.-</span><br></pre></td></tr></table></figure>
+
+<p>解密后得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA(M0R53_W1LL_N3V3R_4G3!)</span><br></pre></td></tr></table></figure>
+
+<h2 id="watevrCTF-2019-Unspaellablle"><a href="#watevrCTF-2019-Unspaellablle" class="headerlink" title="[watevrCTF 2019]Unspaellablle"></a>[watevrCTF 2019]Unspaellablle</h2><p>可以知道是<a target="_blank" rel="noopener" href="https://imsdb.com/transcripts/Stargate-SG1-Children-Of-The-Gods.html%E5%8E%9F%E6%96%87">https://imsdb.com/transcripts/Stargate-SG1-Children-Of-The-Gods.html原文</a></p>
+<p>保存下载下来存为1.txt，linux下面使用vimdiff命令查看两个文件的差别，发现把差别字符提取出来也就是flag了。</p>
+<p>命令：vimdiff         attachment.txt         1.txt</p>
+<p><img src="/image/media/2022/ctf/buu/6/11.png"></p>
+<p>提取出红色的字样拼接就是flag：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watevr&#123;icantspeel_tiny.cc/2qtdez&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="NPUCTF2020-碰上彩虹，吃定彩虹！（未完成）"><a href="#NPUCTF2020-碰上彩虹，吃定彩虹！（未完成）" class="headerlink" title="[NPUCTF2020]碰上彩虹，吃定彩虹！（未完成）"></a>[NPUCTF2020]碰上彩虹，吃定彩虹！（未完成）</h2><p>打开得到三个附件lookatme.txt用np++打开得打</p>
+<p><img src="/image/media/2022/ctf/buu/6/12.png"></p>
+<p>莫斯密码：解密得到AUTOKEY</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.- ..- - --- -.- . -.--</span><br></pre></td></tr></table></figure>
+
+<p>然后maybehint.txt用0宽隐写解密得到：do u know NTFS?</p>
+<p><img src="/image/media/2022/ctf/buu/6/13.png"></p>
+<p>然后需要用到NTFS</p>
+<h2 id="XMAN2018排位赛-ppap"><a href="#XMAN2018排位赛-ppap" class="headerlink" title="[XMAN2018排位赛]ppap"></a>[XMAN2018排位赛]ppap</h2><p>直接搜flag，然后出来几个流量包，追踪到</p>
+<p><img src="/image/media/2022/ctf/buu/6/14.png"></p>
+<p>复制出来，去掉前面和后面的正常信息，中间114876分界</p>
+<p><img src="/image/media/2022/ctf/buu/6/15.png"></p>
+<p>然后吧114871行道114876行直接拿出来base64解密后保存为zip得到一个加密的zip包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UEsDBAoACQAAAOFTLkk/gs0NNAAAACgAAAAIABwAZmxhZy50eHRVVAkAA1aJ2Ve2h9xXdXgLAAEE6AMAAAToAwAAYrToA9yED6vL2Axm/JqV6236iHl0zKXB4CdAaOW9O+8glqQHuFocXUiDWXHqA+VHKkR0E1BLBwg/gs0NNAAAACgAAABQSwECHgMKAAkAAADhUy5JP4LNDTQAAAAoAAAACAAYAAAAAAABAAAAtIEAAAAAZmxhZy50eHRVVAUAA1aJ2Vd1eAsAAQToAwAABOgDAABQSwUGAAAAAAEAAQBOAAAAhgAAAAAA</span><br></pre></td></tr></table></figure>
+
+<p>用网站<a target="_blank" rel="noopener" href="https://passwordrecovery.io/zip-file-password-removal/%E5%BE%97%E5%88%B0%E5%AF%86%E7%A0%81skullandcrossbones">https://passwordrecovery.io/zip-file-password-removal/得到密码skullandcrossbones</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;b31Ng_4_P1r4tE_1s_4lR1GHT_w1Th_M3&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="羊城杯-2020-signin"><a href="#羊城杯-2020-signin" class="headerlink" title="[羊城杯 2020]signin"></a>[羊城杯 2020]signin</h2><p>玩具总动员里面，巴斯光年成功上天，胡迪给他发了一段加密短信，但是不知道是什么？胡迪给了一段明文，一表人才，二表倒立</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BCEHACEIBDEIBDEHBDEHADEIACEGACFIBDFHACEGBCEHBCFIBDEGBDEGADFGBDEHBDEGBDFHBCEGACFIBCFGADEIADEIADFH</span><br></pre></td></tr></table></figure>
+
+<p>根据玩具总动员的英文名是Toy Story，因此是toy密码。 <a target="_blank" rel="noopener" href="https://eprint.iacr.org/2020/301.pdf">https://eprint.iacr.org/2020/301.pdf</a> 得到一表</p>
+<p><img src="/image/media/2022/ctf/buu/6/16.png"></p>
+<p>得到二表</p>
+<p><img src="/image/media/2022/ctf/buu/6/17.png"></p>
+<p>然后根据一表人才，二表倒立可以编写下面的脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cipherdic = &#123;&#x27;M&#x27;:&#x27;ACEG&#x27;,&#x27;R&#x27;:&#x27;ADEG&#x27;,&#x27;K&#x27;:&#x27;BCEG&#x27;,&#x27;S&#x27;:&#x27;BDEG&#x27;,&#x27;A&#x27;:&#x27;ACEH&#x27;,&#x27;B&#x27;:&#x27;ADEH&#x27;,&#x27;L&#x27;:&#x27;BCEH&#x27;,&#x27;U&#x27;:&#x27;BDEH&#x27;,&#x27;D&#x27;:&#x27;ACEI&#x27;,&#x27;C&#x27;:&#x27;ADEI&#x27;,&#x27;N&#x27;:&#x27;BCEI&#x27;,&#x27;V&#x27;:&#x27;BDEI&#x27;,&#x27;H&#x27;:&#x27;ACFG&#x27;,&#x27;F&#x27;:&#x27;ADFG&#x27;,&#x27;O&#x27;:&#x27;BCFG&#x27;,&#x27;W&#x27;:&#x27;BDFG&#x27;,&#x27;T&#x27;:&#x27;ACFH&#x27;,&#x27;G&#x27;:&#x27;ADFH&#x27;,&#x27;P&#x27;:&#x27;BCFH&#x27;,&#x27;X&#x27;:&#x27;BDFH&#x27;,&#x27;E&#x27;:&#x27;ACFI&#x27;,&#x27;I&#x27;:&#x27;ADFI&#x27;,&#x27;Q&#x27;:&#x27;BCFI&#x27;,&#x27;Y&#x27;:&#x27;BDFI&#x27;&#125;</span><br><span class="line">cipher = &#x27;BCEHACEIBDEIBDEHBDEHADEIACEGACFIBDFHACEGBCEHBCFIBDEGBDEGADFGBDEHBDEGBDFHBCEGACFIBCFGADEIADEIADFH&#x27;</span><br><span class="line">flag=&#x27;&#x27;</span><br><span class="line">for i in range(0,len(cipher),4):</span><br><span class="line">    for k, v in cipherdic.items():</span><br><span class="line">        if v == cipher[i:i+4]:</span><br><span class="line">            flag = flag + k</span><br><span class="line">print(flag)#LDVUUCMEXMLQSSFUSXKEOCCG</span><br><span class="line">ciphertext = &#x27;LDVUUCMEXMLQSSFUSXKEOCCG&#x27;</span><br><span class="line">original_list = [&#x27;M&#x27;,&#x27;R&#x27;,&#x27;K&#x27;,&#x27;S&#x27;,&#x27;A&#x27;,&#x27;B&#x27;,&#x27;L&#x27;,&#x27;U&#x27;,&#x27;D&#x27;,&#x27;C&#x27;,&#x27;N&#x27;,&#x27;V&#x27;,&#x27;H&#x27;,&#x27;F&#x27;,&#x27;O&#x27;,&#x27;W&#x27;,&#x27;T&#x27;,&#x27;G&#x27;,&#x27;P&#x27;,&#x27;X&#x27;,&#x27;E&#x27;,&#x27;I&#x27;,&#x27;Q&#x27;,&#x27;Y&#x27;]</span><br><span class="line">reversed_list = original_list[::-1]#倒装后的表</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">for char in ciphertext:</span><br><span class="line">    for i in range(len(original_list)):</span><br><span class="line">        if original_list[i] ==char:</span><br><span class="line">            flag=flag+reversed_list[i]</span><br><span class="line">print(flag)#GWHTTOYSAYGREENTEAISCOOL</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GWHT&#123;TOYSAYGREENTEAISCOOL&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2019-Passthru"><a href="#INSHack2019-Passthru" class="headerlink" title="[INSHack2019]Passthru"></a>[INSHack2019]Passthru</h2><p>给了一个流量包和一个sslkey.log文件，可以看到流量包中存在加密</p>
+<p><img src="/image/media/2022/ctf/buu/6/18.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.request.method==GET</span><br></pre></td></tr></table></figure>
+
+<p>过滤请求包，这些包的<code>URL</code>中有个参数名是：kcahsni，而题目名是：inshack</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D82290383-7480-487c-b78b-77ac769c56cd%26kcahsni%3D9ef773fe97f56554a3b4,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D8bd542b5-2056-489e-bc1c-4f028ef27894%26kcahsni%3D26cd07e1f71df3dcee9f,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3De76528cd-17d3-490a-be20-2d817ccee04e%26kcahsni%3D1eaf89725ab93968fc52,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D491c01dd-f1a3-43c3-b3c8-30c4ab73ff4b%26kcahsni%3Df03c0a7d653539616433,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3Deeed4c5d-8a5f-4b8c-a12d-a2ef007e09e2%26kcahsni%3D66333861303164636130,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3Db69d43cd-ac86-4b20-acc6-6a441d94ae3e%26kcahsni%3D30663937353965366432,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3De56bc952-42c2-4631-96ee-e2e7cac51406%26kcahsni%3D30353331373634326335,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3Dece42ab1-a9d1-44df-a0b5-6b7e83aa9cd0%26kcahsni%3D34323166636461643033,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D71ad1cf6-a31a-4694-812b-9ea5db6e3cad%26kcahsni%3D34656265373037376332,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D1b3c7025-b1a8-477f-9d16-89c254af258a%26kcahsni%3D62646464343732627b41,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D64ac599c-e5ac-43bc-a2e0-0447257cd5bc%26kcahsni%3D534e490b3295c3d06c24,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3Dd8af7f01-5b92-4ad3-8c80-c6af467eac30%26kcahsni%3Df2a8c7e8936667dbf7fe,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D01b77323-6be9-4abd-b427-9f09d992a4df%26kcahsni%3Dce28456a0fd24ac21ec6,encoded_image=,image_content=,filename=,hl=fr</span><br><span class="line">/searchbyimage?image_url=http%3A%2F%2Frequestbin.net%2Fr%2Fzk2s2ezk%3Fid%3D3f3e4f2f-5d92-4d3a-8ce8-f11943b42df3%26kcahsni%3Da12e3efe4b,encoded_image=,image_content=,filename=,hl=fr</span><br></pre></td></tr></table></figure>
+
+<p>取出来取出这些包的kcahsni的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kcahsni%3D9ef773fe97f56554a3b4</span><br><span class="line">kcahsni%3D26cd07e1f71df3dcee9f</span><br><span class="line">kcahsni%3D1eaf89725ab93968fc52</span><br><span class="line">kcahsni%3Df03c0a7d653539616433</span><br><span class="line">kcahsni%3D66333861303164636130</span><br><span class="line">kcahsni%3D30663937353965366432</span><br><span class="line">kcahsni%3D30353331373634326335</span><br><span class="line">kcahsni%3D34323166636461643033</span><br><span class="line">kcahsni%3D34656265373037376332</span><br><span class="line">kcahsni%3D62646464343732627b41</span><br><span class="line">kcahsni%3D534e490b3295c3d06c24</span><br><span class="line">kcahsni%3Df2a8c7e8936667dbf7fe</span><br><span class="line">kcahsni%3Dce28456a0fd24ac21ec6</span><br><span class="line">kcahsni%3Da12e3efe4b</span><br></pre></td></tr></table></figure>
+
+<p>拼接一下得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9ef773fe97f56554a3b426cd07e1f71df3dcee9f1eaf89725ab93968fc52f03c0a7d653539616433663338613031646361303066393735396536643230353331373634326335343231666364616430333465626537303737633262646464343732627b41534e490b3295c3d06c24f2a8c7e8936667dbf7fece28456a0fd24ac21ec6a12e3efe4b</span><br></pre></td></tr></table></figure>
+
+<p>逆序输出16进制转二进制，然后逆序输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;b274dddb2c7707ebe430dadcf1245c246713502d6e9579f00acd10a83f3da95e&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="WMCTF2020-行为艺术"><a href="#WMCTF2020-行为艺术" class="headerlink" title="[WMCTF2020]行为艺术"></a>[WMCTF2020]行为艺术</h2><p>打开看到crc报错，爆破得到正确是长宽，然后通过手动记录得到下面信息，看起来是个zip</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">504B0304140000000800DB93C55086A39007D8000000DF01000008000000666C61672E74787475504B0E823010DD93708771DDCCB0270D5BBD0371815A9148AC6951C2ED9D271F89C62E2693D7F76BB7DE9FC80D2E6E68E782A326D2E01F81CE6D55E76972E9BA7BCCB3ACEF7B89F7B6E90EA16A6EE2439D45179ECDD1C5CCFB6B9AA489C1218C92B898779D765FCCBB58CC920B6662C5F91749931132258F32BBA7C288C5AE103133106608409DAC419F77241A3412907814AB7A922106B8DED0D25AEC8A634929025C46A33FE5A1D3167A100323B1ABEE4A7A0708413A19E17718165F5D3E73D577798E36D5144B66315AAE315078F5E51A29246AF402504B01021F00140009000800DB93C55086A39007D8000000DF010000080024000000000000002000000000000000666C61672E7478740A00200000000000010018004A0A9A64243BD601F9D8AB39243BD6012D00CA13223BD601504B050600000000010001005A000000FE00000000000000</span><br></pre></td></tr></table></figure>
+
+<p>发现是伪加密，得到Brainfuck加密的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+++++ ++++[ -&gt;+++ +++++ +&lt;]&gt;+ +++++ .&lt;+++ [-&gt;-- -&lt;]&gt;- .&lt;+++ [-&gt;-- -&lt;]&gt;-</span><br><span class="line">.&lt;+++ +[-&gt;+ +++&lt;] &gt;+.&lt;+ ++[-&gt; ---&lt;] &gt;---- -.&lt;++ +++++ [-&gt;++ +++++ &lt;]&gt;++</span><br><span class="line">++.-- --.&lt;+ +++[- &gt;---- &lt;]&gt;-- ----. +++++ +++.&lt; +++[- &gt;---&lt; ]&gt;-.+ ++.++</span><br><span class="line">+++++ .&lt;+++ [-&gt;-- -&lt;]&gt;- .+++. -.... --.++ +.&lt;++ +[-&gt;+ ++&lt;]&gt; ++++. &lt;++++</span><br><span class="line">++++[ -&gt;--- ----- &lt;]&gt;-- ----- ----- --.&lt;+ +++[- &gt;++++ &lt;]&gt;+. +...&lt; +++++</span><br><span class="line">+++[- &gt;++++ ++++&lt; ]&gt;+++ +++++ +++.. .-.&lt; </span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WMCTF&#123;wai_bi_baaaa_bo!2333~~~&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSHack2018-Spreadshit"><a href="#INSHack2018-Spreadshit" class="headerlink" title="[INSHack2018]Spreadshit"></a>[INSHack2018]Spreadshit</h2><p>给了一个表格，但是里面看起来什么都没有，ctrl+F是搜索空格是由东西的，然后替换成黑色</p>
+<p><img src="/image/media/2022/ctf/buu/6/20.png"></p>
+<p>然后去格式里面列宽调整一下宽的值，然后得到flag</p>
+<p><img src="/image/media/2022/ctf/buu/6/21.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;3cf6463910edffb0&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GKCTF-2021-银杏岛の奇妙冒险"><a href="#GKCTF-2021-银杏岛の奇妙冒险" class="headerlink" title="[GKCTF 2021]银杏岛の奇妙冒险"></a>[GKCTF 2021]银杏岛の奇妙冒险</h2><p>打开文件存在一个路径<code>附件\.minecraft\saves\Where is the flag</code>根据文件夹的名字猜测flag</p>
+<p>然后找<code>附件\.minecraft\saves\Where is the flag\customnpcs\quests</code>到三个任务</p>
+<p>分别是寻找flag，支线，主线，在主线2.json中的得到下面字样的w3lc0me_猜测是flag中的一段</p>
+<p><img src="/image/media/2022/ctf/buu/6/22.png"></p>
+<p>在主线3.json中的得到下面字样的t0_9kctf_</p>
+<p><img src="/image/media/2022/ctf/buu/6/23.png"></p>
+<p>同理在其他的json寻找到完整flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;w3lc0me_t0_9kctf_2021_Check_1n&#125;</span><br><span class="line">GKCTF&#123;w3lc0me_t0_9kctf_2021_Check_1n&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://0314valen.github.io">Valen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://0314valen.github.io/article/2022-03-18-buumisc(6)/">https://0314valen.github.io/article/2022-03-18-buumisc(6)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://0314valen.github.io" target="_blank">Valen的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/misc/">misc</a><a class="post-meta__tags" href="/tags/%E5%88%B7%E9%A2%98/">刷题</a></div><div class="post_share"><div class="social-share" data-image="http://api.btstu.cn/sjbz/" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/UI_images/alipay-reward-image.jpg" target="_blank"><img class="post-qr-code-img" src="/image/UI_images/alipay-reward-image.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/UI_images/alipay-reward-image.jpg" target="_blank"><img class="post-qr-code-img" src="/image/UI_images/alipay-reward-image.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/article/2022-04-01-Wireshark%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E7%9A%84%E7%94%A8%E6%B3%95/"><img class="prev-cover" src="https://img.paulzzh.tech/touhou/random" onerror="onerror=null;src='/image/UI_images/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Wireshark命令行下的用法</div></div></a></div><div class="next-post pull-right"><a href="/article/2022-03-10-buumisc(5)/"><img class="next-cover" src="http://api.btstu.cn/sjbz/" onerror="onerror=null;src='/image/UI_images/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">buumisc(5)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/2022-03-02-bmz%E5%88%B7%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/" title="bmz刷题目记录"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-02</div><div class="title">bmz刷题目记录</div></div></a></div><div><a href="/article/2022-03-10-buumisc(5)/" title="buumisc(5)"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">buumisc(5)</div></div></a></div><div><a href="/article/2022-04-19-buumisc(7)/" title="buumisc(7)"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-19</div><div class="title">buumisc(7)</div></div></a></div><div><a href="/article/2021-10-31-%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%A4%B4/" title="CTF比赛中常见的文件头"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">CTF比赛中常见的文件头</div></div></a></div><div><a href="/article/2021-11-17-misc%E6%8A%80%E5%B7%A7/" title="misc技巧"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-17</div><div class="title">misc技巧</div></div></a></div><div><a href="/article/2021-12-14-misc%E7%B1%BB%E4%B9%8B%E9%9A%90%E5%86%99%E6%9C%AF/" title="misc类之隐写术"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-14</div><div class="title">misc类之隐写术</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/UI_images/avatar.jpg" onerror="this.onerror=null;this.src='/image/UI_images/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Valen</div><div class="author-info__description">一位精通各种环境的开启和附件的下载的签到型选手</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#buumisc-6"><span class="toc-number">1.</span> <span class="toc-text">buumisc(6)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2018-42-tar-xz"><span class="toc-number">1.1.</span> <span class="toc-text">[INSHack2018]42.tar.xz</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XMAN2018%E6%8E%92%E4%BD%8D%E8%B5%9B-AutoKey"><span class="toc-number">1.2.</span> <span class="toc-text">[XMAN2018排位赛]AutoKey</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QCTF2018-X-man-Keyword"><span class="toc-number">1.3.</span> <span class="toc-text">[QCTF2018]X-man-Keyword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2017-hiding-in-plain-sight"><span class="toc-number">1.4.</span> <span class="toc-text">[INSHack2017]hiding-in-plain-sight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HDCTF2019-%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">[HDCTF2019]信号分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2017-remote-multimedia-controller"><span class="toc-number">1.6.</span> <span class="toc-text">[INSHack2017]remote-multimedia-controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%B7%AF%E5%88%B0%E5%BA%95"><span class="toc-number">1.7.</span> <span class="toc-text">一路到底</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF2019-forensic"><span class="toc-number">1.8.</span> <span class="toc-text">[RoarCTF2019]forensic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2018-not-so-deep"><span class="toc-number">1.9.</span> <span class="toc-text">[INSHack2018] (not) so deep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2017-10-cl0v3rf13ld-lane-signal"><span class="toc-number">1.10.</span> <span class="toc-text">[INSHack2017]10-cl0v3rf13ld-lane-signal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watevrCTF-2019-Unspaellablle"><span class="toc-number">1.11.</span> <span class="toc-text">[watevrCTF 2019]Unspaellablle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPUCTF2020-%E7%A2%B0%E4%B8%8A%E5%BD%A9%E8%99%B9%EF%BC%8C%E5%90%83%E5%AE%9A%E5%BD%A9%E8%99%B9%EF%BC%81%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89"><span class="toc-number">1.12.</span> <span class="toc-text">[NPUCTF2020]碰上彩虹，吃定彩虹！（未完成）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XMAN2018%E6%8E%92%E4%BD%8D%E8%B5%9B-ppap"><span class="toc-number">1.13.</span> <span class="toc-text">[XMAN2018排位赛]ppap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-signin"><span class="toc-number">1.14.</span> <span class="toc-text">[羊城杯 2020]signin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2019-Passthru"><span class="toc-number">1.15.</span> <span class="toc-text">[INSHack2019]Passthru</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WMCTF2020-%E8%A1%8C%E4%B8%BA%E8%89%BA%E6%9C%AF"><span class="toc-number">1.16.</span> <span class="toc-text">[WMCTF2020]行为艺术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSHack2018-Spreadshit"><span class="toc-number">1.17.</span> <span class="toc-text">[INSHack2018]Spreadshit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GKCTF-2021-%E9%93%B6%E6%9D%8F%E5%B2%9B%E3%81%AE%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9"><span class="toc-number">1.18.</span> <span class="toc-text">[GKCTF 2021]银杏岛の奇妙冒险</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/2022-10-01-2022%E5%B9%B49%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年9月比赛writeups"><img src="http://api.btstu.cn/sjbz/" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="2022年9月比赛writeups"/></a><div class="content"><a class="title" href="/article/2022-10-01-2022%E5%B9%B49%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年9月比赛writeups">2022年9月比赛writeups</a><time datetime="2022-09-30T16:00:00.000Z" title="发表于 2022-10-01 00:00:00">2022-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-09-26-MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySql数据库基础"><img src="https://imgsa.baidu.com/forum/pic/item/d52a2834349b033b40eff18517ce36d3d539bd0d.jpg" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="MySql数据库基础"/></a><div class="content"><a class="title" href="/article/2022-09-26-MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySql数据库基础">MySql数据库基础</a><time datetime="2022-09-25T16:00:00.000Z" title="发表于 2022-09-26 00:00:00">2022-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2021-11-23-%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5(ssti)/" title="模板注入(ssti)"><img src="https://img.paulzzh.tech/touhou/random" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="模板注入(ssti)"/></a><div class="content"><a class="title" href="/article/2021-11-23-%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5(ssti)/" title="模板注入(ssti)">模板注入(ssti)</a><time datetime="2022-09-08T08:39:16.859Z" title="发表于 2022-09-08 16:39:16">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-09-01-2022%E5%B9%B48%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年8月比赛writeups"><img src="http://api.btstu.cn/sjbz/" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="2022年8月比赛writeups"/></a><div class="content"><a class="title" href="/article/2022-09-01-2022%E5%B9%B48%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年8月比赛writeups">2022年8月比赛writeups</a><time datetime="2022-08-31T16:00:00.000Z" title="发表于 2022-09-01 00:00:00">2022-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-07-14-docker%E9%80%9F%E6%88%90/" title="docker速成"><img src="https://img.paulzzh.tech/touhou/random" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="docker速成"/></a><div class="content"><a class="title" href="/article/2022-07-14-docker%E9%80%9F%E6%88%90/" title="docker速成">docker速成</a><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Valen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

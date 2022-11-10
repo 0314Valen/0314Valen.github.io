@@ -1,0 +1,930 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>古典密码学 | Valen的博客</title><meta name="keywords" content="ctf,crypto"><meta name="author" content="Valen"><meta name="copyright" content="Valen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="学习一下古典密码学。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="古典密码学">
+<meta property="og:url" content="https://0314valen.github.io/article/2022-05-06-%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Valen的博客">
+<meta property="og:description" content="学习一下古典密码学。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api.ixiaowai.cn/gqapi/gqapi.php">
+<meta property="article:published_time" content="2022-05-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-15T09:47:46.082Z">
+<meta property="article:author" content="Valen">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="crypto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://api.ixiaowai.cn/gqapi/gqapi.php"><link rel="shortcut icon" href="/image/UI_images/favicon.png"><link rel="canonical" href="https://0314valen.github.io/article/2022-05-06-%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '古典密码学',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-15 17:47:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/UI_images/avatar.jpg" onerror="onerror=null;src='/image/UI_images/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/CyberChef/"><i class="fa-fw fas fa-music"></i><span> CyberChef</span></a></li><li><a class="site-page child" href="/Linux-command/"><i class="fa-fw fas fa-video"></i><span> Linux命令大全</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://api.ixiaowai.cn/gqapi/gqapi.php')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Valen的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/CyberChef/"><i class="fa-fw fas fa-music"></i><span> CyberChef</span></a></li><li><a class="site-page child" href="/Linux-command/"><i class="fa-fw fas fa-video"></i><span> Linux命令大全</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">古典密码学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-05T16:00:00.000Z" title="发表于 2022-05-06 00:00:00">2022-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-15T09:47:46.082Z" title="更新于 2022-10-15 17:47:46">2022-10-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf/">ctf</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">15.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>67分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="古典密码学"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>学习一下古典密码学。</p>
+<span id="more"></span>
+
+<h1 id="古典密码学"><a href="#古典密码学" class="headerlink" title="古典密码学"></a>古典密码学</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">密码(Cryptology)是一种用来混淆的技术,它希望将正常的、可识别的信息转变为无法识别的信息。</span><br><span class="line">密码学(Cryptography),是一门将信息进行加密处理与传递,以及分析加密信息的学科。</span><br><span class="line"></span><br><span class="line">密码学的发展大概经历了三个阶段:古典密码阶段、近代密码阶段、现代密码阶段。</span><br><span class="line">一般来说，古典密码学是基于字符的，而现代密码学是基于二进制位的。</span><br><span class="line">古典密码阶段是指从密码的产生到发展成为近代密码之间的这段时期密码的发展历史。</span><br></pre></td></tr></table></figure>
+
+<p>古典密码编码方法归根结底主要有两种，即置换和代换。</p>
+<ul>
+<li><p>把明文中的字母重新排列，字母本身不变，但其位置改变了，这样编成的密码称为置换密码。最简单的置换密码是把明文中的字母顺序倒过来，然后截成固定长度的字母组作为密文。</p>
+</li>
+<li><p>代换密码则是将明文中的字符替代成其他字符。</p>
+</li>
+</ul>
+<h2 id="置换密码"><a href="#置换密码" class="headerlink" title="置换密码"></a>置换密码</h2><p>置换密码（permutation cipher）又称为换位密码（transposition cipher），是根据一定的规则重新排列明文，以便打破明文的结构特性。置换密码的特点是保持明文的所有字符不变 ，只是利用置换打乱了明文字符的位置和次序 。也就是说，改变了明文的结构，不改变明文的内容。这种密码是把明文中各字符的位置次序重新排列来得到密文的一种密码体制。</p>
+<p>举例，我们来看一种简单的置换密码字母移位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">crypto=&#x27;abc&#x27;</span><br><span class="line">for i in range(len(crypto)):</span><br><span class="line">    print(crypto[i:]+crypto[:i])</span><br><span class="line">#abc</span><br><span class="line">#bca</span><br><span class="line">#cab</span><br></pre></td></tr></table></figure>
+
+<p>可以看到我们将每个单词中的字母都向右移动了一位，我们并没有改变明文的内容，只是改变了明文的结构。</p>
+<p>最常见的置换密码有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">周期置换密码：将明文P按固定长度m分组然后对每组按1，2…，m的某个置换重排位置从而得到密文C</span><br><span class="line">列置换密码：明文P遵照密钥的规程按列换位并且按列读出序列得到密文C</span><br><span class="line">曲路密码：明文P填入一个表中，并按照一定的曲路遍历</span><br><span class="line">栅栏密码：把文本按照一定的字数分成多个组，取每组第一个字连起来得到密文1，再取每组第二个字连起来得到密文2……最后把密文1、密文2……连成整段密文。</span><br></pre></td></tr></table></figure>
+
+<h3 id="周期置换密码"><a href="#周期置换密码" class="headerlink" title="周期置换密码"></a>周期置换密码</h3><p>周期置换密码是将明文字符串P按固定的长度m进行分组，然后对每组字符串中的字符按照某个密钥重新排位的到密文C。其中密钥S包含分组长度信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">明文：P=flag&#123;012345&#125;</span><br><span class="line">加密的密钥：S=(1 5 6 2 3)</span><br><span class="line">将明文分为两组，每组6个字符，不足6个的用规定好的字符进行填充，比如空格。</span><br><span class="line">现在分组情况是 P&#x27;=flag&#123;0+12345&#125;</span><br><span class="line">对每组的字符进行加密，根据密钥S，可知将第1个字符放在第5个字符的位置，第5个字符放在第6个字符的位置，第6个字符放在第2个字符的位置，第2个字符放在第3个字符的位置，第3个字符放在第1个字符的位置,置换后P&#x27;如下：</span><br><span class="line">flag&#123;0	------&gt;	a0lgf&#123;</span><br><span class="line">12345&#125;	------&gt;	3&#125;2415</span><br><span class="line">所以得到的最终密文Pm=a0lgf&#123;3&#125;2415</span><br></pre></td></tr></table></figure>
+
+<p>解密时只需得到密钥S的逆置换，把密文重新分组，按照密钥的逆置换对密文的子字符串重新排位就可以得到明文P。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">密文：P=a0lgf&#123;3&#125;2415</span><br><span class="line">加密的密钥：S=(1 5 6 2 3)</span><br><span class="line">加密的密钥逆置换S` = (1 3 2 6 5)</span><br><span class="line">对每组的字符进行加密，根据密钥逆置换，可知将第1个字符放在第3个字符的位置，第3个字符放在第2个字符的位置，第2个字符放在第6个字符的位置，第6个字符放在第5个字符的位置，第5个字符放在第1个字符的位置,置换后P&#x27;如下：</span><br><span class="line">a0lgf&#123;	------&gt;	flag&#123;0</span><br><span class="line">3&#125;2415	------&gt;	12345&#125;</span><br><span class="line">所以得到最后的原文flag&#123;012345&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="列置换密码"><a href="#列置换密码" class="headerlink" title="列置换密码"></a>列置换密码</h3><p>将明文p以设定的固定分组宽度m按行写出，即每行有m个字符；若明文长度不是m的整数倍，则不足部分用双方约定的方式填充（如双方约定用空格代替空缺处字符），最后得字符矩阵[Mp]n×m，按1，2…，m的某一置换σ交换列的位置次序得字符矩阵[Mp]n×m，把矩阵按[Mp]n×m列的顺序依次读出得密文序列c。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">明文：P=flag&#123;012345&#125;</span><br><span class="line">分组宽为m=4,得3行4列矩阵M:</span><br><span class="line">M= [f   l   a   g</span><br><span class="line">	&#123;	0	1	2</span><br><span class="line">	3	4	5	&#125;]</span><br><span class="line">置换σ=(1 3)(2	4)#也就是将第1列跟第3列做位置交换，第2列跟第4列做位置交换</span><br><span class="line">M&#x27;=[a   g   f   1</span><br><span class="line">	1	2	&#123;	0</span><br><span class="line">	5	&#125;	3	4]</span><br><span class="line">得到密文信息a15g2&#125;f&#123;3104</span><br></pre></td></tr></table></figure>
+
+<p>将密文c以分组宽度n按列写出得到字符矩阵[Mp]n×m，按加密过程用的置换σ的逆置换σ-1交换列的位置次序得字符矩阵[Mp]n×m，把矩阵[Mp]n×m按1，2…，n行的顺序依次读出得明文p</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">先把密文信息a15g2&#125;f&#123;3104转换成3行4列矩阵M(置换规则是4个数字)</span><br><span class="line">M&#x27;=[a   g   f   1</span><br><span class="line">	1	2	&#123;	0</span><br><span class="line">	5	&#125;	3	4]</span><br><span class="line">加密的置换算法逆置换σ=(3 1)(4 2)#也就是将第3列跟第1列做位置交换，第4列跟第2列做位置交换</span><br><span class="line">M= [f   l   a   g</span><br><span class="line">	&#123;	0	1	2</span><br><span class="line">	3	4	5	&#125;]</span><br><span class="line">得到最后的原文flag&#123;012345&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列置换的另一种说法</li>
+</ul>
+<p>首先能够把明文去掉空格后，分成分成n×m的一个矩阵如果有空格可以使用约定的字符进行加密，然后根据密钥的顺序依次读取数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">明文：P=flag&#123;012345&#125;</span><br><span class="line">分组宽为m=4,得3行4列矩阵M:</span><br><span class="line">置换规则σ=(3	1	4	2)	#有的给定一个单词用单词在字母表中的顺序确定置换规则cadb</span><br><span class="line">	3	1	4	2	#对应到矩阵列上面</span><br><span class="line">M= [f   l   a   g</span><br><span class="line">	&#123;	0	1	2</span><br><span class="line">	3	4	5	&#125;]</span><br><span class="line">根据置换规则的序号依次拼接完整信息得到完整的密文信息</span><br><span class="line">得到密文信息l04g2&#125;f&#123;3a15</span><br></pre></td></tr></table></figure>
+
+<p>解密过程就是根据原来的置换规则的逆规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">现有密文信息l04g2&#125;f&#123;3a15</span><br><span class="line">置换规则是4个数字所以生成一个4列*3行的矩阵</span><br><span class="line">置换规则σ=(3	1	4	2)的逆向规则σ&#x27;=(2	4	1	3)</span><br><span class="line">先分组l04+g2&#125;+f&#123;3+a15，生成矩阵</span><br><span class="line">	2	4	1	3	#对应到矩阵列上面</span><br><span class="line">M= [l   g   f   a</span><br><span class="line">	0	2	&#123;	1</span><br><span class="line">	4	&#125;	3	5]</span><br><span class="line">根据置换规则的序号依次拼接完整信息得到完整的密文信息</span><br><span class="line">得到密文信息flag&#123;012345&#125;</span><br></pre></td></tr></table></figure>
+
+<p>hint：列置换密码算法需要知道密钥的长度和顺序</p>
+<h3 id="曲路密码"><a href="#曲路密码" class="headerlink" title="曲路密码"></a>曲路密码</h3><p>将明文p以设定的固定分组宽度m按行写出，即每行有m个字符；若明文长度不是m的整数倍，则不足部分用双方约定的方式填充（如双方约定用空格代替空缺处字符），最后得字符矩阵[Mp]n×m，按照一定顺序从头到位遍历所有的字符，把读取到的字符拼接得到密文。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">加密的文本flag&#123;012345&#125;,长度为12</span><br><span class="line">可以使用2*6、3*4的矩阵填入全部的字符，这边选3*4也就是3行×4列</span><br><span class="line">首先将加密的文本按行填入该矩阵,如下面所示</span><br><span class="line">	f   l   a   g</span><br><span class="line">    &#123;	0	1	2</span><br><span class="line">	3	4	5	&#125;</span><br><span class="line">此时按照约定的顺序遍历所有的字符</span><br><span class="line">		&lt;-------		&lt;-------</span><br><span class="line">	f	|	l   ^	a	|	g	^</span><br><span class="line">    &#123;	|	0	|	1	|	2	|</span><br><span class="line">	3	↓	4	|	5	↓	&#125;	|</span><br><span class="line">	(结束)	   &lt;-------		 (开始)</span><br><span class="line">按照次顺序以此取出矩阵中的元素即得到密文信息：&#125;2ga1540lf&#123;3</span><br></pre></td></tr></table></figure>
+
+<p>给定加密密码和矩阵规格，也容易得到原文，需要事先双方约定密钥（即曲路路径）</p>
+<p>只需要按照同样的顺序首先把加密码填入矩阵，然后按照行顺序取出组合在一起</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">现有密文：&#125;2ga1540lf&#123;3，长度为12</span><br><span class="line">原文密码的矩阵是3*4也就是3行×4列</span><br><span class="line">所以第一个字符就是最左下角，逆向读取每个字符得到原文</span><br><span class="line">		&lt;--------		&lt;--------</span><br><span class="line">	*	|	*   ^	*	|	*	↑</span><br><span class="line">    &#123;	|	*	|	*	|	2	|</span><br><span class="line">	3	↓	*	|	*	↓	&#125;	|</span><br><span class="line">	(开始)	   &lt;-------		 (开始)</span><br><span class="line">也可以画一个表格然后每个字符填入即可得到原文：flag&#123;012345&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h3><p>栅栏密码（Rail-fence Cipher）就是把要加密的明文分成N个一组，然后把每组的第1个字符组合，每组第2个字符组合…每组的第N个字符组合，最后一个分组需要满足N个不满足的话就用一个填充符号，最后把他们全部连接起来就是密文（分成几组要求是根据明文长度来，因数关系）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">明文：P=flag&#123;012345&#125;，明文长度是12可以分成2，3，4，6个一组</span><br><span class="line">加密的密钥：N=2，3，4，6</span><br><span class="line">按照每6个字符组成一组，分成两组，</span><br><span class="line">现在分组情况是第一组flag&#123;0、第二组12345&#125;</span><br><span class="line">分别取每组的第一个字符组成密文1，再取每组第二个字连起来得到密文2...</span><br><span class="line">然后全部密文拼接得到后来的密文</span><br><span class="line">flag&#123;0	+	12345&#125;</span><br><span class="line">第一组f1、第二组l2、第三组a3、第四组g4、第五组&#123;5、第六组0&#125;</span><br><span class="line">f1l2a3g4&#123;50&#125;</span><br><span class="line">所以得到的最终密文f1l2a3g4&#123;50&#125;，称为6栏加密</span><br></pre></td></tr></table></figure>
+
+<p>python脚本实现栅栏密码加密过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">N=栏数</span><br><span class="line">crypto=明文</span><br><span class="line">for i in range(0,N):</span><br><span class="line">    for n in range(i,len(crypto),N):</span><br><span class="line">        print(crypto[n],end=&#x27;&#x27;)</span><br><span class="line">#外层循环用于分组，内循环用步长取值，判断一下取值就大概了解原理了</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>明文或密文中如果出现连续空格将原样保留。</li>
+<li>在进行多行文本\段落加密时，每行独立进行加密。</li>
+<li>N的取值范围在2到明文长度-1之间。</li>
+</ul>
+<p>python脚本实现栅栏密码解密过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zhalan=&#x27;f1l2a3g4&#123;50&#125;&#x27;</span><br><span class="line">for i in range(0,2):</span><br><span class="line">    for n in range(i,len(zhalan),2):</span><br><span class="line">        flag=flag+zhalan[n]</span><br><span class="line">        print(zhalan[n], end=&#x27;&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>hint：现有明文长度是a=b*c，当明文经过b栏加密后，将密文再次通过c栏加密可以恢复明文</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 栅栏加解密合并</span><br><span class="line">def railfence(content):</span><br><span class="line">    all=[]</span><br><span class="line">    for key in range(2,len(content)):</span><br><span class="line">        flag=&#x27;&#x27;</span><br><span class="line">        if len(content)%key==0:</span><br><span class="line">            for i in range(0, key):</span><br><span class="line">                for n in range(i, len(content), key):</span><br><span class="line">                    flag=flag+content[n]</span><br><span class="line">                    # print(content[n], end=&#x27;&#x27;)</span><br><span class="line">            all.append(&#x27;栏数为:&#123;0&#125;时,结果为:&#123;1&#125;&#x27;.format(key,flag))</span><br><span class="line">    print(all)</span><br><span class="line">    print(len(all))</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    content=&#x27;flag&#123;012345&#125;&#x27;</span><br><span class="line">    railfence(content)</span><br><span class="line">    content=&#x27;f&#123;3l04a15g2&#125;&#x27;</span><br><span class="line">    railfence(content)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="代换密码"><a href="#代换密码" class="headerlink" title="代换密码"></a>代换密码</h2><p>又称为替换密码就是将明文中的每个字母由其它字母、数字或符号替代的一种方法。代换密码通常要建立一个替换表，加密时将需要加密的明文依次通过查表，替换为相应的字符，明文字符被逐个替换后，生成无任何意义的字符串，即密文，这些替换表就作为密钥。代换密码中，则可以认为是保持明文的符号顺序，但是将他们用其他符号来替代。</p>
+<ul>
+<li>单表替换密码</li>
+</ul>
+<p>又称为单字母替换，明文字母表中的一个字符对应密文字母表中的一个字符。即对明文消息中出现的同一个字母，在加密时都使用同一固定的字母来代换。</p>
+<ul>
+<li>多表替换密码</li>
+</ul>
+<p>指两个以上替换表依次对明文消息的字母进行替换。明文消息中出现的同一个字母，在加密时不是完全被同一固定的字母代换，而是根据其出现的位置次序，用不同的字母代换。例如，使用有5个替换表的替换密码，明文的第一个字母对应第一个替换表，第二个字母对应第二个替换表,以此类推。</p>
+<h3 id="单表替换密码"><a href="#单表替换密码" class="headerlink" title="单表替换密码"></a>单表替换密码</h3><p>在单表替换加密中，所有的加密方式几乎都有一个共性，那就是明密文一一对应。所以说，一般有以下两种方式来进行破解</p>
+<ul>
+<li>在密钥空间较小的情况下，采用暴力破解方式</li>
+<li>在密文长度足够长的时候，使用词频分析</li>
+</ul>
+<p>当密钥空间足够大，而密文长度足够短的情况下，破解较为困难。</p>
+<h4 id="摩斯电码"><a href="#摩斯电码" class="headerlink" title="摩斯电码"></a>摩斯电码</h4><p>摩尔斯电码（又译为摩斯电码，Morse code）是一种时通时断的信号代码，这种信号代码通过不同的排列顺序来表达不同的英文字母、数字和标点符号等。它发明于1837年，发明者有争议，是美国人塞缪尔·莫尔斯或者艾尔菲德·维尔。 </p>
+<p>摩尔斯电码的符号由两种基本信号和不同的间隔时间组成：短促的点信号“ .”，保持一定时间的长信号“-”。</p>
+<p><img src="/image/media/2022/crypto/1.png"></p>
+<p>可以借助在线工具对信息做加解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br><span class="line">加密得到</span><br><span class="line">···· · ·－·· ·－·· －－－   ·－－ －－－ ·－· ·－·· －·· </span><br><span class="line">解密得到</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<p>python实现莫斯解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#莫斯密码加解密</span><br><span class="line">def mosdecrypt(content):</span><br><span class="line">    MorseList = &#123;&#x27;A&#x27;: &quot;.-&quot;, &#x27;B&#x27;: &quot;-...&quot;, &#x27;C&#x27;: &quot;-.-.&quot;, &#x27;D&#x27;: &quot;-..&quot;, &#x27;E&#x27;: &quot;.&quot;, &#x27;F&#x27;: &quot;..-.&quot;, &#x27;G&#x27;: &quot;--.&quot;,</span><br><span class="line">                 &#x27;H&#x27;: &quot;....&quot;, &#x27;I&#x27;: &quot;..&quot;, &#x27;J&#x27;: &quot;.---&quot;, &#x27;K&#x27;: &quot;-.-&quot;, &#x27;L&#x27;: &quot;.-..&quot;, &#x27;M&#x27;: &quot;--&quot;, &#x27;N&#x27;: &quot;-.&quot;,</span><br><span class="line">                 &#x27;O&#x27;: &quot;---&quot;, &#x27;P&#x27;: &quot;.--.&quot;, &#x27;Q&#x27;: &quot;--.-&quot;, &#x27;R&#x27;: &quot;.-.&quot;, &#x27;S&#x27;: &quot;...&quot;, &#x27;T&#x27;: &quot;-&quot;, &#x27;U&#x27;: &quot;..-&quot;,</span><br><span class="line">                 &#x27;V&#x27;: &quot;...-&quot;, &#x27;W&#x27;: &quot;.--&quot;, &#x27;X&#x27;: &quot;-..-&quot;, &#x27;Y&#x27;: &quot;-.--&quot;, &#x27;Z&#x27;: &quot;--..&quot;,</span><br><span class="line">                 &#x27;1&#x27;: &quot;.----&quot;, &#x27;2&#x27;: &quot;..---&quot;, &#x27;3&#x27;: &quot;...--&quot;, &#x27;4&#x27;: &quot;....-&quot;, &#x27;5&#x27;: &quot;.....&quot;,</span><br><span class="line">                 &#x27;6&#x27;: &quot;-....&quot;, &#x27;7&#x27;: &quot;--...&quot;, &#x27;8&#x27;: &quot;---..&quot;, &#x27;9&#x27;: &quot;----.&quot;, &#x27;0&#x27;: &quot;-----&quot;,</span><br><span class="line">                 &#x27;.&#x27;: &quot;.-.-.-&quot;, &#x27;?&#x27;: &quot;..--..&quot;, &#x27;!&#x27;: &quot;-.-.--&quot;, &#x27;(&#x27;: &quot;-.--.&quot;, &#x27;@&#x27;: &quot;.--.-.&quot;, &#x27;:&#x27;: &quot;---...&quot;,</span><br><span class="line">                 &#x27;=&#x27;: &quot;-...-&quot;, &#x27;-&#x27;: &quot;-....-&quot;, &#x27;)&#x27;: &quot;-.--.-&quot;, &#x27;,&#x27;: &quot;--..--&quot;, &#x27;\&#x27;&#x27;: &quot;.----.&quot;, &#x27;_&#x27;: &quot;..--.-&quot;,</span><br><span class="line">                 &#x27;$&#x27;: &quot;...-..-&quot;, &#x27;;&#x27;: &quot;-.-.-.&quot;, &#x27;/&#x27;: &quot;-..-.&quot;, &#x27;\&quot;&#x27;: &quot;.-..-.&quot;, &#x27;&amp;&#x27;: &quot;.-...&quot;,</span><br><span class="line">                 &#x27;+&#x27;: &quot;.-.-.&quot;,</span><br><span class="line">                 &#x27;à&#x27;: &quot;.--.-&quot;, &#x27;ä&#x27;: &quot;.-.-&quot;, &#x27;ch&#x27;: &quot;----&quot;, &#x27;ç&#x27;: &quot;-.-..&quot;, &#x27;ð&#x27;: &quot;..--.&quot;,</span><br><span class="line">                 &#x27;é&#x27;: &quot;..-..&quot;, &#x27;è&#x27;: &quot;.-..-&quot;, &#x27;ĝ&#x27;: &quot;--.-.&quot;, &#x27;ĥ&#x27;: &quot;-.--.&quot;, &#x27;ĵ&#x27;: &quot;.---.&quot;,</span><br><span class="line">                 &#x27;ñ&#x27;: &quot;--.--&quot;, &#x27;ø&#x27;: &quot;---.&quot;, &#x27;ŝ&#x27;: &quot;...-.&quot;, &#x27;þ&#x27;: &quot;.--..&quot;, &#x27;ü&#x27;: &quot;..--&quot;,&#125;</span><br><span class="line">    if &#x27;0&#x27; in content and &#x27;1&#x27; in content:</span><br><span class="line">        trans = &#x27;&#x27;.maketrans(&#x27;01&#x27;, &#x27;.-&#x27;)</span><br><span class="line">        content = content.translate(trans)</span><br><span class="line">    if &#x27;－&#x27; in content or &#x27;·&#x27; in content:</span><br><span class="line">        content=content.replace(&#x27;－&#x27;,&#x27;-&#x27;)</span><br><span class="line">        content=content.replace(&#x27;·&#x27;,&#x27;.&#x27;)</span><br><span class="line">    if &#x27;/&#x27; in content:</span><br><span class="line">        lmorsecodeList = content.split(&quot;/&quot;)</span><br><span class="line">    else:</span><br><span class="line">        content = content.replace(&#x27; &#x27;, &#x27;/&#x27;)</span><br><span class="line">        if &#x27;///&#x27; in  content:</span><br><span class="line">            content = content.replace(&#x27;///&#x27;, &#x27;/ /&#x27;)</span><br><span class="line">        lmorsecodeList = content.split(&quot;/&quot;)</span><br><span class="line">    print(lmorsecodeList)</span><br><span class="line">    flag = &#x27;&#x27;</span><br><span class="line">    for char in lmorsecodeList:</span><br><span class="line">        if char ==&#x27; &#x27;:</span><br><span class="line">            flag = flag +  char</span><br><span class="line">        for k, v in MorseList.items():</span><br><span class="line">            if v == char:</span><br><span class="line">                flag = flag + k</span><br><span class="line">    print(&quot;莫斯密码小写:&quot;, flag)</span><br><span class="line">    print(&quot;莫斯密码大写:&quot;, flag.lower())</span><br><span class="line">    return flag</span><br><span class="line">content=&#x27;··   ·－·· －－－ ···－ ·   －·－－ －－－ ··－ &#x27;</span><br><span class="line">print(mosdecrypt(content))</span><br><span class="line">#莫斯密码目前感觉最全的：https://mosimima.wncx.cn/脚本中只对01做了转换</span><br></pre></td></tr></table></figure>
+
+<p>hint：摩斯电码默认采用空格分隔，现在许多摩斯电码采用单斜杠/进行分隔</p>
+<p>部分摩斯电码在线网站存在无法解密特殊字符的现象，需要仔细辨别（若干次被坑）</p>
+<p>还有一种变体摩斯电码给的里面的信息只有两种字符组成并且能够跟摩斯电码高度相似，比如滴答之类的</p>
+<h4 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h4><p>在密码学中，凯撒密码（英语：Caesar cipher），或称凯撒加密、凯撒变换、变换加密，是一种最简单且最广为人知的加密技术。它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推。这个加密方法是以罗马共和时期凯撒的名字命名的，当年凯撒曾用此方法与其将军们进行联系。</p>
+<ul>
+<li>加密原理</li>
+</ul>
+<p>明文信息X=20，密文信息Y=0，密钥K=3</p>
+<p>加密公式：(X+K) mod 26        (python取模符号是%)        (20+3)%26=23</p>
+<p>解密公式：(Y-K) mod  26        (python取模符号是%)        (0-3)%26=(-3+26)%26=23</p>
+<p>hint：28%26=2（模的结果不会比26还大，此时的结果能够在0到25之间）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">content=&#x27;WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ&#x27;</span><br><span class="line">n=3</span><br><span class="line">#-97或者-65是为了保证值在0到25之间</span><br><span class="line">print(&#x27;&#x27;.join([chr(65+(ord(i)+n-65)%26) for i in  content]))#推导式的形式</span><br><span class="line">#ZNKWWAOIQWHXUCTWLUDWPASVYWUBKXWZNKWRGFEWJUM</span><br><span class="line">print(&#x27;&#x27;.join([chr(97+(ord(i)+n-97)%26) for i in  content]))</span><br><span class="line">#theqquickqbrownqfoxqjumpsqoverqtheqlazyqdog</span><br><span class="line">mi=&#x27;&#x27;</span><br><span class="line">for i in content:</span><br><span class="line">    print(ord(i) + n - 97, i)</span><br><span class="line">    mi = mi + chr(97 + (ord(i) + n - 97) % 26)  # -97是为了保证值在0到25之间</span><br><span class="line">print(mi)</span><br><span class="line">#theqquickqbrownqfoxqjumpsqoverqtheqlazyqdog</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意事项</li>
+</ul>
+<p>（1）需要区分字母的大小写</p>
+<p>（2）如果不是大小写字母，那么就原样输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#凯撒密码</span><br><span class="line">def caesar_Crypto(content):</span><br><span class="line">    all_plain=[]</span><br><span class="line">    for num in range(1,26):</span><br><span class="line">        plain = &#x27;&#x27;</span><br><span class="line">        for i in content:</span><br><span class="line">            if i.islower():#小写字母</span><br><span class="line">                plain = plain + chr(97 + (ord(i) + num - 97) % 26)</span><br><span class="line">            elif i.isupper():#大写字母</span><br><span class="line">                plain = plain + chr(65 + (ord(i) + num - 65) % 26)</span><br><span class="line">            else:#上面两者都不是</span><br><span class="line">                plain=plain+i</span><br><span class="line">        print(plain)</span><br><span class="line">        all_plain.append(plain)</span><br><span class="line">    print(all_plain)</span><br><span class="line">content=&#x27;IODJ&#123;Khuh_lv_brxu_iodj&#125;&#x27;</span><br><span class="line">caesar_Crypto(content)</span><br></pre></td></tr></table></figure>
+
+<p>还有一种新的思路：</p>
+<p><img src="/image/media/2022/crypto/2.png"></p>
+<p>可以看到凯撒的原文跟密文是一对一的，所以可以灵活利用替换的思想。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># # 凯撒密码</span><br><span class="line">def caesar_Crypto(content):</span><br><span class="line">    all_plain=[]</span><br><span class="line">    lowercase = &#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br><span class="line">    uppercase = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;</span><br><span class="line">    for num in range(1,26):</span><br><span class="line">        lower=lowercase[num:]+lowercase[:num]</span><br><span class="line">        upper=uppercase[num:]+uppercase[:num]</span><br><span class="line">        plain=&#x27;&#x27;</span><br><span class="line">        table=&#x27;&#x27;.maketrans(lower+upper,lowercase+uppercase)</span><br><span class="line">        for i in content:</span><br><span class="line">            plain=plain+i.translate(table)</span><br><span class="line">        all_plain.append(plain)</span><br><span class="line">        print(plain)</span><br><span class="line">    print(all_plain)</span><br><span class="line">content=&#x27;IODJ&#123;Khuh_lv_brxu_iodj&#125;&#x27;</span><br><span class="line">caesar_Crypto(content)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>变异凯撒</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密密文：afZ_r9VYfScOeO_UL^RWUc</span><br><span class="line">格式：flag&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(ord(str[0]),ord(&#x27;f&#x27;),ord(&#x27;f&#x27;)-ord(str[0]))	97 	102 5</span><br><span class="line">print(ord(str[1]),ord(&#x27;l&#x27;),ord(&#x27;l&#x27;)-ord(str[1]))	102 108 6</span><br><span class="line">print(ord(str[2]),ord(&#x27;a&#x27;),ord(&#x27;a&#x27;)-ord(str[2]))	90 	97 	7</span><br><span class="line">print(ord(str[3]),ord(&#x27;g&#x27;),ord(&#x27;g&#x27;)-ord(str[3]))	95 	103 8</span><br></pre></td></tr></table></figure>
+
+<p>通过acsii码值对比表可以看到第一个字符向后移了5，第二个向后移了6，第三个向后移了7，以此类推</p>
+<p>变异凯撒即每个向后移的位数是前一个加1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str=&quot;afZ_r9VYfScOeO_UL^RWUc&quot;</span><br><span class="line">num=5</span><br><span class="line">for i in str:</span><br><span class="line">    print(chr(ord(i)+num),end=&#x27;&#x27;)</span><br><span class="line">    num=num+1</span><br><span class="line">#flag&#123;Caesar_variation&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="rot族解密"><a href="#rot族解密" class="headerlink" title="rot族解密"></a>rot族解密</h4><p>编码是一种简单的码元位置顺序替换暗码。此类编码具有可逆性，可以自我解密，主要用于应对快速浏览，或者是机器的读取，而不让其理解其意。ROT5 是 rotate by 5 places 的简写，意思是旋转5个位置，其它皆同。</p>
+<h5 id="rot5"><a href="#rot5" class="headerlink" title="rot5"></a>rot5</h5><p>只对数字进行编码，用当前数字往前数的第5个数字替换当前数字，例如当前为0，编码后变成5，当前为1，编码后变成6，以此类推顺序循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0123456789</span><br><span class="line">5678901234</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#ROT5</span><br><span class="line">def caesar_Crypto(content):</span><br><span class="line">    all_plain=[]</span><br><span class="line">    lowercase = &#x27;0123456789&#x27;		 #此处需要修改</span><br><span class="line">    lower=lowercase[5:]+lowercase[:5]#此处需要修改</span><br><span class="line">    plain=&#x27;&#x27;</span><br><span class="line">    table=&#x27;&#x27;.maketrans(lower,lowercase)</span><br><span class="line">    for i in content:</span><br><span class="line">        plain=plain+i.translate(table)</span><br><span class="line">    all_plain.append(plain)</span><br><span class="line">    print(plain)</span><br><span class="line">content=&#x27;flag&#123;5678901&#125;&#x27;</span><br><span class="line">caesar_Crypto(content)</span><br><span class="line">#flag&#123;0123456&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="rot13"><a href="#rot13" class="headerlink" title="rot13"></a>rot13</h5><p>只对字母进行编码，用当前字母往前数的第13个字母替换当前字母，例如当前为A，编码后变成N，当前为B，编码后变成O，以此类推顺序循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abcdefghijklmnopqrstuvwxyz			明码表</span><br><span class="line">nopqrstuvwxyzabcdefghijklm			密码表</span><br><span class="line">或者</span><br><span class="line">ABCDEFGHIJKLMNOPQRSTUVWXYZ			明码表</span><br><span class="line">NOPQRSTUVWXYZABCDEFGHIJKLM			密码表</span><br></pre></td></tr></table></figure>
+
+<p>hint：rot13就是位移量为13的凯撒密码</p>
+<h5 id="rot18"><a href="#rot18" class="headerlink" title="rot18"></a>rot18</h5><p>这是一个异类，本来没有，它是将ROT5和ROT13组合在一起，为了好称呼，将其命名为ROT18。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abcdefghijklmnopqrstuvwxyz0123456789		明码表</span><br><span class="line">nopqrstuvwxyzabcdefghijklm5678901234		密码表</span><br><span class="line">或者</span><br><span class="line">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789		明码表</span><br><span class="line">NOPQRSTUVWXYZABCDEFGHIJKLM5678901234		密码表</span><br></pre></td></tr></table></figure>
+
+<h5 id="rot47"><a href="#rot47" class="headerlink" title="rot47"></a>rot47</h5><p>对数字、字母、常用符号进行编码，按照它们的ASCII值进行位置替换，用当前字符ASCII值往前数的第47位对应字符替换当前字符，例如当前为小写字母z，编码后变成大写字母K，当前为数字0，编码后变成符号_。用于ROT47编码的字符其ASCII值范围是33－126，位移量为47。用于ROT47编码的字符其ASCII值范围是33－126（原因是由于0-32以及127与字符表示无关！！）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!&quot;#$%&amp;&#x27;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz&#123;|&#125;~	明码表</span><br><span class="line">PQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz&#123;|&#125;~!&quot;#$%&amp;&#x27;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNO	密码表</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单替换密码"><a href="#简单替换密码" class="headerlink" title="简单替换密码"></a>简单替换密码</h4><h5 id="Atbash-Cipher"><a href="#Atbash-Cipher" class="headerlink" title="Atbash Cipher"></a>Atbash Cipher</h5><p>埃特巴什码（Atbash Cipher）其实可以视为下面要介绍的简单替换密码的特例，它使用字母表中的最后一个字母代表第一个字母，倒数第二个字母代表第二个字母。在罗马字母表中，它是这样出现的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ABCDEFGHIJKLMNOPQRSTUVWXYZ		明码表</span><br><span class="line">ZYXWVUTSRQPONMLKJIHGFEDCBA		密码表</span><br></pre></td></tr></table></figure>
+
+<p>比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">明文：the quick brown fox jumps over the lazy dog</span><br><span class="line">密文：gsv jfrxp yildm ulc qfnkh levi gsv ozab wlt</span><br></pre></td></tr></table></figure>
+
+<p>这种可以使用python实现或者在线网站做词频分析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#Atbash Cipher</span><br><span class="line">def caesar_Crypto(content):</span><br><span class="line">    all_plain=[]</span><br><span class="line">    lowercase = &#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br><span class="line">    lower=lowercase[::-1]#此处需要修改</span><br><span class="line">    plain=&#x27;&#x27;</span><br><span class="line">    table=&#x27;&#x27;.maketrans(lower,lowercase)</span><br><span class="line">    for i in content:</span><br><span class="line">        plain=plain+i.translate(table)</span><br><span class="line">    all_plain.append(plain)</span><br><span class="line">    print(plain)</span><br><span class="line">content=&#x27;the quick brown fox jumps over the lazy dog&#x27;</span><br><span class="line">caesar_Crypto(content)			#加密</span><br><span class="line">content=&#x27;gsv jfrxp yildm ulc qfnkh levi gsv ozab wlt&#x27;</span><br><span class="line">caesar_Crypto(content)			#解密</span><br></pre></td></tr></table></figure>
+
+<h5 id="词频分析"><a href="#词频分析" class="headerlink" title="词频分析"></a>词频分析</h5><p>凯撒密码的密钥空间只有25所以导致凯撒被破解的可能性就很大了，于是在凯撒密码的基础上出现了简单替换密码（Simple Substitution Cipher）加密时，将每个明文字母替换为与之唯一对应且不同的字母。它与凯撒密码之间的区别是其密码字母表的字母不是简单的移位，而是完全是混乱的，这也使得其破解难度要高于凯撒密码。 比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ABCDEFGHIJKLMNOPQRSTUVWXYZ		明码表</span><br><span class="line">RSTUVWXYZLMNOPQEFGHIJKCDBA		密码表</span><br></pre></td></tr></table></figure>
+
+<p>这种在解密时，我们一般是知道了每一个字母的对应规则，才可以正常解密。</p>
+<p>由于这种加密方式导致其所有的密钥个数是26!(26阶乘) ，所以几乎上不可能使用暴力的解决方式</p>
+<p>所以我们 一般采用词频分析在线网站：<a target="_blank" rel="noopener" href="http://quipqiup.com/">http://quipqiup.com/</a></p>
+<h4 id="培根密码"><a href="#培根密码" class="headerlink" title="培根密码"></a>培根密码</h4><p>培根密码，又名倍康尼密码（英语：Bacon’s cipher）是由法兰西斯·培根发明的一种隐写术。密文只有两个a和b，每个明文对应的字符都对应一个有a或b组成的长度是五的字符串。</p>
+<p>加密时，明文中的每个字母都会转换成一组五个英文字母。其转换依靠下表：</p>
+<table>
+<thead>
+<tr>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A/a</td>
+<td>aaaaa</td>
+<td>H/h</td>
+<td>aabbb</td>
+<td>O/o</td>
+<td>abbba</td>
+<td>V/v</td>
+<td>babab</td>
+</tr>
+<tr>
+<td>B/b</td>
+<td>aaaab</td>
+<td>I/i</td>
+<td>abaaa</td>
+<td>P/p</td>
+<td>abbbb</td>
+<td>W/w</td>
+<td>babba</td>
+</tr>
+<tr>
+<td>C/c</td>
+<td>aaaba</td>
+<td>J/j</td>
+<td>abaab</td>
+<td>Q/q</td>
+<td>baaaa</td>
+<td>X/x</td>
+<td>babbb</td>
+</tr>
+<tr>
+<td>D/d</td>
+<td>aaabb</td>
+<td>K/k</td>
+<td>ababa</td>
+<td>R/r</td>
+<td>baaab</td>
+<td>Y/y</td>
+<td>bbaaa</td>
+</tr>
+<tr>
+<td>E/e</td>
+<td>aabaa</td>
+<td>L/l</td>
+<td>ababb</td>
+<td>S/s</td>
+<td>baaba</td>
+<td>Z/z</td>
+<td>bbaab</td>
+</tr>
+<tr>
+<td>F/f</td>
+<td>aabab</td>
+<td>M/m</td>
+<td>abbaa</td>
+<td>T/t</td>
+<td>baabb</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>G/g</td>
+<td>aabba</td>
+<td>N/n</td>
+<td>abbab</td>
+<td>U/u</td>
+<td>babaa</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>密码表二：</p>
+<table>
+<thead>
+<tr>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+<th>明文</th>
+<th>密文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A/a</td>
+<td>aaaaa</td>
+<td>G/g</td>
+<td>aabba</td>
+<td>N/n</td>
+<td>abbaa</td>
+<td>T/t</td>
+<td>baaba</td>
+</tr>
+<tr>
+<td>B/b</td>
+<td>aaaab</td>
+<td>H/h</td>
+<td>aabbb</td>
+<td>O/o</td>
+<td>abbab</td>
+<td>UV/uv</td>
+<td>baabb</td>
+</tr>
+<tr>
+<td>C/c</td>
+<td>aaaba</td>
+<td>IJ/ij</td>
+<td>abaaa</td>
+<td>P/p</td>
+<td>abbba</td>
+<td>W/w</td>
+<td>babaa</td>
+</tr>
+<tr>
+<td>D/d</td>
+<td>aaabb</td>
+<td>K/k</td>
+<td>abaab</td>
+<td>Q/q</td>
+<td>abbbb</td>
+<td>X/x</td>
+<td>babab</td>
+</tr>
+<tr>
+<td>E/e</td>
+<td>aabaa</td>
+<td>L/l</td>
+<td>ababa</td>
+<td>R/r</td>
+<td>baaaa</td>
+<td>Y/y</td>
+<td>babba</td>
+</tr>
+<tr>
+<td>F/f</td>
+<td>aabab</td>
+<td>M/m</td>
+<td>ababb</td>
+<td>S/s</td>
+<td>baaab</td>
+<td>Z/z</td>
+<td>babbb</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要注意的是：i-j ABAAA和u-v BAABB有可能存在不一样的语义，需要结合上下文</span><br></pre></td></tr></table></figure>
+
+<p>加密者需使用两种不同字体，分别代表A和B。按照密文格式化假信息，即依密文中每个字母是A还是B分别套用两种字体。<br>解密时，将上述方法倒转。所有字体一转回A，字体二转回B，以后再按上表拼回字母。</p>
+<p>密文：<strong>T</strong>o e<strong>n</strong>c<strong>o</strong>de<strong>a</strong>mes<strong>s</strong>age e<strong>ac</strong>h letter<strong>of</strong>the<strong>pl</strong>a<strong>i</strong>nt<strong>ex</strong>t<strong>i</strong>s replaced b<strong>y a g</strong>rou<strong>p of f</strong>i<strong>ve</strong>of<strong>th</strong>e lett<strong>ers’A’<strong>o</strong>r ‘B’</strong>.</p>
+<p>明文：BAABA BAABB AABAA AABBA AAAAA ABBAB ABBBA AABBA BAAAB AAAAA ABBBB AABBB BBAAA</p>
+<p>    s   t   e   g   a   n   o   g   r   a   p   h   y</p>
+<p>另外一种方法，其将大小写分别看作A与B，可用于无法使用不同字体的场合（例如只能处理纯文本时）。但这样比起字体不同更容易被看出来，而且和语言对大小写的要求也不太兼容。<br>培根密码本质上是将二进制信息通过样式的区别，加在了正常书写之上。</p>
+<p>密文：SjkLnIljKHamJmkilABawiiioaAMbOaPIJmklNBaKijmBuaoljiAUWMakMHWNAakm</p>
+<p>明文：BAABA BAABB AABAA AABBA AAAAA ABBAB ABBBA AABBA BAAAB AAAAA ABBBB AABBB BBAAA</p>
+<p>    s   t   e   g   a   n   o   g   r   a   p   h   y</p>
+<p>python实现培根密码表一的解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">txt=&#x27;SjkLnIljKHamJmkilABawiiioaAMbOaPIJmklNBaKijmBuaoljiAUWMakMHWNAakm&#x27;</span><br><span class="line">content=&#x27;&#x27;</span><br><span class="line">for i in txt:</span><br><span class="line">    if i.islower():</span><br><span class="line">        content+=&#x27;a&#x27;</span><br><span class="line">    elif i.isupper():</span><br><span class="line">        content+=&quot;b&quot;</span><br><span class="line">if len(content)%5==0:</span><br><span class="line">    # alphabet = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;,&#x27;f&#x27;,&#x27;g&#x27;,&#x27;h&#x27;,&#x27;i&#x27;,&#x27;j&#x27;,&#x27;k&#x27;,&#x27;l&#x27;,&#x27;m&#x27;,&#x27;n&#x27;,&#x27;o&#x27;,&#x27;p&#x27;,&#x27;q&#x27;,&#x27;r&#x27;,&#x27;s&#x27;,&#x27;t&#x27;,&#x27;u&#x27;,&#x27;v&#x27;,&#x27;w&#x27;,&#x27;x&#x27;,&#x27;y&#x27;,&#x27;z&#x27;]</span><br><span class="line">    alphabet=[chr(i) for i in range(ord(&#x27;a&#x27;),ord(&#x27;z&#x27;)+1)]</span><br><span class="line">    cipher = [&quot;aaaaa&quot;,&quot;aaaab&quot;,&quot;aaaba&quot;,&quot;aaabb&quot;,&quot;aabaa&quot;,&quot;aabab&quot;,&quot;aabba&quot;,&quot;aabbb&quot;,&quot;abaaa&quot;,&quot;abaab&quot;,&quot;ababa&quot;,&quot;ababb&quot;,&quot;abbaa&quot;,&quot;abbab&quot;,&quot;abbba&quot;,&quot;abbbb&quot;,&quot;baaaa&quot;,&quot;baaab&quot;,&quot;baaba&quot;,&quot;baabb&quot;,&quot;babaa&quot;,&quot;babab&quot;,&quot;babba&quot;,&quot;babbb&quot;,&quot;bbaaa&quot;,&quot;bbaab&quot;]</span><br><span class="line">    key =dict(zip(cipher,alphabet))#生成键值对应的字典</span><br><span class="line">    try:</span><br><span class="line">        flag = &#x27;&#x27;</span><br><span class="line">        for i in range(0,len(content),5):</span><br><span class="line">            value=content[i:i+5]#切片</span><br><span class="line">            flag+= key.get(value)#取键值</span><br><span class="line">    except:</span><br><span class="line">        flag = &#x27;&#x27;</span><br><span class="line">        table=&#x27;&#x27;.maketrans(&quot;ab&quot;,&quot;ba&quot;)#考虑到不知道ab对应的关系做一次转换</span><br><span class="line">        content=content.translate(table)</span><br><span class="line">        for i in range(0, len(content), 5):</span><br><span class="line">            value = content[i:i + 5]#切片</span><br><span class="line">            flag += key.get(value)#取键值</span><br><span class="line">    print(flag)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;不是培根密码&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>python实现培根密码表二的解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">content=&#x27;ABABAABAAABAABBAABAA&#x27;.lower()</span><br><span class="line">if len(content) % 5 == 0:</span><br><span class="line">    alphabet = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;(ij)&#x27;, &#x27;k&#x27;, &#x27;l&#x27;, &#x27;m&#x27;, &#x27;n&#x27;, &#x27;o&#x27;, &#x27;p&#x27;, &#x27;q&#x27;, &#x27;r&#x27;, &#x27;s&#x27;, &#x27;t&#x27;,&#x27;(uv)&#x27;, &#x27;w&#x27;, &#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;]</span><br><span class="line">    cipher = [&quot;aaaaa&quot;, &quot;aaaab&quot;, &quot;aaaba&quot;, &quot;aaabb&quot;, &quot;aabaa&quot;, &quot;aabab&quot;, &quot;aabba&quot;, &quot;aabbb&quot;, &quot;abaaa&quot;, &quot;abaab&quot;,</span><br><span class="line">              &quot;ababa&quot;, &quot;ababb&quot;, &quot;abbaa&quot;, &quot;abbab&quot;, &quot;abbba&quot;, &quot;abbbb&quot;, &quot;baaaa&quot;, &quot;baaab&quot;, &quot;baaba&quot;, &quot;baabb&quot;,</span><br><span class="line">              &quot;babaa&quot;, &quot;babab&quot;, &quot;babba&quot;, &quot;babbb&quot;]</span><br><span class="line">    key = dict(zip(cipher, alphabet))  # 生成键值对应的字典</span><br><span class="line">    try:</span><br><span class="line">        flag = &#x27;&#x27;</span><br><span class="line">        for i in range(0, len(content), 5):</span><br><span class="line">            value = content[i:i + 5]  # 切片</span><br><span class="line">            flag += key.get(value)  # 取键值</span><br><span class="line">    except:</span><br><span class="line">        flag = &#x27;&#x27;</span><br><span class="line">        table = &#x27;&#x27;.maketrans(&quot;ab&quot;, &quot;ba&quot;)</span><br><span class="line">        content = content.translate(table)</span><br><span class="line">        for i in range(0, len(content), 5):</span><br><span class="line">            value = content[i:i + 5]  # 切片</span><br><span class="line">            flag += key.get(value)  # 取键值</span><br><span class="line">    print(flag)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;不是培根密码&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>还有一种不太常用的方法</p>
+<p>密文：xgdocpdcuuhlpfmglupfdlbhekpxiqknvpiimyykoeahrjjcfkmqusrkbuutqvlfb</p>
+<p>明文：BAABA BAABB AABAA AABBA AAAAA ABBAB ABBBA AABBA BAAAB AAAAA ABBBB AABBB BBAAA
+    </p>
+<p>​                s   t   e   g   a   n   o   g   r   a   p   h   y</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a--m  --&gt; A:	字母a到m这一范围内的字母统一换成A </span><br><span class="line">n--z  --&gt; B:    字母n到z这一范围内的字母统一换成B</span><br></pre></td></tr></table></figure>
+
+<p>培根密码所包含的信息可以和用于承载其的文章完全无关。</p>
+<p>在线工具：<a target="_blank" rel="noopener" href="http://rumkin.com/tools/cipher/baconian.php">http://rumkin.com/tools/cipher/baconian.php</a></p>
+<h4 id="仿射密码"><a href="#仿射密码" class="headerlink" title="仿射密码"></a>仿射密码</h4><p>仿射密码为单表替换密码的一种，字母系统中所有字母都藉一简单数学方程加密，对应至数值，或转回字母。</p>
+<p>凯撒密码是将明文与密钥相加得到密文，仿射密码则是将明文与密钥的一部分相乘然后加上密钥的另一部分得到</p>
+<p>为了方便计算将26个字母分别用数字表示：a=0，b=1，… ，z=25。</p>
+<p>仿射加密的密钥有两个a和b，取值范围都是0到25之间。主要对a有要求，b没有要求：</p>
+<ul>
+<li>a要求与26互质（互质就是这两个数的公因数只有1）hint：这样的话<ul>
+<li>26的因数有：1，2，13</li>
+<li>上述的结果要求a的因数不包含2或者13即可</li>
+</ul>
+</li>
+</ul>
+<p>仿射密码加密：假设x是明文，y是密文，加密公式y=(a×x+b)mod26，密文=（明文×乘数+位移数）mod 26(mod取值就在0到25之间)</p>
+<p>具体过程可以代入数字表示，当a=7，b=3时，加密公式变成了：密文=（明文×7+3）mod 26</p>
+<p>当明文等于c的时候：（明文×7+3）mod 26=（2×7+3）mod 26=17=y也就是r密文</p>
+<p>解密明文=（密文-b）/a结果有可能是小数无法做mod运算，于是可以使用除法变成乘法，（密文-b）/a转换为（密文-b）a的乘法逆元</p>
+<p>所以问题变成了怎么去找到这个a的乘法逆元</p>
+<ul>
+<li>乘法逆元</li>
+</ul>
+<p>假设用m表示a的乘法逆元，那么(a*m)mod 26=1</p>
+<p>当a=7可以用代码实现求m，并且我们只需要一个符合条件的即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">m=1</span><br><span class="line">while True:</span><br><span class="line">    if (7*m)%26==1:</span><br><span class="line">        print(m)</span><br><span class="line">        break</span><br><span class="line">    m=m+1</span><br><span class="line">#15</span><br><span class="line">for i in range(0,26):</span><br><span class="line">    if (7 * i) % 26 == 1:</span><br><span class="line">        print(i)</span><br><span class="line">#15</span><br></pre></td></tr></table></figure>
+
+<p>所以a的乘法逆元就是15，然后代入公式x=15（17-m）mod26=（15×14）mod26=2所以得到明文是c</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#加密公式：c=(11m+7)mod26,对应的a=11,b等于7		密文信息：dikxourxd</span><br><span class="line"></span><br><span class="line">content = &#x27;dikxourxd&#x27;</span><br><span class="line">m = 1</span><br><span class="line">while True:</span><br><span class="line">    if (11 * m) % 26 == 1:</span><br><span class="line">        print(m)  # 得到乘法逆元</span><br><span class="line">        break</span><br><span class="line">    m = m + 1</span><br><span class="line">for i in content:</span><br><span class="line">    print(chr(97 + (ord(i) - 97 - 7) * 19 % 26))</span><br><span class="line">#ctfsdnisc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>暴力破解</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">content = &#x27;szzyfimhyzd&#x27;</span><br><span class="line">plan = &#x27;17,-8&#x27;#a和b的值</span><br><span class="line">a = int(plan.split(&#x27;,&#x27;)[0])</span><br><span class="line">b = int(plan.split(&#x27;,&#x27;)[1])</span><br><span class="line">flag=&#x27;&#x27;</span><br><span class="line">for i in content:</span><br><span class="line">    for j in range(0, 26):</span><br><span class="line">        if (a * j + b) % 26 == ord(i) - ord(&#x27;a&#x27;):</span><br><span class="line">            flag+=chr(97 + j)</span><br><span class="line">print(flag)</span><br><span class="line">#affineshift</span><br></pre></td></tr></table></figure>
+
+<h4 id="猪圈密码"><a href="#猪圈密码" class="headerlink" title="猪圈密码"></a>猪圈密码</h4><p>猪圈密码（Pigpen cipher)也称作共济会密码（masonic ciphe）、共济会员密码（Freemason’s cipher）等，是一种以格子为基础的简单替代式密码，把英文字母替换成了各种图形符号。</p>
+<p>这是一种外形古怪的密码，已经传递了几百年。早在1700年代，共济会常常使用这种密码保护一些私密纪录或用来通讯。没有人明确知道它是什么时候发明的，但这个密码被一个叫“自由石匠”的组织所使用，也被美国内战时的盟军所使用。</p>
+<p>猪圈密码作为一种简单替代式密码，其实可以设计出无数种变种，但此密码易破解。</p>
+<p><img src="/image/media/2022/crypto/3.png"></p>
+<p>由线和点组成的形状即代表在该形状内的那个字符，比如∧=V、∨=S、⊔=B、⊓=H得到密码表</p>
+<p><img src="/image/media/2022/crypto/4.png"></p>
+<p>如明文为 <code>X marks the spot</code> ，那么密文如下</p>
+<p><img src="/image/media/2022/crypto/5.png"></p>
+<ul>
+<li>猪圈密码变体0</li>
+</ul>
+<p>将上述的密码表做转换：A→J，E→N，I→R</p>
+<ul>
+<li>猪圈密码变体1</li>
+</ul>
+<p><img src="/image/media/2022/crypto/6.png"></p>
+<p>上述变体的猪圈密码表对应为：</p>
+<p><img src="/image/media/2022/crypto/7.png"></p>
+<ul>
+<li>猪圈密码变体2</li>
+</ul>
+<p><img src="/image/media/2022/crypto/8.png"></p>
+<p>解密可以使用在线工具：<a target="_blank" rel="noopener" href="https://www.xiao84.com/tools/103177.html">https://www.xiao84.com/tools/103177.html</a></p>
+<h4 id="跳舞的小人"><a href="#跳舞的小人" class="headerlink" title="跳舞的小人"></a>跳舞的小人</h4><p>这种密码出自于福尔摩斯探案集。每一个跳舞的小人实际上对应的是英文二十六个字母中的一个，而小人手中的旗子则表明该字母是单词的最后一个字母，如果仅仅是一个单词而不是句子，或者是句子中最后的一个单词，则单词中最后一个字母不必举旗。</p>
+<p><img src="/image/media/2022/crypto/1.jpg"></p>
+<h3 id="多表替换密码"><a href="#多表替换密码" class="headerlink" title="多表替换密码"></a>多表替换密码</h3><p>针对单表代替密码容易被频率分析法破解的缺点，人们提出多表代换密码，用一系列（两个以上）代换表依次对明文消息的字母进行代换。</p>
+<p>在多表替换加密中，多表替换的加密过程中由到多张表组成，每个字符分别用不同的密码表进行替换。</p>
+<p>多表替换替换密码主要优点就是解决了单表替换密码中频率分析的问题。并且密文跟明文并不是一一对应的</p>
+<p>比如：凯撒密码可以变成一种基于密钥的凯撒密码（Keyed Caesar）：利用一个密钥，将密钥的每一位转换为数字（一般转化为字母表对应顺序的数字），分别以这一数字为密钥加密明文的每一位字母。比如：</p>
+<p>明文信息：s0a6u3u1s0bv1a</p>
+<p>密钥：guangtou</p>
+<p>偏移：6，20，0，13，6，19，14，20</p>
+<p>密文：y0u6u3h1y0uj1u</p>
+<p><a target="_blank" rel="noopener" href="http://rumkin.com/tools/cipher/caesar-keyed.php">http://rumkin.com/tools/cipher/caesar-keyed.php</a></p>
+<h4 id="Vigenere-维吉尼亚密码"><a href="#Vigenere-维吉尼亚密码" class="headerlink" title="Vigenere 维吉尼亚密码"></a>Vigenere 维吉尼亚密码</h4><p>维吉尼亚是多表替换密码中比较典型的代表，维吉尼亚密码是在凯撒密码基础上产生的一种加密方法，它将凯撒密码的全部25种位移排序为一张表，与原字母序列共同组成26行及26列的字母表。另外，维吉尼亚密码必须有一个密钥，这个密钥由字母组成，最少一个，最多可与明文字母数量相等。</p>
+<p>现有明文：vigenere和密钥：abc</p>
+<p>首先，密钥长度需要与明文长度相同，如果少于明文长度，则重复拼接直到相同。本例中，明文长度为3个字母（非字母均被忽略），密钥会被程序补全为”abcabcab”。现在根据如下维吉尼亚密码表格进行加密：</p>
+<p><img src="/image/media/2022/crypto/9.png"></p>
+<p>明文第一个字母是v，密钥第一个字母是a，在表格中找到v列与a行相交点，字母v就是密文第一个字母；同理，i列与b行交点字母是j……</p>
+<p><img src="/image/media/2022/crypto/10.png"></p>
+<p>密文：vjieogrf</p>
+<ul>
+<li>维吉尼亚密码只对字母进行加密，不区分大小写，若文本中出现非字母字符会原样保留。</li>
+<li>如果输入多行文本，每行是单独加密的。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 维吉尼亚密码解密</span><br><span class="line">content = &#x27;Vjieogrf&#x27;</span><br><span class="line">key = &#x27;abc&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">num = (len(content) // len(key)) + 1</span><br><span class="line">new_key = key * num  # 拓展key的长度</span><br><span class="line">key_to_num = [ord(k) - 97 for k in new_key]  # 列表推导式，将密钥中的数值转成0到26的值</span><br><span class="line">for i in range(len(content)):</span><br><span class="line">    if content[i].islower():  # 小写字母</span><br><span class="line">        flag += chr((ord(content[i])-97-key_to_num[i])%26+97)  # 加密往前移动，解密往后移动</span><br><span class="line">    elif content[i].isupper(): # 大写字母</span><br><span class="line">        flag += chr((ord(content[i]) - 65 - key_to_num[i]) % 26 + 65)  # 加密往前移动，解密往后移动</span><br><span class="line">    else:</span><br><span class="line">        flag += content[i]</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<p>上述代码存在的问题：</p>
+<ul>
+<li>key_to_num做减法的时候是97，需要考虑到key可能是大写</li>
+<li>拓展长度的时候需要计算感觉不太灵活</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 维吉尼亚密码解密</span><br><span class="line">content = &#x27;Vjieogrf&#x27;</span><br><span class="line">key = &#x27;Abc&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">key_to_num = [ord(k) - 97 for k in key.lower()]  # 列表推导式，将密钥中的数值转成0到26的值</span><br><span class="line">for i in range(len(content)):</span><br><span class="line">    if content[i].islower():  # 小写字母</span><br><span class="line">        flag += chr((ord(content[i]) - 97 - key_to_num[i%len(key)]) % 26 + 97)  # 加密往前移动，解密往后移动</span><br><span class="line">    elif content[i].isupper():  # 大写字母</span><br><span class="line">        flag += chr((ord(content[i]) - 65 - key_to_num[i%len(key)]) % 26 + 65)  # 加密往前移动，解密往后移动</span><br><span class="line">    else:</span><br><span class="line">        flag += content[i]</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<h4 id="AutokeyCipher"><a href="#AutokeyCipher" class="headerlink" title="AutokeyCipher"></a>AutokeyCipher</h4><p>自动密钥密码（Autokey Cipher）也是多表替换密码，与维吉尼亚密码类似，但使用不同的方法生成密钥。通常来说它要比维吉尼亚密码更安全。自动密钥密码主要有两种，关键词自动密钥密码和原文自动密钥密码。下面我们以关键词自动密钥为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">明文：THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</span><br><span class="line">关键词：CULTURE</span><br><span class="line">根据关键词生成密钥：CULTURE THE QUICK BROWN FOX JUMPS OVER THE</span><br></pre></td></tr></table></figure>
+
+<p>明文的长度跟密钥的长度去掉空格后一样长，然后生成一个跟维吉尼亚密码相似的表格然后得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBP JOZGD IVEQV HYY AIICX CSNL FWW ZVDP WVK</span><br></pre></td></tr></table></figure>
+
+<h4 id="费纳姆密码"><a href="#费纳姆密码" class="headerlink" title="费纳姆密码"></a>费纳姆密码</h4><p>费纳姆密码其实是一种由二进制产生的替换密码，加密时要将明文和密钥都转成7位二进制数。是双方约定一个数，明文异或加上这个数就是密文。这个数相当于密钥（可以是单词 词组 句子 几个字母也行）。</p>
+<table>
+<thead>
+<tr>
+<th>大写字母</th>
+<th>ASCⅡ码</th>
+<th>大写字母</th>
+<th>ASCⅡ码</th>
+<th>小写字母</th>
+<th>ASCⅡ码</th>
+<th>小写字母</th>
+<th>ASCⅡ码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>1000001</td>
+<td>N</td>
+<td>1001110</td>
+<td>a</td>
+<td>1100001</td>
+<td>n</td>
+<td>1101110</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1000010</td>
+<td>O</td>
+<td>1001111</td>
+<td>b</td>
+<td>1100010</td>
+<td>o</td>
+<td>1101111</td>
+</tr>
+<tr>
+<td>C</td>
+<td>1000011</td>
+<td>P</td>
+<td>1010000</td>
+<td>c</td>
+<td>1100011</td>
+<td>p</td>
+<td>1110000</td>
+</tr>
+<tr>
+<td>D</td>
+<td>1000100</td>
+<td>Q</td>
+<td>1010001</td>
+<td>d</td>
+<td>1100100</td>
+<td>q</td>
+<td>1110001</td>
+</tr>
+<tr>
+<td>E</td>
+<td>1000101</td>
+<td>R</td>
+<td>1010010</td>
+<td>e</td>
+<td>1100101</td>
+<td>r</td>
+<td>1110010</td>
+</tr>
+<tr>
+<td>F</td>
+<td>1000110</td>
+<td>S</td>
+<td>1010011</td>
+<td>f</td>
+<td>1100110</td>
+<td>s</td>
+<td>1110011</td>
+</tr>
+<tr>
+<td>G</td>
+<td>1000111</td>
+<td>T</td>
+<td>1010100</td>
+<td>g</td>
+<td>1100111</td>
+<td>t</td>
+<td>1110100</td>
+</tr>
+<tr>
+<td>H</td>
+<td>1001000</td>
+<td>U</td>
+<td>1010101</td>
+<td>h</td>
+<td>1101000</td>
+<td>u</td>
+<td>1110101</td>
+</tr>
+<tr>
+<td>I</td>
+<td>1001001</td>
+<td>V</td>
+<td>1010110</td>
+<td>i</td>
+<td>1101001</td>
+<td>v</td>
+<td>1110110</td>
+</tr>
+<tr>
+<td>J</td>
+<td>1001010</td>
+<td>W</td>
+<td>1010111</td>
+<td>j</td>
+<td>1101010</td>
+<td>w</td>
+<td>1110111</td>
+</tr>
+<tr>
+<td>K</td>
+<td>1001011</td>
+<td>X</td>
+<td>1011000</td>
+<td>k</td>
+<td>1101011</td>
+<td>x</td>
+<td>1111000</td>
+</tr>
+<tr>
+<td>L</td>
+<td>1001100</td>
+<td>Y</td>
+<td>1011001</td>
+<td>l</td>
+<td>1101100</td>
+<td>y</td>
+<td>1111001</td>
+</tr>
+<tr>
+<td>M</td>
+<td>1001101</td>
+<td>Z</td>
+<td>1011010</td>
+<td>m</td>
+<td>1101101</td>
+<td>z</td>
+<td>1111010</td>
+</tr>
+</tbody></table>
+<p>原本的ASCII是八位，去掉了第一位的0所以变成了现在这样子</p>
+<ul>
+<li>明文： HELLO= 1001000 1000101 1001100 1001100 1001111</li>
+<li>密钥：CRUDE= 1000011 1010010 1010101 1000100 1000101</li>
+<li>异或后的密文 = 0001011 0010111 0011001 0001000 0001010（得到这个不用再转成ASCII）</li>
+</ul>
+<p>异或（xor，python符号（^））：不同为1，相同为0，比如0异或1结果为1，0异或0结果为0。两次异或可以还原成原来的样子</p>
+<p>利用上面的异或性质，可以使用密文跟密钥再次异或得到明文的二进制，然后转换成ASCII得到明文，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">content=&#x27;00010110010111001100100010000001010&#x27;</span><br><span class="line">key=&#x27;CRUDE&#x27;</span><br><span class="line">mi =[content[i:i+7] for i in range(0,len(content),7)]</span><br><span class="line">flag=&#x27;&#x27;</span><br><span class="line">for i,j in zip(mi,key):#在python中不仅二进制可以做异或，十进制也可以</span><br><span class="line">    print(chr(int(i,2)^ord(j)))</span><br></pre></td></tr></table></figure>
+
+<h4 id="杰斐逊轮转加密"><a href="#杰斐逊轮转加密" class="headerlink" title="杰斐逊轮转加密"></a>杰斐逊轮转加密</h4><p>用一组相互独立的转轮，其上是以随机顺序写的26个字母表，这些轮可自由转动，使明文出现在一条直线上 ，而密文可以从其他任意直线选取。</p>
+<p><img src="/image/media/2022/crypto/11.png"></p>
+<p>杰斐逊轮转加密每个转轮相当于一个替换字母表，破解难度大，缺点就是传输信息有限，传输的信息不能超过转轮数量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一道题目：墙上写了好多奇奇怪怪的 英文字母，排列的的整整齐齐，店面前面还有一个大大的类似于土耳其旋转烤肉的架子，上面一圈圈的 也刻着很多英文字母，你是一个小历史迷，对于二战时候的历史刚好特别熟悉，一拍大腿：“嗨呀！我知道 是什么东西了！”。提示：托马斯·杰斐逊。 flag，是字符串，小写。</span><br><span class="line">1:   &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;</span><br><span class="line">2:   &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;</span><br><span class="line">3:   &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;</span><br><span class="line">4:   &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;</span><br><span class="line">5:   &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;</span><br><span class="line">6:   &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;</span><br><span class="line">7:   &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;</span><br><span class="line">8:   &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;</span><br><span class="line">9:   &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;</span><br><span class="line">10:  &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;</span><br><span class="line">11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;</span><br><span class="line">12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;</span><br><span class="line">13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;</span><br><span class="line">密钥为：2,3,7,5,13,12,9,1,8,10,4,11,6</span><br><span class="line">密文为：NFQKSEVOQOFNP</span><br></pre></td></tr></table></figure>
+
+<p>代码实现解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># 杰斐逊轮转加密</span><br><span class="line">value = &#x27;&#x27;&#x27;1:&lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;</span><br><span class="line">2:&lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;</span><br><span class="line">3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;</span><br><span class="line">4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;</span><br><span class="line">5:   &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;</span><br><span class="line">6:   &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;</span><br><span class="line">7:   &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;</span><br><span class="line">8:   &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;</span><br><span class="line">9:   &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;</span><br><span class="line">10:  &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;</span><br><span class="line">11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;</span><br><span class="line">12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;</span><br><span class="line">13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;&#x27;&#x27;&#x27;</span><br><span class="line">new = []</span><br><span class="line">for i in value.split(&#x27;\n&#x27;):  # 根据换行来切片</span><br><span class="line">    new.append(i[i.index(&#x27;&lt;&#x27;) + 2:i.rindex(&#x27;&lt;&#x27;) - 1])  # 处理多余字符</span><br><span class="line">key = [int(i) for i in &#x27;2,3,7,5,13,12,9,1,8,10,4,11,6&#x27;.split(&#x27;,&#x27;)]  # 转成整数</span><br><span class="line">content = &#x27;NFQKSEVOQOFNP&#x27;  # 密文</span><br><span class="line">text = []</span><br><span class="line"># for i in range(len(content)):</span><br><span class="line">#     print(content[i:]+content[:i])</span><br><span class="line">for k, m in zip(key, content):</span><br><span class="line">    # print(new[k - 1][new[k - 1].index(m):]+new[k - 1][:new[k - 1].index(m)])</span><br><span class="line">    text.append(new[k - 1][new[k - 1].index(m):]+new[k - 1][:new[k - 1].index(m)])</span><br><span class="line"># print(text)</span><br><span class="line"></span><br><span class="line">flag=[]</span><br><span class="line">for i in range(26):#每个列取值</span><br><span class="line">    txt=&#x27;&#x27;</span><br><span class="line">    for j in text:</span><br><span class="line">        txt+=j[i]</span><br><span class="line">    flag.append(txt)</span><br><span class="line">print(flag)</span><br><span class="line">#17列，都是大写FIREINTHEHOLE</span><br></pre></td></tr></table></figure>
+
+<h4 id="Playfair"><a href="#Playfair" class="headerlink" title="Playfair"></a>Playfair</h4><p>Playfair 密码（Playfair cipher or Playfair square）是一种替换密码，1854 年由英国人查尔斯 · 惠斯通（Charles Wheatstone）发明，基本算法如下：</p>
+<ol>
+<li>选取一串英文字母，除去重复出现的字母，将剩下的字母逐个逐个加入 5 × 5 的矩阵内，剩下的空间由未加入的英文字母依 a-z 的顺序加入。注意，将 q 去除，或将 i 和 j 视作同一字。</li>
+<li>将要加密的明文分成两个一组。若组内的字母相同，将 X（或 Q）加到该组的第一个字母后，重新分组。若剩下一个字，也加入 X 。</li>
+<li>在每组中，找出两个字母在矩阵中的地方。<ul>
+<li>若两个字母不同行也不同列，在矩阵中找出另外两个字母（第一个字母对应行优先），使这四个字母成为一个长方形的四个角。</li>
+<li>若两个字母同行，取这两个字母右方的字母（若字母在最右方则取最左方的字母）。</li>
+<li>若两个字母同列，取这两个字母下方的字母（若字母在最下方则取最上方的字母）。</li>
+</ul>
+</li>
+</ol>
+<p>新找到的两个字母就是原本的两个字母加密的结果。</p>
+<p>以 playfair example 为密匙，得5 × 5的矩阵，需要去掉重复的，并且在最后面将没有在里面的补充进去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">P L A Y F</span><br><span class="line">I R E X M</span><br><span class="line">B C D G H</span><br><span class="line">K N O Q S</span><br><span class="line">T U V W Z</span><br></pre></td></tr></table></figure>
+
+<p>要加密的讯息为 Hide the gold in the tree stump，将密文分成两个一组，如果组内字母一样第二位用X代替，如果最后一个只有一个也加入一个X，此处的tree结果就是TR EX</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HI DE TH EG OL DI NT HE TR EX ES TU MP</span><br></pre></td></tr></table></figure>
+
+<p>然后根据上面的矩阵和规则挨个寻找对应的字母组合，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">情况一：				   情况二：							情况三：</span><br><span class="line">I R E X M	HI是明文		I R E X M		DE是明文		I R E X M		EX是明文</span><br><span class="line">B C D G H	BM是密文		B C D G H		OD是密文						XM是密文</span><br><span class="line">						  K N O Q S</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BM OD ZB XD NA BE KU DM UI XM MO UV IF</span><br></pre></td></tr></table></figure>
+
+<h4 id="Polybius"><a href="#Polybius" class="headerlink" title="Polybius"></a>Polybius</h4><p>Polybius （波利比奥斯）密码又称为棋盘密码，将给定的明文加密为两两组合的数字，密码表如下</p>
+<p><img src="/image/media/2022/crypto/12.png" alt="x"></p>
+<p>明文：HELLO，使用这个表格加密</p>
+<p>密文：23 15 31 31 34</p>
+<p>hint：i和j需要结合上下文取值</p>
+<p>因为Polybius比较简单于是在这个基础上衍生了多种密码表，并且能够定制密码表比如A D F G X</p>
+<h4 id="ADFGX密码"><a href="#ADFGX密码" class="headerlink" title="ADFGX密码"></a>ADFGX密码</h4><p>1918 年，第一次世界大战将要结束时，法军截获了一份德军电报，电文中的所有单词都由 A、D、F、G、X 五个字母拼成，因此被称为 ADFGX 密码。ADFGX 密码是 1918 年 3 月由德军上校 Fritz Nebel 发明的，是结合了 Polybius 密码和置换密码的双重加密方案。</p>
+<p><img src="/image/media/2022/crypto/13.png" alt="x"></p>
+<p>明文：HELLO，使用这个表格加密</p>
+<p>密文：DD XF AG AG DF</p>
+<p>hint：可以看到这两种密码的密文都是只有五种可能所以可以根据密文类型联想到上面两种密码，并且长度是二的倍数</p>
+<ul>
+<li>题目</li>
+</ul>
+<p>现有密文：ilnllliiikkninlekile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cipher = &quot;ilnllliiikkninlekile&quot;</span><br><span class="line">key = []</span><br><span class="line">for i in itertools.permutations(&#x27;ilnke&#x27;, 5):</span><br><span class="line">    key.append(&#x27;&#x27;.join(i))</span><br><span class="line">for now_key in key:</span><br><span class="line">    solve_c = &quot;&quot;</span><br><span class="line">    res = &quot;&quot;</span><br><span class="line">    for now_c in cipher:</span><br><span class="line">        solve_c += str(now_key.index(now_c))</span><br><span class="line">    for i in range(0,len(solve_c),2):</span><br><span class="line">        now_ascii = int(solve_c[i])*5+int(solve_c[i+1])+97</span><br><span class="line">        if now_ascii&gt;ord(&#x27;i&#x27;):</span><br><span class="line">            now_ascii+=1</span><br><span class="line">        res += chr(now_ascii)</span><br><span class="line">    if &quot;flag&quot; in res:</span><br><span class="line">        print (now_key,res)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Nihilist-密码"><a href="#Nihilist-密码" class="headerlink" title="Nihilist 密码"></a>Nihilist 密码</h4><p>Nihilist 密码又称关键字密码：明文 + 关键字 = 密文。以关键字 helloworld 为例。</p>
+<p>首先利用密钥构造棋盘矩阵（类似 Polybius 密码），新建一个 5 × 5 矩阵，将字符不重复地依次填入矩阵，剩下部分按字母顺序填入，字母 i 和 j 等价</p>
+<p><img src="/image/media/2022/crypto/14.png" alt="x"></p>
+<p>对于加密过程参照矩阵 M 进行加密：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a -&gt; M[2,3] -&gt; 23</span><br><span class="line">t -&gt; M[4,5] -&gt; 45</span><br></pre></td></tr></table></figure>
+
+<p>对于解密过程</p>
+<p>参照矩阵 M 进行解密：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">23 -&gt; M[2,3] -&gt; a</span><br><span class="line">45 -&gt; M[4,5] -&gt; t</span><br></pre></td></tr></table></figure>
+
+<p>hint：密文都是数字并且长度是偶数，而只包含 1 到 5</p>
+<h4 id="希尔密码"><a href="#希尔密码" class="headerlink" title="希尔密码"></a>希尔密码</h4><p>希尔密码（Hill）使用每个字母在字母表中的顺序作为其对应的数字，即 A=0，B=1，C=2 等，然后将明文转化为 n 维向量，跟一个 n × n 的矩阵相乘，再将得出的结果模 26。注意用作加密的矩阵（即密匙）必须是可逆的，否则就不可能解码。只有矩阵的行列式和 26 互质，才是可逆的。</p>
+<p>明文：ACT，转化为矩阵</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">19</span><br></pre></td></tr></table></figure>
+
+<p>现有密钥矩阵：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6	24	1</span><br><span class="line">13	16	10</span><br><span class="line">20	17	15</span><br></pre></td></tr></table></figure>
+
+<p>然后解密过程可以表示为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[6	24	1 ]	[0]			[6*0+24*2+1*19]		[67]		[15]</span><br><span class="line">[13	16	10]	[2]		= 	[13*0+16*2+10*19]=	[222]mod 26=[14]</span><br><span class="line">[20	17	15]	[19]		[20*0+17*2+15*19]	[319]		[7]</span><br></pre></td></tr></table></figure>
+
+<p>所以得到密文为：POH</p>
+<ul>
+<li>题目</li>
+</ul>
+<p>密文： 22,09,00,12,03,01,10,03,04,08,01,17 （wjamdbkdeibr）</p>
+<p>使用的矩阵是 1 2 3 4 5 6 7 8 10</p>
+<p>首先，矩阵是 3 × 3 的。说明每次加密 3 个字符。</p>
+<p>这个矩阵是按照列来排布的。即如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 4 7</span><br><span class="line">2 5 8</span><br><span class="line">3 6 10</span><br></pre></td></tr></table></figure>
+
+<p>最后的结果为 overthehillx</p>
+<h3 id="其他类型的加密"><a href="#其他类型的加密" class="headerlink" title="其他类型的加密"></a>其他类型的加密</h3><h4 id="云影加密"><a href="#云影加密" class="headerlink" title="云影加密"></a>云影加密</h4><p>该密码又称为01248 密码 ，使用 0，1，2，4，8 四个数字，其中 0 用来表示间隔，其他数字以加法可以表示出 如：28=10，124=7，18=9，再用 1-&gt;26 表示 A-&gt;Z。</p>
+<p>hint：云影加密只有 0，1，2，4，8</p>
+<ul>
+<li>题目</li>
+</ul>
+<p>8842101220480224404014224202480122，根据0来切割得到</p>
+<table>
+<thead>
+<tr>
+<th>切片结果</th>
+<th>运算</th>
+<th>运算结果</th>
+<th>结果对应的字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>88421</td>
+<td>8+8+4+2+1</td>
+<td>23</td>
+<td>W</td>
+</tr>
+<tr>
+<td>122</td>
+<td>1+2+2</td>
+<td>5</td>
+<td>E</td>
+</tr>
+<tr>
+<td>48</td>
+<td>4+8</td>
+<td>12</td>
+<td>L</td>
+</tr>
+<tr>
+<td>2244</td>
+<td>2+2+4+4</td>
+<td>12</td>
+<td>L</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>D</td>
+</tr>
+<tr>
+<td>142242</td>
+<td>1+4+2+2+4+2</td>
+<td>15</td>
+<td>O</td>
+</tr>
+<tr>
+<td>248</td>
+<td>2+4+8</td>
+<td>14</td>
+<td>N</td>
+</tr>
+<tr>
+<td>122</td>
+<td>1+2+2</td>
+<td>5</td>
+<td>E</td>
+</tr>
+</tbody></table>
+<p>所以解密结果为：WELLDONE</p>
+<p>python代码实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">content=&#x27;8842101220480224404014224202480122&#x27;</span><br><span class="line">charList = [chr(i) for i in range(ord(&#x27;A&#x27;), ord(&#x27;Z&#x27;) + 1)]</span><br><span class="line">ret = []</span><br><span class="line">plaintext = [i for i in content.split(&#x27;0&#x27;)]</span><br><span class="line">for i in plaintext:</span><br><span class="line">    tmp = 0</span><br><span class="line">    for j in range(len(i)):</span><br><span class="line">        tmp += int(i[j])</span><br><span class="line">    ret.append(charList[tmp - 1])</span><br><span class="line">print(&#x27;云影密码&#x27;, &#x27;&#x27;.join(ret))</span><br></pre></td></tr></table></figure>
+
+<h4 id="base家族解密"><a href="#base家族解密" class="headerlink" title="base家族解密"></a>base家族解密</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">##base家族解密</span><br><span class="line">import base64</span><br><span class="line">import base128</span><br><span class="line">import base36</span><br><span class="line">import base58</span><br><span class="line">import base91</span><br><span class="line">import py3base92</span><br><span class="line"></span><br><span class="line">content = 密文信息</span><br><span class="line">num=[]</span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        content = base64.b16decode(content).decode()</span><br><span class="line">        num.append(&#x27;base16&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base64.b32decode(content).decode()</span><br><span class="line">        num.append(&#x27;base32&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base36.dumps(content).decode()</span><br><span class="line">        num.append(&#x27;base36&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base58.b58decode(content).decode()</span><br><span class="line">        num.append(&#x27;base58&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base64.b64decode(content).decode()</span><br><span class="line">        num.append(&#x27;base64&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base64.b85decode(content).decode()</span><br><span class="line">        num.append(&#x27;base85&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base64.a85decode(content).decode()</span><br><span class="line">        num.append(&#x27;base85&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = base91.decode(content).decode()</span><br><span class="line">        num.append(&#x27;base91&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = py3base92.b92decode(content).decode()</span><br><span class="line">        num.append(&#x27;base92&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    try:</span><br><span class="line">        content = b&#x27;&#x27;.join(base128.base128(chars = None, chunksize = 7) .decode(content)).decode()</span><br><span class="line">        num.append(&#x27;base128&#x27;)</span><br><span class="line">        continue</span><br><span class="line">    except:</span><br><span class="line">        pass</span><br><span class="line">    break</span><br><span class="line">print(num)</span><br><span class="line">print(content)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="pycipher库的使用"><a href="#pycipher库的使用" class="headerlink" title="pycipher库的使用"></a>pycipher库的使用</h2><p>pycipher是python的一个函数库，使用pip install pycipher即可安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pycipher</span><br><span class="line">&gt;&gt;&gt; dir(pycipher)</span><br><span class="line">[&#x27;ADFGVX&#x27;, &#x27;ADFGX&#x27;, &#x27;Affine&#x27;, &#x27;Atbash&#x27;, &#x27;Autokey&#x27;, &#x27;Beaufort&#x27;, &#x27;Bifid&#x27;, &#x27;Caesar&#x27;, &#x27;ColTrans&#x27;, &#x27;Enigma&#x27;, &#x27;Foursquare&#x27;, &#x27;FracMorse&#x27;, &#x27;Gronsfeld&#x27;, &#x27;M209&#x27;, &#x27;Playfair&#x27;, &#x27;PolybiusSquare&#x27;, &#x27;Porta&#x27;, &#x27;Railfence&#x27;, &#x27;Rot13&#x27;, &#x27;SimpleSubstitution&#x27;, &#x27;Vigenere&#x27;, &#x27;__all__&#x27;, &#x27;__builtins__&#x27;, &#x27;__cached__&#x27;, &#x27;__doc__&#x27;, &#x27;__file__&#x27;, &#x27;__loader__&#x27;, &#x27;__name__&#x27;, &#x27;__package__&#x27;, &#x27;__path__&#x27;, &#x27;__spec__&#x27;, &#x27;__version__&#x27;, &#x27;adfgvx&#x27;, &#x27;adfgx&#x27;, &#x27;affine&#x27;, &#x27;atbash&#x27;, &#x27;autokey&#x27;, &#x27;base&#x27;, &#x27;beaufort&#x27;, &#x27;bifid&#x27;, &#x27;caesar&#x27;, &#x27;columnartransposition&#x27;, &#x27;enigma&#x27;, &#x27;foursquare&#x27;, &#x27;fracmorse&#x27;, &#x27;gronsfeld&#x27;, &#x27;m209&#x27;, &#x27;playfair&#x27;, &#x27;polybius&#x27;, &#x27;porta&#x27;, &#x27;pycipher&#x27;, &#x27;railfence&#x27;, &#x27;rot13&#x27;, &#x27;simplesubstitution&#x27;, &#x27;util&#x27;, &#x27;vigenere&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>使用dir(pycipher)可以查询包括的类，能够实现多种古典密码的加解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; help(pycipher.Caesar)</span><br><span class="line">Help on class Caesar in module pycipher.caesar:</span><br><span class="line">class Caesar(pycipher.base.Cipher)</span><br><span class="line"> |  Caesar(key=13)</span><br><span class="line"> |  The Caesar Cipher has a key consisting of an integer 1-25.</span><br><span class="line"> |  This cipher encrypts a letter according to the following equation::</span><br><span class="line"> |</span><br><span class="line"> |      c = (p + key)%26</span><br><span class="line"> |</span><br><span class="line"> |  where c is the ciphertext letter, p the plaintext letter.</span><br><span class="line"> |  For more details on the Caesar cipher, see http://www.practicalcryptography.com/ciphers/caesar-cipher/</span><br><span class="line"> |  :param key: The additive key. Allowable values are integers 0-25.</span><br><span class="line"> |</span><br><span class="line"> |  Method resolution order:</span><br><span class="line"> |      Caesar</span><br><span class="line"> |      pycipher.base.Cipher</span><br><span class="line"> |      builtins.object</span><br><span class="line"> |  Methods defined here:</span><br><span class="line"> |  __init__(self, key=13)</span><br><span class="line"> |      Initialize self.  See help(type(self)) for accurate signature.</span><br><span class="line"> |</span><br><span class="line"> |  decipher(self, string, keep_punct=False)</span><br><span class="line"> |      Decipher string using Caesar cipher according to initialised key.</span><br><span class="line"> |      Example::</span><br><span class="line"> |</span><br><span class="line"> |          plaintext = Caesar(3).decipher(ciphertext)</span><br><span class="line"> |</span><br><span class="line"> |      :param string: The string to decipher.</span><br><span class="line"> |      :param keep_punct: if true, punctuation and spacing are retained. If false, it is all removed. Default is False.</span><br><span class="line"> |      :returns: The deciphered string.</span><br><span class="line"> |</span><br><span class="line"> |  encipher(self, string, keep_punct=False)</span><br><span class="line"> |      Encipher string using Caesar cipher according to initialised key.</span><br><span class="line"> |      Example::</span><br><span class="line"> |</span><br><span class="line"> |          ciphertext = Caesar(3).encipher(plaintext)</span><br><span class="line"> |</span><br><span class="line"> |      :param string: The string to encipher.</span><br><span class="line"> |      :param keep_punct: if true, punctuation and spacing are retained. If false, it is all removed. Default is False.</span><br><span class="line"> |      :returns: The enciphered string.</span><br></pre></td></tr></table></figure>
+
+<p>可以使用help(pycipher.Caesar)对一个类里面包含的函数信息</p>
+<p>栅栏密码快速实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pycipher</span><br><span class="line">&gt;&gt;&gt; pycipher.Caesar(3).decipher(&quot;IODJ&#123;Khuh_lv_brxu_iodj&#125;&quot;)</span><br><span class="line">&#x27;FLAGHEREISYOURFLAG&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到encipher加密和decipher解密，但是需要指定密钥，然后输出有只有大写，可以修改</p>
+<p>Atbash Cipher密码脚本可以快速实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;from pycipher import Atbash</span><br><span class="line">&gt;&gt;&gt;Atbash().encipher(&#x27;defend the east wall of the castle&#x27;)</span><br><span class="line">&#x27;wvuvmwgsvvzhgdzoolugsvxzhgov&#x27;</span><br><span class="line">&gt;&gt;&gt;Atbash().decipher(&#x27;wvuvmwgsvvzhgdzoolugsvxzhgov&#x27;)</span><br><span class="line">&#x27;defendtheeastwallofthecastle&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>仿射密码快速实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pycipher</span><br><span class="line">&gt;&gt;&gt; pycipher.Affine(11,7).decipher(&#x27;dikxourxd&#x27;)</span><br><span class="line">&#x27;CTFSDNISC&#x27;</span><br><span class="line">&gt;&gt;&gt; pycipher.Affine(17,-8).decipher(&#x27;szzyfimhyzd&#x27;)</span><br><span class="line">&#x27;AFFINESHIFT&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>Vigenere 维吉尼亚密码快速实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pycipher</span><br><span class="line">&gt;&gt;&gt; pycipher.Vigenere(&quot;abc&quot;).decipher(&#x27;Vjieogrf&#x27;)</span><br><span class="line">&#x27;VIGENERE&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>列置换快速实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pycipher</span><br><span class="line">&gt;&gt;&gt; pycipher.ColTrans(&#x27;nice&#x27;).encipher(&#x27;ilovepythonandctf&#x27;)</span><br><span class="line">&#x27;OYNCVTATLPODIEHNF&#x27;</span><br><span class="line">&gt;&gt;&gt; pycipher.ColTrans(&#x27;nice&#x27;).decipher(&#x27;OYNCVTATLPODIEHNF&#x27;)</span><br><span class="line">&#x27;ILOVEPYTHONANDCTF&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br></pre></td><td class="code"><pre><span class="line"># 栅栏加解密</span><br><span class="line"># crypto=&#x27;flag&#123;012345&#125;&#x27;</span><br><span class="line"># for i in range(0,6):</span><br><span class="line">#     for n in range(i,len(crypto),6):</span><br><span class="line">#         print(crypto[n],end=&#x27;&#x27;)</span><br><span class="line"># print()</span><br><span class="line"># zhalan=&#x27;f1l2a3g4&#123;50&#125;&#x27;</span><br><span class="line"># for i in range(0,2):</span><br><span class="line">#     for n in range(i,len(zhalan),2):</span><br><span class="line">#         print(zhalan[n], end=&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># # 栅栏加解密合并</span><br><span class="line"># def railfence(content):</span><br><span class="line">#     all=[]</span><br><span class="line">#     for key in range(2,len(content)):</span><br><span class="line">#         flag=&#x27;&#x27;</span><br><span class="line">#         if len(content)%key==0:</span><br><span class="line">#             for i in range(0, key):</span><br><span class="line">#                 for n in range(i, len(content), key):</span><br><span class="line">#                     flag=flag+content[n]</span><br><span class="line">#                     # print(content[n], end=&#x27;&#x27;)</span><br><span class="line">#             all.append(&#x27;栏数为:&#123;0&#125;时,结果为:&#123;1&#125;&#x27;.format(key,flag))</span><br><span class="line">#     print(all)</span><br><span class="line">#     print(len(all))</span><br><span class="line"># if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">#     content=&#x27;flag&#123;012345&#125;&#x27;</span><br><span class="line">#     railfence(content)</span><br><span class="line">#     content=&#x27;f&#123;3l04a15g2&#125;&#x27;</span><br><span class="line">#     railfence(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># #莫斯密码加解密</span><br><span class="line"># def mosdecrypt(content):</span><br><span class="line">#     MorseList = &#123;&#x27;A&#x27;: &quot;.-&quot;, &#x27;B&#x27;: &quot;-...&quot;, &#x27;C&#x27;: &quot;-.-.&quot;, &#x27;D&#x27;: &quot;-..&quot;, &#x27;E&#x27;: &quot;.&quot;, &#x27;F&#x27;: &quot;..-.&quot;, &#x27;G&#x27;: &quot;--.&quot;,</span><br><span class="line">#                  &#x27;H&#x27;: &quot;....&quot;, &#x27;I&#x27;: &quot;..&quot;, &#x27;J&#x27;: &quot;.---&quot;, &#x27;K&#x27;: &quot;-.-&quot;, &#x27;L&#x27;: &quot;.-..&quot;, &#x27;M&#x27;: &quot;--&quot;, &#x27;N&#x27;: &quot;-.&quot;,</span><br><span class="line">#                  &#x27;O&#x27;: &quot;---&quot;, &#x27;P&#x27;: &quot;.--.&quot;, &#x27;Q&#x27;: &quot;--.-&quot;, &#x27;R&#x27;: &quot;.-.&quot;, &#x27;S&#x27;: &quot;...&quot;, &#x27;T&#x27;: &quot;-&quot;, &#x27;U&#x27;: &quot;..-&quot;,</span><br><span class="line">#                  &#x27;V&#x27;: &quot;...-&quot;, &#x27;W&#x27;: &quot;.--&quot;, &#x27;X&#x27;: &quot;-..-&quot;, &#x27;Y&#x27;: &quot;-.--&quot;, &#x27;Z&#x27;: &quot;--..&quot;,</span><br><span class="line">#                  &#x27;1&#x27;: &quot;.----&quot;, &#x27;2&#x27;: &quot;..---&quot;, &#x27;3&#x27;: &quot;...--&quot;, &#x27;4&#x27;: &quot;....-&quot;, &#x27;5&#x27;: &quot;.....&quot;,</span><br><span class="line">#                  &#x27;6&#x27;: &quot;-....&quot;, &#x27;7&#x27;: &quot;--...&quot;, &#x27;8&#x27;: &quot;---..&quot;, &#x27;9&#x27;: &quot;----.&quot;, &#x27;0&#x27;: &quot;-----&quot;,</span><br><span class="line">#                  &#x27;.&#x27;: &quot;.-.-.-&quot;, &#x27;?&#x27;: &quot;..--..&quot;, &#x27;!&#x27;: &quot;-.-.--&quot;, &#x27;(&#x27;: &quot;-.--.&quot;, &#x27;@&#x27;: &quot;.--.-.&quot;, &#x27;:&#x27;: &quot;---...&quot;,</span><br><span class="line">#                  &#x27;=&#x27;: &quot;-...-&quot;, &#x27;-&#x27;: &quot;-....-&quot;, &#x27;)&#x27;: &quot;-.--.-&quot;, &#x27;,&#x27;: &quot;--..--&quot;, &#x27;\&#x27;&#x27;: &quot;.----.&quot;, &#x27;_&#x27;: &quot;..--.-&quot;,</span><br><span class="line">#                  &#x27;$&#x27;: &quot;...-..-&quot;, &#x27;;&#x27;: &quot;-.-.-.&quot;, &#x27;/&#x27;: &quot;-..-.&quot;, &#x27;\&quot;&#x27;: &quot;.-..-.&quot;, &#x27;&amp;&#x27;: &quot;.-...&quot;,</span><br><span class="line">#                  &#x27;+&#x27;: &quot;.-.-.&quot;,</span><br><span class="line">#                  &#x27;à&#x27;: &quot;.--.-&quot;, &#x27;ä&#x27;: &quot;.-.-&quot;, &#x27;ch&#x27;: &quot;----&quot;, &#x27;ç&#x27;: &quot;-.-..&quot;, &#x27;ð&#x27;: &quot;..--.&quot;,</span><br><span class="line">#                  &#x27;é&#x27;: &quot;..-..&quot;, &#x27;è&#x27;: &quot;.-..-&quot;, &#x27;ĝ&#x27;: &quot;--.-.&quot;, &#x27;ĥ&#x27;: &quot;-.--.&quot;, &#x27;ĵ&#x27;: &quot;.---.&quot;,</span><br><span class="line">#                  &#x27;ñ&#x27;: &quot;--.--&quot;, &#x27;ø&#x27;: &quot;---.&quot;, &#x27;ŝ&#x27;: &quot;...-.&quot;, &#x27;þ&#x27;: &quot;.--..&quot;, &#x27;ü&#x27;: &quot;..--&quot;,&#125;</span><br><span class="line">#     if &#x27;0&#x27; in content and &#x27;1&#x27; in content:</span><br><span class="line">#         trans = &#x27;&#x27;.maketrans(&#x27;01&#x27;, &#x27;.-&#x27;)</span><br><span class="line">#         content = content.translate(trans)</span><br><span class="line">#     if &#x27;－&#x27; in content or &#x27;·&#x27; in content:</span><br><span class="line">#         content=content.replace(&#x27;－&#x27;,&#x27;-&#x27;)</span><br><span class="line">#         content=content.replace(&#x27;·&#x27;,&#x27;.&#x27;)</span><br><span class="line">#     if &#x27;/&#x27; in content:</span><br><span class="line">#         lmorsecodeList = content.split(&quot;/&quot;)</span><br><span class="line">#     else:</span><br><span class="line">#         content = content.replace(&#x27; &#x27;, &#x27;/&#x27;)</span><br><span class="line">#         if &#x27;///&#x27; in  content:</span><br><span class="line">#             content = content.replace(&#x27;///&#x27;, &#x27;/ /&#x27;)</span><br><span class="line">#         lmorsecodeList = content.split(&quot;/&quot;)</span><br><span class="line">#     print(lmorsecodeList)</span><br><span class="line">#     flag = &#x27;&#x27;</span><br><span class="line">#     for char in lmorsecodeList:</span><br><span class="line">#         if char ==&#x27; &#x27;:</span><br><span class="line">#             flag = flag +  char</span><br><span class="line">#         for k, v in MorseList.items():</span><br><span class="line">#             if v == char:</span><br><span class="line">#                 flag = flag + k</span><br><span class="line">#     print(&quot;莫斯密码小写:&quot;, flag)</span><br><span class="line">#     print(&quot;莫斯密码大写:&quot;, flag.lower())</span><br><span class="line">#     return flag</span><br><span class="line"># content=&#x27;··   ·－·· －－－ ···－ ·   －·－－ －－－ ··－ &#x27;</span><br><span class="line"># print(content.split(&quot; &quot;))</span><br><span class="line"># print(mosdecrypt(content))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># # 凯撒密码</span><br><span class="line"># def caesar_Crypto(content):</span><br><span class="line">#     all_plain=[]</span><br><span class="line">#     for num in range(1,26):</span><br><span class="line">#         plain = &#x27;&#x27;</span><br><span class="line">#         for i in content:</span><br><span class="line">#             if i.islower():#小写字母</span><br><span class="line">#                 plain = plain + chr(97 + (ord(i) + num - 97) % 26)</span><br><span class="line">#             elif i.isupper():#大写字母</span><br><span class="line">#                 plain = plain + chr(65 + (ord(i) + num - 65) % 26)</span><br><span class="line">#             else:#上面两者都不是</span><br><span class="line">#                 plain=plain+i</span><br><span class="line">#         print(plain)</span><br><span class="line">#         all_plain.append(plain)</span><br><span class="line">#     print(all_plain)</span><br><span class="line"># content=&#x27;IODJ&#123;Khuh_lv_brxu_iodj&#125;&#x27;</span><br><span class="line"># caesar_Crypto(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># # 凯撒密码新思路</span><br><span class="line"># 实现循环</span><br><span class="line"># crypto=&#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br><span class="line"># for i in range(len(crypto)):</span><br><span class="line">#     print(crypto[i:]+crypto[:i])</span><br><span class="line"># def caesar_Crypto(content):</span><br><span class="line">#     all_plain=[]</span><br><span class="line">#     lowercase = &#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br><span class="line">#     uppercase = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;</span><br><span class="line">#     for num in range(1,26):</span><br><span class="line">#         lower=lowercase[num:]+lowercase[:num]</span><br><span class="line">#         upper=uppercase[num:]+uppercase[:num]</span><br><span class="line">#         plain=&#x27;&#x27;</span><br><span class="line">#         table=&#x27;&#x27;.maketrans(lower+upper,lowercase+uppercase)</span><br><span class="line">#         for i in content:</span><br><span class="line">#             plain=plain+i.translate(table)</span><br><span class="line">#         all_plain.append(plain)</span><br><span class="line">#         print(plain)</span><br><span class="line">#     print(all_plain)</span><br><span class="line"># content=&#x27;IODJ&#123;Khuh_lv_brxu_iodj&#125;&#x27;</span><br><span class="line"># caesar_Crypto(content)</span><br><span class="line"># 变异凯撒</span><br><span class="line"># str=&quot;afZ_r9VYfScOeO_UL^RWUc&quot;</span><br><span class="line"># a=5</span><br><span class="line"># for i in str:</span><br><span class="line">#     print(chr(ord(i)+a),end=&#x27;&#x27;)</span><br><span class="line">#     a=a+1</span><br><span class="line"></span><br><span class="line"># ROT5</span><br><span class="line"># def caesar_Crypto(content):</span><br><span class="line">#     all_plain=[]</span><br><span class="line">#     lowercase = &#x27;0123456789&#x27;</span><br><span class="line">#     lower=lowercase[5:]+lowercase[:5]</span><br><span class="line">#     plain=&#x27;&#x27;</span><br><span class="line">#     table=&#x27;&#x27;.maketrans(lower,lowercase)</span><br><span class="line">#     for i in content:</span><br><span class="line">#         plain=plain+i.translate(table)</span><br><span class="line">#     all_plain.append(plain)</span><br><span class="line">#     print(plain)</span><br><span class="line"># content=&#x27;flag&#123;5678901&#125;&#x27;</span><br><span class="line"># caesar_Crypto(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Atbash Cipher</span><br><span class="line"># def caesar_Crypto(content):</span><br><span class="line">#     all_plain=[]</span><br><span class="line">#     lowercase = &#x27;abcdefghijklmnopqrstuvwxyz&#x27;</span><br><span class="line">#     lower=lowercase[::-1]#此处需要修改</span><br><span class="line">#     plain=&#x27;&#x27;</span><br><span class="line">#     table=&#x27;&#x27;.maketrans(lower,lowercase)</span><br><span class="line">#     for i in content:</span><br><span class="line">#         plain=plain+i.translate(table)</span><br><span class="line">#     all_plain.append(plain)</span><br><span class="line">#     print(plain)</span><br><span class="line"># content=&#x27;the quick brown fox jumps over the lazy dog&#x27;</span><br><span class="line"># caesar_Crypto(content)</span><br><span class="line"># content=&#x27;gsv jfrxp yildm ulc qfnkh levi gsv ozab wlt&#x27;</span><br><span class="line"># caesar_Crypto(content)</span><br><span class="line"># #flag&#123;0123456&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 培根密码大小写提取</span><br><span class="line"># a=&#x27;SjkLnIljKHamJmkilABawiiioaAMbOaPIJmklNBaKijmBuaoljiAUWMakMHWNAakm&#x27;</span><br><span class="line"># flag=&#x27;&#x27;</span><br><span class="line"># for i in a:</span><br><span class="line">#     if i.islower():</span><br><span class="line">#         flag+=&#x27;A&#x27;</span><br><span class="line">#     elif i.isupper():</span><br><span class="line">#         flag+=&quot;B&quot;</span><br><span class="line"># print(flag)</span><br><span class="line"># table=&#x27;&#x27;.maketrans(&quot;AB&quot;,&quot;BA&quot;)</span><br><span class="line"># print(flag.translate(table))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 列表转换成字典</span><br><span class="line"># alphabet = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;,&#x27;f&#x27;,&#x27;g&#x27;,&#x27;h&#x27;,&#x27;i&#x27;,&#x27;j&#x27;,&#x27;k&#x27;,&#x27;l&#x27;,&#x27;m&#x27;,&#x27;n&#x27;,&#x27;o&#x27;,&#x27;p&#x27;,&#x27;q&#x27;,&#x27;r&#x27;,&#x27;s&#x27;,&#x27;t&#x27;,&#x27;u&#x27;,&#x27;v&#x27;,&#x27;w&#x27;,&#x27;x&#x27;,&#x27;y&#x27;,&#x27;z&#x27;]</span><br><span class="line"># cipher = [&quot;aaaaa&quot;,&quot;aaaab&quot;,&quot;aaaba&quot;,&quot;aaabb&quot;,&quot;aabaa&quot;,&quot;aabab&quot;,&quot;aabba&quot;,&quot;aabbb&quot;,&quot;abaaa&quot;,&quot;abaab&quot;,&quot;ababa&quot;,&quot;ababb&quot;,&quot;abbaa&quot;,&quot;abbab&quot;,&quot;abbba&quot;,&quot;abbbb&quot;,&quot;baaaa&quot;,&quot;baaab&quot;,&quot;baaba&quot;,&quot;baabb&quot;,&quot;babaa&quot;,&quot;babab&quot;,&quot;babba&quot;,&quot;babbb&quot;,&quot;bbaaa&quot;,&quot;bbaab&quot;]</span><br><span class="line"># print(dict(zip(alphabet,cipher)))</span><br><span class="line"># #&#123;&#x27;a&#x27;: &#x27;aaaaa&#x27;, &#x27;b&#x27;: &#x27;aaaab&#x27;, &#x27;c&#x27;: &#x27;aaaba&#x27;, &#x27;d&#x27;: &#x27;aaabb&#x27;, &#x27;e&#x27;: &#x27;aabaa&#x27;, &#x27;f&#x27;: &#x27;aabab&#x27;, &#x27;g&#x27;: &#x27;aabba&#x27;, &#x27;h&#x27;: &#x27;aabbb&#x27;, &#x27;i&#x27;: &#x27;abaaa&#x27;, &#x27;j&#x27;: &#x27;abaab&#x27;, &#x27;k&#x27;: &#x27;ababa&#x27;, &#x27;l&#x27;: &#x27;ababb&#x27;, &#x27;m&#x27;: &#x27;abbaa&#x27;, &#x27;n&#x27;: &#x27;abbab&#x27;, &#x27;o&#x27;: &#x27;abbba&#x27;, &#x27;p&#x27;: &#x27;abbbb&#x27;, &#x27;q&#x27;: &#x27;baaaa&#x27;, &#x27;r&#x27;: &#x27;baaab&#x27;, &#x27;s&#x27;: &#x27;baaba&#x27;, &#x27;t&#x27;: &#x27;baabb&#x27;, &#x27;u&#x27;: &#x27;babaa&#x27;, &#x27;v&#x27;: &#x27;babab&#x27;, &#x27;w&#x27;: &#x27;babba&#x27;, &#x27;x&#x27;: &#x27;babbb&#x27;, &#x27;y&#x27;: &#x27;bbaaa&#x27;, &#x27;z&#x27;: &#x27;bbaab&#x27;&#125;</span><br><span class="line"></span><br><span class="line"># 培根密码26长度</span><br><span class="line"># txt = &#x27;SjkLnIljKHamJmkilABawiiioaAMbOaPIJmklNBaKijmBuaoljiAUWMakMHWNAakm&#x27;</span><br><span class="line"># content = &#x27;&#x27;</span><br><span class="line"># for i in txt:</span><br><span class="line">#     if i.islower():</span><br><span class="line">#         content += &#x27;a&#x27;</span><br><span class="line">#     elif i.isupper():</span><br><span class="line">#         content += &quot;b&quot;</span><br><span class="line"># if len(content) % 5 == 0:</span><br><span class="line">#     # alphabet = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;,&#x27;f&#x27;,&#x27;g&#x27;,&#x27;h&#x27;,&#x27;i&#x27;,&#x27;j&#x27;,&#x27;k&#x27;,&#x27;l&#x27;,&#x27;m&#x27;,&#x27;n&#x27;,&#x27;o&#x27;,&#x27;p&#x27;,&#x27;q&#x27;,&#x27;r&#x27;,&#x27;s&#x27;,&#x27;t&#x27;,&#x27;u&#x27;,&#x27;v&#x27;,&#x27;w&#x27;,&#x27;x&#x27;,&#x27;y&#x27;,&#x27;z&#x27;]</span><br><span class="line">#     alphabet = [chr(i) for i in range(ord(&#x27;a&#x27;), ord(&#x27;z&#x27;) + 1)]</span><br><span class="line">#     cipher = [&quot;aaaaa&quot;, &quot;aaaab&quot;, &quot;aaaba&quot;, &quot;aaabb&quot;, &quot;aabaa&quot;, &quot;aabab&quot;, &quot;aabba&quot;, &quot;aabbb&quot;, &quot;abaaa&quot;, &quot;abaab&quot;, &quot;ababa&quot;,</span><br><span class="line">#               &quot;ababb&quot;, &quot;abbaa&quot;, &quot;abbab&quot;, &quot;abbba&quot;, &quot;abbbb&quot;, &quot;baaaa&quot;, &quot;baaab&quot;, &quot;baaba&quot;, &quot;baabb&quot;, &quot;babaa&quot;, &quot;babab&quot;,</span><br><span class="line">#               &quot;babba&quot;, &quot;babbb&quot;, &quot;bbaaa&quot;, &quot;bbaab&quot;]</span><br><span class="line">#     key = dict(zip(cipher, alphabet))  # 生成键值对应的字典</span><br><span class="line">#     try:</span><br><span class="line">#         flag = &#x27;&#x27;</span><br><span class="line">#         for i in range(0, len(content), 5):</span><br><span class="line">#             value = content[i:i + 5]  # 切片</span><br><span class="line">#             flag += key.get(value)  # 取键值</span><br><span class="line">#     except:</span><br><span class="line">#         flag = &#x27;&#x27;</span><br><span class="line">#         table = &#x27;&#x27;.maketrans(&quot;ab&quot;, &quot;ba&quot;)</span><br><span class="line">#         content = content.translate(table)</span><br><span class="line">#         for i in range(0, len(content), 5):</span><br><span class="line">#             value = content[i:i + 5]  # 切片</span><br><span class="line">#             flag += key.get(value)  # 取键值</span><br><span class="line">#     print(flag)</span><br><span class="line"># else:</span><br><span class="line">#     print(&quot;不是培根密码&quot;)</span><br><span class="line">#</span><br><span class="line"># 培根密码24长度</span><br><span class="line"># txt = &#x27;SjkLnIljKHamJmkilABawiiioaAMbOaPIJmklNBaKijmBuaoljiAUWMakMHWNAakm&#x27;</span><br><span class="line"># content = &#x27;&#x27;</span><br><span class="line"># for i in txt:</span><br><span class="line">#     if i.islower():</span><br><span class="line">#         content += &#x27;a&#x27;</span><br><span class="line">#     elif i.isupper():</span><br><span class="line">#         content += &quot;b&quot;</span><br><span class="line"># content=&#x27;ABABAABAAABAABBAABAA&#x27;.lower()</span><br><span class="line"># if len(content) % 5 == 0:</span><br><span class="line">#     alphabet = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;, &#x27;e&#x27;, &#x27;f&#x27;, &#x27;g&#x27;, &#x27;h&#x27;, &#x27;(ij)&#x27;, &#x27;k&#x27;, &#x27;l&#x27;, &#x27;m&#x27;, &#x27;n&#x27;, &#x27;o&#x27;, &#x27;p&#x27;, &#x27;q&#x27;, &#x27;r&#x27;, &#x27;s&#x27;, &#x27;t&#x27;,</span><br><span class="line">#                 &#x27;(uv)&#x27;, &#x27;w&#x27;, &#x27;x&#x27;, &#x27;y&#x27;, &#x27;z&#x27;]</span><br><span class="line">#     cipher = [&quot;aaaaa&quot;, &quot;aaaab&quot;, &quot;aaaba&quot;, &quot;aaabb&quot;, &quot;aabaa&quot;, &quot;aabab&quot;, &quot;aabba&quot;, &quot;aabbb&quot;, &quot;abaaa&quot;, &quot;abaab&quot;,</span><br><span class="line">#               &quot;ababa&quot;, &quot;ababb&quot;, &quot;abbaa&quot;, &quot;abbab&quot;, &quot;abbba&quot;, &quot;abbbb&quot;, &quot;baaaa&quot;, &quot;baaab&quot;, &quot;baaba&quot;, &quot;baabb&quot;,</span><br><span class="line">#               &quot;babaa&quot;, &quot;babab&quot;, &quot;babba&quot;, &quot;babbb&quot;]</span><br><span class="line">#     key = dict(zip(cipher, alphabet))  # 生成键值对应的字典</span><br><span class="line">#     try:</span><br><span class="line">#         flag = &#x27;&#x27;</span><br><span class="line">#         for i in range(0, len(content), 5):</span><br><span class="line">#             value = content[i:i + 5]  # 切片</span><br><span class="line">#             flag += key.get(value)  # 取键值</span><br><span class="line">#     except:</span><br><span class="line">#         flag = &#x27;&#x27;</span><br><span class="line">#         table = &#x27;&#x27;.maketrans(&quot;ab&quot;, &quot;ba&quot;)</span><br><span class="line">#         content = content.translate(table)</span><br><span class="line">#         for i in range(0, len(content), 5):</span><br><span class="line">#             value = content[i:i + 5]  # 切片</span><br><span class="line">#             flag += key.get(value)  # 取键值</span><br><span class="line">#     print(flag)</span><br><span class="line"># else:</span><br><span class="line">#     print(&quot;不是培根密码&quot;)</span><br><span class="line"></span><br><span class="line"># 乘法逆元</span><br><span class="line"># m=1</span><br><span class="line"># while True:</span><br><span class="line">#     if (7*m)%26==1:</span><br><span class="line">#         print(m)</span><br><span class="line">#         break</span><br><span class="line">#     m=m+1</span><br><span class="line"># for i in range(0,26):</span><br><span class="line">#     if (7 * i) % 26 == 25:</span><br><span class="line">#         print(i)</span><br><span class="line"></span><br><span class="line"># 仿射密码解密</span><br><span class="line"># 加密公式：c=(11m+7)mod26,对应的a=11,b等于7</span><br><span class="line"># content = &#x27;dikxourxd&#x27;</span><br><span class="line"># m = 1</span><br><span class="line"># while True:</span><br><span class="line">#     if (11 * m) % 26 == 1:</span><br><span class="line">#         print(m)  # 得到乘法逆元</span><br><span class="line">#         break</span><br><span class="line">#     m = m + 1</span><br><span class="line"># flag=&#x27;&#x27;</span><br><span class="line"># for i in content:</span><br><span class="line">#     flag+=chr(97 + (ord(i) - 97 - 7) * 19 % 26)</span><br><span class="line">#     print(chr(97 + (ord(i) - 97 - 7) * 19 % 26))</span><br><span class="line"># print(flag)</span><br><span class="line"># 暴力破解</span><br><span class="line"># content = &#x27;szzyfimhyzd&#x27;</span><br><span class="line"># plan = &#x27;17,-8&#x27;#a和b的值</span><br><span class="line"># a = int(plan.split(&#x27;,&#x27;)[0])</span><br><span class="line"># b = int(plan.split(&#x27;,&#x27;)[1])</span><br><span class="line"># flag=&#x27;&#x27;</span><br><span class="line"># for i in content:</span><br><span class="line">#     for j in range(0, 26):</span><br><span class="line">#         if (a * j + b) % 26 == ord(i) - ord(&#x27;a&#x27;):</span><br><span class="line">#             flag+=chr(97 + j)</span><br><span class="line"># print(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># # 维吉尼亚密码解密</span><br><span class="line"># content = &#x27;Vjieogrf&#x27;</span><br><span class="line"># key = &#x27;abc&#x27;</span><br><span class="line"># flag = &#x27;&#x27;</span><br><span class="line"># key_to_num = [ord(k) - 97 for k in key.lower()]  # 列表推导式，将密钥中的数值转成0到26的值</span><br><span class="line"># for i in range(len(content)):</span><br><span class="line">#     if content[i].islower():  # 小写字母</span><br><span class="line">#         flag += chr((ord(content[i]) - 97 - key_to_num[i%len(key)]) % 26 + 97)  # 加密往前移动，解密往后移动</span><br><span class="line">#     elif content[i].isupper():  # 大写写字母</span><br><span class="line">#         flag += chr((ord(content[i]) - 65 - key_to_num[i%len(key)]) % 26 + 65)  # 加密往前移动，解密往后移动</span><br><span class="line">#     else:#其他字符保留</span><br><span class="line">#         flag += content[i]</span><br><span class="line"># print(flag)</span><br><span class="line"># # 维吉尼亚密码解密</span><br><span class="line"># import pycipher</span><br><span class="line"># print(pycipher.Vigenere(&quot;abc&quot;).decipher(&#x27;Vjieogrf&#x27;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 费纳姆密码</span><br><span class="line"># content=&#x27;00010110010111001100100010000001010&#x27;</span><br><span class="line"># key=&#x27;CRUDE&#x27;</span><br><span class="line"># mi =[content[i:i+7] for i in range(0,len(content),7)]</span><br><span class="line"># flag=&#x27;&#x27;</span><br><span class="line"># for i,j in zip(mi,key):#在python中不仅二进制可以做异或，十进制也可以</span><br><span class="line">#     print(chr(int(i,2)^ord(j)))</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># # 杰斐逊轮转加密</span><br><span class="line"># value = &#x27;&#x27;&#x27;1:&lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;</span><br><span class="line"># 2:&lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;</span><br><span class="line"># 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;</span><br><span class="line"># 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;</span><br><span class="line"># 5:   &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;</span><br><span class="line"># 6:   &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;</span><br><span class="line"># 7:   &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;</span><br><span class="line"># 8:   &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;</span><br><span class="line"># 9:   &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;</span><br><span class="line"># 10:  &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;</span><br><span class="line"># 11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;</span><br><span class="line"># 12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;</span><br><span class="line"># 13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;&#x27;&#x27;&#x27;</span><br><span class="line"># new = []</span><br><span class="line"># for i in value.split(&#x27;\n&#x27;):  # 根据换行来切片</span><br><span class="line">#     new.append(i[i.index(&#x27;&lt;&#x27;) + 2:i.rindex(&#x27;&lt;&#x27;) - 1])  # 处理多余字符</span><br><span class="line"># key = [int(i) for i in &#x27;2,3,7,5,13,12,9,1,8,10,4,11,6&#x27;.split(&#x27;,&#x27;)]  # 转成整数</span><br><span class="line"># content = &#x27;NFQKSEVOQOFNP&#x27;  # 密文</span><br><span class="line"># text = []</span><br><span class="line"># # for i in range(len(content)):</span><br><span class="line"># #     print(content[i:]+content[:i])</span><br><span class="line"># for k, m in zip(key, content):</span><br><span class="line">#     # print(new[k - 1][new[k - 1].index(m):]+new[k - 1][:new[k - 1].index(m)])</span><br><span class="line">#     text.append(new[k - 1][new[k - 1].index(m):]+new[k - 1][:new[k - 1].index(m)])</span><br><span class="line"># # print(text)</span><br><span class="line">#</span><br><span class="line"># flag=[]</span><br><span class="line"># for i in range(26):</span><br><span class="line">#     txt=&#x27;&#x27;</span><br><span class="line">#     for j in text:</span><br><span class="line">#         txt+=j[i]</span><br><span class="line">#     flag.append(txt)</span><br><span class="line"># print(flag)</span><br><span class="line"># #17列</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># #base家族解密</span><br><span class="line"># import base64</span><br><span class="line"># import base128</span><br><span class="line"># import base36</span><br><span class="line"># import base58</span><br><span class="line"># import base91</span><br><span class="line"># import py3base92</span><br><span class="line">#</span><br><span class="line"># content = &#x27;=&#x27;</span><br><span class="line"># num=[]</span><br><span class="line"># while True:</span><br><span class="line">#     try:</span><br><span class="line">#         content = base64.b16decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base16&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base64.b32decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base32&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base36.dumps(content).decode()</span><br><span class="line">#         num.append(&#x27;base36&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base58.b58decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base58&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base64.b64decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base64&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base64.b85decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base85&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base64.a85decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base85&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = base91.decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base91&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = py3base92.b92decode(content).decode()</span><br><span class="line">#         num.append(&#x27;base92&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     try:</span><br><span class="line">#         content = b&#x27;&#x27;.join(base128.base128(chars = None, chunksize = 7) .decode(content)).decode()</span><br><span class="line">#         num.append(&#x27;base128&#x27;)</span><br><span class="line">#         continue</span><br><span class="line">#     except:</span><br><span class="line">#         pass</span><br><span class="line">#     break</span><br><span class="line"># print(num)</span><br><span class="line"># print(content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##ADFGX密码</span><br><span class="line"># import itertools</span><br><span class="line"># cipher = &quot;ilnllliiikkninlekile&quot;</span><br><span class="line"># key = []</span><br><span class="line"># for i in itertools.permutations(&#x27;ilnke&#x27;, 5):</span><br><span class="line">#     key.append(&#x27;&#x27;.join(i))</span><br><span class="line"># for now_key in key:</span><br><span class="line">#     solve_c = &quot;&quot;</span><br><span class="line">#     res = &quot;&quot;</span><br><span class="line">#     for now_c in cipher:</span><br><span class="line">#         solve_c += str(now_key.index(now_c))</span><br><span class="line">#     for i in range(0,len(solve_c),2):</span><br><span class="line">#         now_ascii = int(solve_c[i])*5+int(solve_c[i+1])+97</span><br><span class="line">#         if now_ascii&gt;ord(&#x27;i&#x27;):</span><br><span class="line">#             now_ascii+=1</span><br><span class="line">#         res += chr(now_ascii)</span><br><span class="line">#     if &quot;flag&quot; in res:</span><br><span class="line">#         print (now_key,res)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 云影加密</span><br><span class="line"># content=&#x27;8842101220480224404014224202480122&#x27;</span><br><span class="line"># charList = [chr(i) for i in range(ord(&#x27;A&#x27;), ord(&#x27;Z&#x27;) + 1)]</span><br><span class="line"># ret = []</span><br><span class="line"># plaintext = [i for i in content.split(&#x27;0&#x27;)]</span><br><span class="line"># for i in plaintext:</span><br><span class="line">#     tmp = 0</span><br><span class="line">#     for j in range(len(i)):</span><br><span class="line">#         tmp += int(i[j])</span><br><span class="line">#     ret.append(charList[tmp - 1])</span><br><span class="line"># print(&#x27;云影密码&#x27;, &#x27;&#x27;.join(ret))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.oscca.gov.cn/sca/zxfw/2017-04/24/content_1011709.shtml">https://www.oscca.gov.cn/sca/zxfw/2017-04/24/content_1011709.shtml</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://0314valen.github.io">Valen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://0314valen.github.io/article/2022-05-06-%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6/">https://0314valen.github.io/article/2022-05-06-%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://0314valen.github.io" target="_blank">Valen的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/crypto/">crypto</a></div><div class="post_share"><div class="social-share" data-image="https://api.ixiaowai.cn/gqapi/gqapi.php" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/UI_images/alipay-reward-image.jpg" target="_blank"><img class="post-qr-code-img" src="/image/UI_images/alipay-reward-image.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/image/UI_images/alipay-reward-image.jpg" target="_blank"><img class="post-qr-code-img" src="/image/UI_images/alipay-reward-image.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/article/2022-07-01-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E4%B9%8B%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/"><img class="prev-cover" src="https://img.paulzzh.tech/touhou/random" onerror="onerror=null;src='/image/UI_images/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">应急响应之权限维持</div></div></a></div><div class="next-post pull-right"><a href="/article/2022-04-19-buumisc(7)/"><img class="next-cover" src="http://api.btstu.cn/sjbz/" onerror="onerror=null;src='/image/UI_images/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">buumisc(7)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/2021-10-28-%E7%BA%A2%E6%98%8E%E8%B0%B7%E6%9D%AF%E5%AE%89%E5%85%A8%E6%84%8F%E8%AF%86%E8%B5%9B/" title="”红明谷“杯数据安全大赛-安全意识赛"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-28</div><div class="title">”红明谷“杯数据安全大赛-安全意识赛</div></div></a></div><div><a href="/article/2021-10-31-%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%A4%B4/" title="CTF比赛中常见的文件头"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-31</div><div class="title">CTF比赛中常见的文件头</div></div></a></div><div><a href="/article/2021-11-17-misc%E6%8A%80%E5%B7%A7/" title="misc技巧"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-17</div><div class="title">misc技巧</div></div></a></div><div><a href="/article/2021-11-23-%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5(ssti)/" title="模板注入(ssti)"><img class="cover" src="https://img.paulzzh.tech/touhou/random" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">模板注入(ssti)</div></div></a></div><div><a href="/article/2021-11-25-pwn%E7%AC%AC%E4%B8%80%E9%81%93%E9%A2%98%E7%9B%AE/" title="pwn第一道题目"><img class="cover" src="http://api.btstu.cn/sjbz/" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-25</div><div class="title">pwn第一道题目</div></div></a></div><div><a href="/article/2021-11-25-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E5%92%8Celf%E6%96%87%E4%BB%B6/" title="编译过程和elf文件"><img class="cover" src="https://img.paulzzh.tech/touhou/random" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-25</div><div class="title">编译过程和elf文件</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/UI_images/avatar.jpg" onerror="this.onerror=null;this.src='/image/UI_images/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Valen</div><div class="author-info__description">一位精通各种环境的开启和附件的下载的签到型选手</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="toc-number">1.</span> <span class="toc-text">古典密码学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">置换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%A8%E6%9C%9F%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.1.</span> <span class="toc-text">周期置换密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.2.</span> <span class="toc-text">列置换密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E8%B7%AF%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.3.</span> <span class="toc-text">曲路密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81"><span class="toc-number">1.1.4.</span> <span class="toc-text">栅栏密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">代换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%A1%A8%E6%9B%BF%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">单表替换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">摩斯电码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rot%E6%97%8F%E8%A7%A3%E5%AF%86"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">rot族解密</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rot5"><span class="toc-number">1.2.1.3.1.</span> <span class="toc-text">rot5</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rot13"><span class="toc-number">1.2.1.3.2.</span> <span class="toc-text">rot13</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rot18"><span class="toc-number">1.2.1.3.3.</span> <span class="toc-text">rot18</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rot47"><span class="toc-number">1.2.1.3.4.</span> <span class="toc-text">rot47</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%9B%BF%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">简单替换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Atbash-Cipher"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">Atbash Cipher</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%8D%E9%A2%91%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">词频分析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%B9%E6%A0%B9%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">培根密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BF%E5%B0%84%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">仿射密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8C%AA%E5%9C%88%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.1.7.</span> <span class="toc-text">猪圈密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%88%9E%E7%9A%84%E5%B0%8F%E4%BA%BA"><span class="toc-number">1.2.1.8.</span> <span class="toc-text">跳舞的小人</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9B%BF%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">多表替换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vigenere-%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">Vigenere 维吉尼亚密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AutokeyCipher"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">AutokeyCipher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%B9%E7%BA%B3%E5%A7%86%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">费纳姆密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%B0%E6%96%90%E9%80%8A%E8%BD%AE%E8%BD%AC%E5%8A%A0%E5%AF%86"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">杰斐逊轮转加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Playfair"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">Playfair</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Polybius"><span class="toc-number">1.2.2.6.</span> <span class="toc-text">Polybius</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADFGX%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.7.</span> <span class="toc-text">ADFGX密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nihilist-%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.8.</span> <span class="toc-text">Nihilist 密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.2.9.</span> <span class="toc-text">希尔密码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8A%A0%E5%AF%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">其他类型的加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%91%E5%BD%B1%E5%8A%A0%E5%AF%86"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">云影加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#base%E5%AE%B6%E6%97%8F%E8%A7%A3%E5%AF%86"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">base家族解密</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pycipher%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">pycipher库的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">1.5.</span> <span class="toc-text">参考链接</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/2022-10-01-2022%E5%B9%B49%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年9月比赛writeups"><img src="http://api.btstu.cn/sjbz/" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="2022年9月比赛writeups"/></a><div class="content"><a class="title" href="/article/2022-10-01-2022%E5%B9%B49%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年9月比赛writeups">2022年9月比赛writeups</a><time datetime="2022-09-30T16:00:00.000Z" title="发表于 2022-10-01 00:00:00">2022-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-09-26-MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySql数据库基础"><img src="https://imgsa.baidu.com/forum/pic/item/d52a2834349b033b40eff18517ce36d3d539bd0d.jpg" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="MySql数据库基础"/></a><div class="content"><a class="title" href="/article/2022-09-26-MySql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" title="MySql数据库基础">MySql数据库基础</a><time datetime="2022-09-25T16:00:00.000Z" title="发表于 2022-09-26 00:00:00">2022-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2021-11-23-%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5(ssti)/" title="模板注入(ssti)"><img src="https://img.paulzzh.tech/touhou/random" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="模板注入(ssti)"/></a><div class="content"><a class="title" href="/article/2021-11-23-%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5(ssti)/" title="模板注入(ssti)">模板注入(ssti)</a><time datetime="2022-09-08T08:39:16.859Z" title="发表于 2022-09-08 16:39:16">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-09-01-2022%E5%B9%B48%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年8月比赛writeups"><img src="http://api.btstu.cn/sjbz/" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="2022年8月比赛writeups"/></a><div class="content"><a class="title" href="/article/2022-09-01-2022%E5%B9%B48%E6%9C%88%E6%AF%94%E8%B5%9Bwriteups/" title="2022年8月比赛writeups">2022年8月比赛writeups</a><time datetime="2022-08-31T16:00:00.000Z" title="发表于 2022-09-01 00:00:00">2022-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2022-07-14-docker%E9%80%9F%E6%88%90/" title="docker速成"><img src="https://img.paulzzh.tech/touhou/random" onerror="this.onerror=null;this.src='/image/UI_images/404.jpg'" alt="docker速成"/></a><div class="content"><a class="title" href="/article/2022-07-14-docker%E9%80%9F%E6%88%90/" title="docker速成">docker速成</a><time datetime="2022-07-13T16:00:00.000Z" title="发表于 2022-07-14 00:00:00">2022-07-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Valen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
